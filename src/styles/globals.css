@@ -1,51 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    var(--font-manrope), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --font-calsans: var(--font-calsans), sans-serif;
 
-  --color-brightred-25: #FFF4F5;
-  --color-brightred-50: #F8E4E6;
-  --color-brightred-100: #FBC4CB;
-  --color-brightred-200: #FF8C97;
-  --color-brightred-300: #FC6375;
-  --color-brightred-400: #FE4258;
-  --color-brightred-500: #DF1A30;
-  --color-brightred-600: #8D0B1C;
-  --color-brightred-700: #620A16;
-  --color-brightred-800: #43040D;
+  --color-brightred-25: #fff4f5;
+  --color-brightred-50: #f8e4e6;
+  --color-brightred-100: #fbc4cb;
+  --color-brightred-200: #ff8c97;
+  --color-brightred-300: #fc6375;
+  --color-brightred-400: #fe4258;
+  --color-brightred-500: #df1a30;
+  --color-brightred-600: #8d0b1c;
+  --color-brightred-700: #620a16;
+  --color-brightred-800: #43040d;
   --color-brightred-900: #000000;
 
-  --color-coolgray-25: #F6F9FF;
-  --color-coolgray-50: #E4E9F7;
-  --color-coolgray-100: #B2BDD4;
-  --color-coolgray-200: #97A7C0;
-  --color-coolgray-300: #7C92AC;
-  --color-coolgray-400: #617D99;
+  --color-coolgray-25: #f6f9ff;
+  --color-coolgray-50: #e4e9f7;
+  --color-coolgray-100: #b2bdd4;
+  --color-coolgray-200: #97a7c0;
+  --color-coolgray-300: #7c92ac;
+  --color-coolgray-400: #617d99;
   --color-coolgray-500: #466883;
-  --color-coolgray-600: #35556B;
+  --color-coolgray-600: #35556b;
   --color-coolgray-700: #214257;
-  --color-coolgray-800: #112A3C;
+  --color-coolgray-800: #112a3c;
   --color-coolgray-900: #011219;
 
   /* Gradients */
-  --color-gradient-01: linear-gradient(90deg, #FF233B 0%, #0B1F34 100%);
-  --color-gradient-02: linear-gradient(90deg, #FF233B 0%, #466883 100%);
-  --color-gradient-03: linear-gradient(90deg, #0B1F34 0%, #466883 100%);
-  --color-gradient-04: linear-gradient(90deg, #B2BCD4 0%, #0B1F34 100%);
-  --color-gradient-05: linear-gradient(90deg, #B2BCD4 0%, #FF233B 100%);
+  --color-gradient-01: linear-gradient(90deg, #ff233b 0%, #0b1f34 100%);
+  --color-gradient-02: linear-gradient(90deg, #ff233b 0%, #466883 100%);
+  --color-gradient-03: linear-gradient(90deg, #0b1f34 0%, #466883 100%);
+  --color-gradient-04: linear-gradient(90deg, #b2bcd4 0%, #0b1f34 100%);
+  --color-gradient-05: linear-gradient(90deg, #b2bcd4 0%, #ff233b 100%);
+  --color-gradient-06: linear-gradient(170deg, #DF1A30 0%, #A70E1F 100%);
+  --color-gradient-07: linear-gradient(170deg, #0A1F2D 0%, #0A1F2D 100%);
 
   /* Primary Colors */
-  --color-primary-red: #FF233B;
-  --color-primary-gray-900: #0B1F34;
+  --color-primary-red: #ff233b;
+  --color-primary-gray-900: #0b1f34;
   --color-primary-gray-500: #466883;
 
   /* Secondary Colors */
-  --color-secondary-gray-400: #617D99;
-  --color-secondary-gray-100: #FCFCFF;
-
+  --color-secondary-gray-400: #617d99;
+  --color-secondary-gray-100: #fcfcff;
 }
 
 @layer components {
@@ -67,5 +69,21 @@
 
   .bg-gradient-05 {
     background: var(--color-gradient-05);
+  }
+
+  .bg-gradient-06 {
+    background: var(--color-gradient-06);
+  }
+
+  .hover\:bg-gradient-06:hover {
+    background: var(--color-gradient-06);
+  }
+
+  .bg-gradient-07 {
+    background: var(--color-gradient-07);
+  }
+
+  .hover\:bg-gradient-07:hover {
+    background: var(--color-gradient-07);
   }
 }

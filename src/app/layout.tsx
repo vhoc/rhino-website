@@ -5,7 +5,6 @@ import { Manrope } from "next/font/google";
 // import { Cal_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
-
 export const metadata: Metadata = {
   title: "Rhino",
   description: "An active, independent and secure blockchain validator",
@@ -20,7 +19,7 @@ const geist = Manrope({
 export const cal_sans = localFont({
   src: "../../public/fonts/CalSans-Regular.ttf",
   display: "swap",
-  variable: "--font-calsans"
+  variable: "--font-calsans",
 });
 
 export default function RootLayout({

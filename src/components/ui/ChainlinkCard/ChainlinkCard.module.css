@@ -1,0 +1,27 @@
+/* src/components/ui/ChainlinkCard.module.css */
+.animatedBg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animatedBg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--color-gradient-06);
+  /* hover gradient */
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  border-radius: 5px;
+  /* match your card's border radius */
+}
+
+.animatedBg:hover::before {
+  opacity: 1;
+}
+
+.bgBase {
+  background: var(--color-gradient-07);
+}

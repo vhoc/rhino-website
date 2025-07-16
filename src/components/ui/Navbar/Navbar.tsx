@@ -45,16 +45,15 @@ export default function Navbar({
       <nav
         className={`
         bg-white
+        py-6 px-6
+        sm:px-14 lg:px-[94px] xl:px-[94px] 2xl:px-0
         w-full 
-        p-6 md:px-14 md:py-6 
-        xl:px-[94px] 
         max-w-[1280px]
         flex justify-between items-center gap-4 
-        border-2 border-dashed border-black
         -
       `}
       >
-        <Link href="/" className="border-2 border-dashed border-amber-500">
+        <Link href="/" className="flex-1/4 xl:flex-1/3">
           <Image
             src={imgRhinoLogo as StaticImport}
             alt="Rhino"
@@ -66,7 +65,7 @@ export default function Navbar({
           />
         </Link>
 
-        <div className="hidden lg:flex gap-2 border-2 border-dashed border-blue-500">
+        <div className="hidden lg:flex justify-between gap-2 flex-1/2 xl:flex-1/3">
           {
             links && links.length >= 1 ?
               links.map((link, index) => (
@@ -84,7 +83,16 @@ export default function Navbar({
           }
         </div>
 
-        <div className="hidden lg:block border-2 border-dashed border-red-500">Contact Us</div>
+        <div className="hidden lg:flex justify-end flex-1/4 xl:flex-1/3">
+          <Button
+            variant={'primary'}
+            type="link"
+            href={contact_us_link.href}
+            label={contact_us_link.label}
+            className="h-[42px]"
+
+          />
+        </div>
 
         <Popover>
           <PopoverTrigger asChild>
@@ -99,7 +107,7 @@ export default function Navbar({
             sideOffset={24}
             style={{ width: `calc(100vw - ${scrollbarWidth}px)` }}
             className={`
-              bg-none bg-transparent 
+              lg:hidden bg-none bg-transparent 
               py-0 p-6 
               md:px-14 md:py-6 
               xl:px-[94px] 

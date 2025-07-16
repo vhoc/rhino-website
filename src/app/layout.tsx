@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Navbar from "@/components/ui/Navbar/Navbar";
+import Footer from "@/components/ui/Footer/Footer";
 import type { ITextLink } from "@/util/types";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ export default function RootLayout({
           contact_us_link={{ label: "Contact Us", href: "/contact-us" }}
         />
         {children}
+        <Footer />
       </body>
     </html>
   );

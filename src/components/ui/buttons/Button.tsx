@@ -4,6 +4,7 @@ import { Slot } from "@radix-ui/react-slot"
 interface ButtonProps {
   type?: "button" | "link"
   href?: string
+  target?: "_blank" | "_self" | "_parent" | "_top" | string
   variant?: "primary" | "secondary"
   label?: string
   className?: string
@@ -14,6 +15,7 @@ interface ButtonProps {
 export default function Button({
   type = "link",
   href,
+  target = "_self",
   variant = "primary",
   label,
   className,
@@ -29,11 +31,11 @@ export default function Button({
       <Comp
         className={`
         flex justify-center items-center px-[22px] py-3 
-        rounded-lg 
+        rounded-lg cursor-pointer 
         ${variant === "primary" ?
             "bg-brightred-500 hover:bg-brightred-600 "
             :
-            "bg-coolgray-900 hover:bg-coolgray-700 border border-solid border-white cursor-pointer "
+            "bg-coolgray-900 hover:bg-coolgray-700 border border-solid border-white "
           }
         ${className}
       `}
@@ -54,9 +56,10 @@ export default function Button({
   return (
     <Link
       href={href ?? '#'}
+      target={target}
       className={`
         flex justify-center items-center px-[22px] py-3 
-        rounded-lg 
+        rounded-lg cursor-pointer 
         ${variant === "primary" ?
           "bg-brightred-500 hover:bg-brightred-600 "
           :

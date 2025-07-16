@@ -29,7 +29,7 @@ export default function NavWrapper({ children }: NavWrapperProps) {
 
   return (
     <div
-      className={`fixed z-50 top-0 w-full transition-all duration-300 flex justify-center`}
+      className={`fixed z-50 top-0 w-full transition-all duration-300 flex justify-center bg-white`}
       style={{
         top: navbarTop,
       }}

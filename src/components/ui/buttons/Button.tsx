@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Slot } from "@radix-ui/react-slot"
 
 interface ButtonProps {
   type?: "button" | "link"
@@ -6,6 +7,7 @@ interface ButtonProps {
   variant?: "primary" | "secondary"
   label?: string
   className?: string
+  asChild?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
@@ -15,19 +17,23 @@ export default function Button({
   variant = "primary",
   label,
   className,
-  onClick
-}: ButtonProps) {
+  asChild = false,
+  onClick,
+  ...props
+}: ButtonProps & { asChild?: boolean }) {
 
   if (type === "button") {
+    const Comp = asChild ? Slot : "button"
+
     return (
-      <button
+      <Comp
         className={`
         flex justify-center items-center px-[22px] py-3 
-        rounded-lg border border-solid border-white cursor-pointer 
+        rounded-lg 
         ${variant === "primary" ?
             "bg-brightred-500 hover:bg-brightred-600 "
             :
-            "bg-coolgray-900 hover:bg-coolgray-700 "
+            "bg-coolgray-900 hover:bg-coolgray-700 border border-solid border-white cursor-pointer "
           }
         ${className}
       `}
@@ -41,7 +47,7 @@ export default function Button({
             :
             null
         }
-      </button>
+      </Comp>
     )
   }
 
@@ -50,11 +56,11 @@ export default function Button({
       href={href ?? '#'}
       className={`
         flex justify-center items-center px-[22px] py-3 
-        rounded-lg border border-solid border-white
+        rounded-lg 
         ${variant === "primary" ?
           "bg-brightred-500 hover:bg-brightred-600 "
           :
-          "bg-coolgray-900 hover:bg-coolgray-700 "
+          "bg-coolgray-900 hover:bg-coolgray-700 border border-solid border-white "
         }
         ${className}
       `}

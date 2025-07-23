@@ -2,8 +2,8 @@ import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup";
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import ChainlinkCard from "@/components/ui/ChainlinkCard/ChainlinkCard";
-import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid";
-import { sample_blockchains } from "@/util/sample_data";
+// import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid";
+// import { sample_blockchains } from "@/util/sample_data";
 
 export default async function SandboxPage() {
   return (
@@ -15,9 +15,9 @@ export default async function SandboxPage() {
           Sandbox Page
         </h1>
 
-        <BlockchainsGrid
-          blockchains={sample_blockchains}
-        />
+        {/* <BlockchainsGrid
+          networks={sample_blockchains}
+        /> */}
 
         <div
           className={`

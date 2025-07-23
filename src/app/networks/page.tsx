@@ -15,6 +15,7 @@ import iconGlobal from "@/../public/img/icon-global.svg";
 import fetchNetworks from "../services/networks"
 import { type INetwork } from "@/util/types"
 import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid"
+import PreFooter from "@/components/sections/PreFooter"
 
 export default async function NetworksPage() {
 
@@ -26,7 +27,7 @@ export default async function NetworksPage() {
     <main
       className={`
         flex min-h-screen flex-col items-center justify-start 
-        py-6 px-0
+        pt-6 px-0
       `}
     >
 
@@ -217,7 +218,7 @@ export default async function NetworksPage() {
 
       <StandardSection
         style={{
-          background: 'linear-gradient(to bottom, white 0%, white 50%, #011219 50%, #011219 100%)'
+          background: 'linear-gradient(to bottom, white 0%, white 10%, #011219 10%, #011219 100%)'
         }}
       >
         {
@@ -230,6 +231,8 @@ export default async function NetworksPage() {
             null
         }
       </StandardSection>
+
+      <PreFooter />
 
     </main>
   )

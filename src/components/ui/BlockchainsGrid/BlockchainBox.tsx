@@ -63,7 +63,7 @@ export default function BlockchainBox({
       {/* ICON */}
       <div
         className={`
-          relative w-full max-h-10 flex justify-center 
+          relative w-full max-h-10 max-w-3/4 flex justify-center 
           transition-all duration-300 ease-in-out 
           ${hovered ? 'h-0 opacity-0' : 'h-14 opacity-100'} 
         `}

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-interface HoverCardProps {
+interface TeamMemberCardProps {
   defaultItemBgClass?: string;
   itemRadius?: string;
   itemWidth?: string;
@@ -10,18 +10,14 @@ interface HoverCardProps {
   itemHeight?: string;
   itemHeightHover?: string;
   key: React.Key;
-  topCaption?: string;
-  icon?: string;
-  icon_hover?: string;
   title?: string;
-  subtitle?: string;
   body?: string;
   bgImage?: string;
   bgImageHoverClass?: string
   bgImageRestClass?: string
 }
 
-export default function HoverCard({
+export default function TeamMemberCard({
   defaultItemBgClass = "bg-coolgray-900",
   itemRadius = "5px",
   itemWidth = "lg:w-1/4",
@@ -29,16 +25,12 @@ export default function HoverCard({
   itemHeight = "max-lg:h-1/4",
   itemHeightHover = "max-lg:h-1/2",
   key,
-  topCaption,
-  icon,
-  icon_hover,
   title,
-  subtitle,
   body,
   bgImage = "/img/item-hover-bg.svg",
   bgImageHoverClass = "scale-280 opacity-100",
   bgImageRestClass = "scale-[20] opacity-0"
-}: HoverCardProps) {
+}: TeamMemberCardProps) {
   const [hovered, setHovered] = useState<React.Key | null>(null);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
     null,
@@ -88,30 +80,12 @@ export default function HoverCard({
       }}
     >
       <div
-        className={`absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-between px-8 py-8 text-white md:px-14 md:py-12`}
+        className={`absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-end px-8 py-8 text-white md:px-14 md:py-12`}
       >
-        <div>
-          {topCaption && topCaption.length >= 1 ? <p>{topCaption}</p> : null}
-        </div>
 
         <div
           className={`flex h-full flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6`}
         >
-          {
-            // ICON
-            icon && icon.length >= 1 ? (
-              <div
-                className={`relative h-14 min-h-8 w-14 min-w-8 sm:min-h-14 sm:min-w-14`}
-              >
-                <Image
-                  src={hovered === key && icon_hover ? icon_hover : icon}
-                  alt={title ?? "Icon"}
-                  fill
-                  className="object-contain object-left-top"
-                />
-              </div>
-            ) : null
-          }
 
           <div
             className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end`}
@@ -130,20 +104,10 @@ export default function HoverCard({
             </p>
 
             <p
-              className={`mb-4 line-clamp-1 overflow-hidden text-lg font-medium text-white transition-all min-lg:min-h-[58px]`}
-              style={{
-                display: "-webkit-box",
-                WebkitLineClamp: 1,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {subtitle}
-            </p>
-
-            <p
-              className={`overflow-hidden text-white transition-all duration-300 ${hovered === key ? "pointer-events-auto h-[120px] opacity-100" : "pointer-events-none h-0 opacity-0"} `}
+              className={`
+                overflow-hidden text-white transition-all duration-300 
+                ${hovered === key ? "pointer-events-auto h-[80px] opacity-100" : "pointer-events-none h-0 opacity-0"} 
+              `}
             >
               {body}
             </p>

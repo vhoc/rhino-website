@@ -1,17 +1,17 @@
 "use client"
 import { useState, useEffect } from "react"
-import { type IBlockchain } from "@/util/types"
+import { type INetwork } from "@/util/types"
 import BlockchainBox from "./BlockchainBox"
 import { useViewportWidth } from "@/hooks/useViewportWidth"
 import Button from "../buttons/Button"
 
 interface BlockchainsGridProps {
-  blockchains: IBlockchain[]
+  networks: INetwork[]
   className?: string
 }
 
 export default function BlockchainsGrid({
-  blockchains,
+  networks,
   className,
 }: BlockchainsGridProps) {
 
@@ -20,12 +20,12 @@ export default function BlockchainsGrid({
   const [loadMore, setLoadMore] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
 
-  let displayedBlockchains = blockchains;
+  let displayedNetworks = networks;
   if (!loadMore) {
     if (viewportWidth < 640) {
-      displayedBlockchains = blockchains.slice(0, 6);
+      displayedNetworks = networks.slice(0, 6);
     } else if (viewportWidth >= 640 && viewportWidth < 1024) {
-      displayedBlockchains = blockchains.slice(0, 8);
+      displayedNetworks = networks.slice(0, 8);
     }
     // >=1024 or loadMore: show all
   }
@@ -42,7 +42,7 @@ export default function BlockchainsGrid({
 
   return (
     <div
-      className="flex flex-col items-center w-full border-4 border-dashed border-b-brightred-600 bg-coolgray-900"
+      className="flex flex-col items-center w-full "
     >
       <div
         className={`
@@ -51,12 +51,13 @@ export default function BlockchainsGrid({
         `}
       >
         {
-          displayedBlockchains.map((item, index) => (
+          displayedNetworks.map((item, index) => (
             <BlockchainBox
               key={`grid-item-${index}-${item.name}`}
-              icon={item.icon}
+              logo={item.logo ?? { url: "/img/icon-placeholder.svg" }}
               name={item.name}
-              stake_url={item.stake_url}
+              stakeurl={item.stakeurl}
+              blockchainurl={item.blockchainurl}
             />
           ))
         }

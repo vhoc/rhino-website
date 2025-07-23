@@ -4,7 +4,6 @@ import Image from "next/image";
 
 interface HoverCardProps {
   defaultItemBgClass?: string;
-  hoveredItemBgImage?: string;
   itemRadius?: string;
   itemWidth?: string;
   itemWidthHover?: string;
@@ -17,6 +16,9 @@ interface HoverCardProps {
   title?: string;
   subtitle?: string;
   body?: string;
+  bgImage?: string;
+  bgImageHoverClass?: string
+  bgImageRestClass?: string
 }
 
 export default function HoverCard({
@@ -33,6 +35,9 @@ export default function HoverCard({
   title,
   subtitle,
   body,
+  bgImage = "/img/item-hover-bg.svg",
+  bgImageHoverClass = "scale-280 opacity-100",
+  bgImageRestClass = "scale-[20] opacity-0"
 }: HoverCardProps) {
   const [hovered, setHovered] = useState<React.Key | null>(null);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
@@ -53,7 +58,7 @@ export default function HoverCard({
     <div
       key={key}
       className={`
-        relative min-h-[50px] w-full transition-all duration-300 ease-in-out lg:h-[450px] lg:max-h-[450px] 
+        relative min-h-[50px] w-full transition-all duration-300 ease-in-out lg:h-[450px] lg:max-h-[450px] rounded-md
         ${hovered === key ? itemHeightHover : itemHeight} 
         ${hovered === key ? itemWidthHover : itemWidth} 
         ${defaultItemBgClass}
@@ -151,10 +156,12 @@ export default function HoverCard({
         style={{ borderRadius: itemRadius }}
       >
         <Image
-          src={"/img/item-hover-bg.svg"}
+          src={bgImage}
           width={584}
           height={450}
-          className={`relative z-0 object-center transition-all duration-700 ease-in-out ${hovered === key ? "scale-280 opacity-100" : "scale-[20] opacity-0"} `}
+          className={`
+            relative z-0 object-center transition-all duration-700 ease-in-out ${hovered === key ? bgImageHoverClass : bgImageRestClass} 
+          `}
           alt=""
         />
       </div>

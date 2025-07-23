@@ -11,10 +11,10 @@ export default function Footer() {
   return (
     <footer
       className={`
-        py-6 px-6
+        py-16 px-6
         sm:px-14 lg:px-[94px] xl:px-[94px] 
-        md:py-16 xl:py-[120px] 
-        w-full bg-coolgray-900 flex justify-center
+        md:py-16 lg:py-[120px] 
+        w-full bg-coolgray-900 flex justify-center 
       `}
     >
       <div

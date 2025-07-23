@@ -17,7 +17,7 @@ export default function NavWrapper({ children }: NavWrapperProps) {
       if (prevScrollPos.current > currentScrollPos) {
         setNavbarTop("0");
       } else {
-        setNavbarTop("-93px");
+        setNavbarTop("-99px");
       }
       prevScrollPos.current = currentScrollPos;
     };
@@ -29,7 +29,11 @@ export default function NavWrapper({ children }: NavWrapperProps) {
 
   return (
     <div
-      className={`fixed z-50 top-0 w-full transition-all duration-300 flex justify-center bg-white`}
+      className={`
+        fixed z-50 top-0 w-full transition-all duration-300 flex justify-center bg-white 
+        py-6 px-6
+        sm:px-14 lg:px-[94px] xl:px-[94px] 
+      `}
       style={{
         top: navbarTop,
       }}

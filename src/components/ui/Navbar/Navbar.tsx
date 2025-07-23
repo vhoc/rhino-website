@@ -44,11 +44,8 @@ export default function Navbar({
     <NavWrapper>
       <nav
         className={`
-        bg-white
-        py-6 px-6
-        sm:px-14 lg:px-[94px] xl:px-[94px] 2xl:px-0
-        w-full 
-        max-w-[1280px]
+        bg-white 
+        max-w-7xl w-full 
         flex justify-between items-center gap-4 
         -
       `}
@@ -108,7 +105,7 @@ export default function Navbar({
             style={{ width: `calc(100vw - ${scrollbarWidth}px)` }}
             className={`
               lg:hidden bg-none bg-transparent 
-              py-0 p-6 
+              py-0 p-6 pt-1
               md:px-14 md:py-6 
               xl:px-[94px] 
               shadow-none

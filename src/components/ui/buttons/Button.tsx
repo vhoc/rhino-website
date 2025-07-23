@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Slot } from "@radix-ui/react-slot"
 
-interface ButtonProps {
+export interface ButtonProps {
   type?: "button" | "link"
   href?: string
   target?: "_blank" | "_self" | "_parent" | "_top" | string

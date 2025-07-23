@@ -40,13 +40,13 @@ export default function AnimatedCounter({
   return (
     <div
       ref={ref}
-      className={`border-brightred-500 flex w-full flex-col items-center justify-between gap-y-6 border-2 border-dashed ${className}`}
+      className={`flex w-full flex-col items-center justify-between lg:items-start gap-y-6  ${className}`}
     >
-      <p className={`font-calsans text-coolgray-900 text-center text-xl`}>
+      <p className={`font-calsans text-coolgray-900 text-center lg:text-left text-xl`}>
         {title}
       </p>
 
-      <div className={`font-calsans text-coolgray-900 text-center text-[32px]`}>
+      <div className={`font-calsans text-coolgray-900 text-center lg:text-left text-[32px] lg:text-[40px] xl:text-[56px]`}>
         {`${currency_sign ?? ""}${animatedAmount.toLocaleString()}`}
       </div>
     </div>

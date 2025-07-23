@@ -24,7 +24,7 @@ export default function ChainlinkCard({
       className={`
         ${styles.animatedBg} ${styles.bgBase} 
         flex flex-col justify-between gap-x-4 gap-y-14 lg:gap-y-[138px] 
-        min-w-64
+        min-w-32 
         py-[52px] px-8 rounded-[5px] 
         relative z-0
         ${className || ''}

@@ -1,56 +1,115 @@
-import { type IBlockchain } from "@/util/types"
-import Image from "next/image"
+"use client";
+import { type INetwork } from "@/util/types";
+import Image from "next/image";
+import React, { useState } from "react";
+import Link from "next/link";
 
-interface BlockchainBoxProps extends IBlockchain {
+interface BlockchainBoxProps extends Omit<INetwork, "id" | "slug" | "active"> {
   className?: string
 }
 
 export default function BlockchainBox({
-  icon, name, stake_url, className
+  logo, name, blockchainurl, stakeurl, className
 }: BlockchainBoxProps) {
+
+  const [hovered, setHovered] = useState(false)
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number; } | null>(null)
+
+  // Helper to determine if touch is a tap or a swipe
+  const isTap = (
+    start: { x: number; y: number },
+    end: { x: number; y: number },
+  ) => {
+    const dx = Math.abs(start.x - end.x);
+    const dy = Math.abs(start.y - end.y);
+    return dx < 10 && dy < 10; // 10px threshold
+  };
+
   return (
     <div
       className={`
-          aspect-square min-w-[300px] min-h-[300px] px-10 py-12 rounded-[5px] 
-          bg-coolgray-800 hover:bg-brightred-500 transition-all 
-          flex flex-col justify-between items-center gap-y-16 
+          aspect-[304/148] min-w-[304px] min-h-[148px] px-6 py-4 rounded-[5px] 
+          ${hovered ? 'bg-brightred-500' : 'bg-coolgray-800'} 
+          transition-all 
+          flex flex-col justify-center items-center 
           group 
           ${className}
       `}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onTouchStart={(e) => {
+        if (e.touches.length === 1 && e.touches[0]) {
+          setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        }
+      }}
+      onTouchEnd={(e) => {
+        if (
+          touchStart &&
+          e.changedTouches.length === 1 &&
+          e.changedTouches[0]
+        ) {
+          const end = {
+            x: e.changedTouches[0].clientX,
+            y: e.changedTouches[0].clientY,
+          };
+          if (isTap(touchStart, end)) {
+            setHovered(hovered ? false : true);
+          }
+        }
+        setTouchStart(null);
+      }}
     >
 
       {/* ICON */}
       <div
         className={`
-          relative w-14 h-14 max-w-14 max-h-14 flex justify-center 
+          relative w-full max-h-10 flex justify-center 
+          transition-all duration-300 ease-in-out 
+          ${hovered ? 'h-0 opacity-0' : 'h-14 opacity-100'} 
         `}
       >
         <Image
-          src={icon as string}
+          src={logo?.url as string}
           fill
-          className="object-contain object-center-top"
+          className={`
+            object-contain object-center-top transition-all duration-300 ease-in-out 
+            ${hovered ? 'h-0' : 'h-14'} 
+          `}
           alt={name}
+          style={{ filter: 'brightness(0) invert(1)' }}
         />
       </div>
 
       {/* BUTTONS */}
       <div
         className={`
-          flex flex-col gap-2 items-end w-full
+           flex-col gap-2 items-end w-full transition-all duration-300 ease-in-out delay-700 
+          ${hovered ? 'flex' : 'hidden'} 
         `}
       >
-        <div className="w-full flex justify-between items-center gap-1 border-b border-solid border-white">
-          <p className="font-calsans text-xl text-white">{name}</p>
+        <div
+          className={`
+            w-full flex justify-between items-center gap-1 border-b border-solid border-white 
+            transition-all duration-300 ease-in-out delay-700 
+            ${hovered ? 'h-[29px] opacity-100' : 'h-0 opacity-0'}
+          `}
+        >
+          <Link href={blockchainurl ?? "#"} className="transition-all duration-300 ease-in-out delay-700 font-calsans text-xl text-white w-full hover:bg-gradient-to-r from-white to-transparent hover:text-brightred-500" target="_blank">
+            {name}
+          </Link>
           <p className="font-calsans text-xl text-white font-bold">&#43;</p>
         </div>
 
         <div
           className={`
               w-full justify-between items-center gap-1 border-b border-solid border-white
-              hidden h-0 opacity-0 group-hover:flex group-hover:h-full group-hover:opacity-100 transition-all
+              transition-all flex duration-300 delay-700 
+              ${hovered ? 'h-[29px] opacity-100' : 'h-0 opacity-0'}
           `}
         >
-          <p className="font-calsans text-xl text-white">Stake Now</p>
+          <Link href={stakeurl ?? "#"} className="transition-all duration-300 ease-in-out delay-700 font-calsans text-xl text-white w-full hover:bg-gradient-to-r from-white to-transparent  hover:text-brightred-500" target="_blank">
+            Stake Now
+          </Link>
           <p className="font-calsans text-xl text-white font-bold">&#43;</p>
         </div>
       </div>

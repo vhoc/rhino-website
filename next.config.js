@@ -7,7 +7,17 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["picsum.photos"],
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "us-west-2.graphassets.com"
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos"
+      },      
+    ],
   },
 };
 

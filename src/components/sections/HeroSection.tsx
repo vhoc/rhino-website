@@ -22,7 +22,7 @@ export default function HeroSection({
       id="hero"
       className={clsx(` relative z-10 
         flex flex-col items-center 
-        w-full border-4 border-dashed border-lime-500 
+        w-full 
         px-6 sm:px-14 lg:px-[94px] xl:px-[94px] 
         ${className}
       `)}
@@ -45,7 +45,6 @@ export default function HeroSection({
           container flex flex-col items-center justify-center 
           max-w-7xl w-full 
           pt-10 pb-10 md:pt-[120px] md:pb-[108px] 
-          border-4 border-dashed border-brightred-500 
         `}
       >
 

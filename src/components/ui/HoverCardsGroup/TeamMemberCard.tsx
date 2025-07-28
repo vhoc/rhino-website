@@ -11,7 +11,8 @@ interface TeamMemberCardProps {
   itemHeightHover?: string;
   key: React.Key;
   title?: string;
-  body?: string;
+  body?: string | React.ReactNode;
+  bodyHoverClassName?: string;
   bgImage?: string;
   bgImageHoverClass?: string
   bgImageRestClass?: string
@@ -27,6 +28,7 @@ export default function TeamMemberCard({
   key,
   title,
   body,
+  bodyHoverClassName = "pointer-events-auto h-[80px] opacity-100",
   bgImage = "/img/item-hover-bg.svg",
   bgImageHoverClass = "scale-280 opacity-100",
   bgImageRestClass = "scale-[20] opacity-0"
@@ -84,11 +86,11 @@ export default function TeamMemberCard({
       >
 
         <div
-          className={`flex h-full flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6`}
+          className={`flex h-full flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6 `}
         >
 
           <div
-            className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end`}
+            className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end `}
           >
             <p
               className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white`}
@@ -103,28 +105,37 @@ export default function TeamMemberCard({
               {title}
             </p>
 
-            <p
-              className={`
+            {
+              typeof body === "string" ?
+                <p
+                  className={`
                 overflow-hidden text-white transition-all duration-300 
-                ${hovered === key ? "pointer-events-auto h-[80px] opacity-100" : "pointer-events-none h-0 opacity-0"} 
+                ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
               `}
-            >
-              {body}
-            </p>
+                >
+                  {body}
+                </p>
+                :
+                body
+            }
+
+
           </div>
         </div>
       </div>
 
       <div
-        className="relative flex h-full w-full items-center justify-center overflow-hidden"
+        className="absolute inset-0 flex-shrink-0 flex items-center justify-center overflow-hidden"
         style={{ borderRadius: itemRadius }}
       >
         <Image
           src={bgImage}
-          width={584}
-          height={450}
+          width={454}
+          height={408}
           className={`
-            relative z-0 object-center transition-all duration-700 ease-in-out ${hovered === key ? bgImageHoverClass : bgImageRestClass} 
+            object-center transition-all duration-700 ease-in-out object-cover 
+            min-w-[454px] min-h-[408px]
+            ${hovered === key ? bgImageHoverClass : bgImageRestClass} 
           `}
           alt=""
         />

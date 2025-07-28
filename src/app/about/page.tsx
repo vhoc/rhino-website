@@ -10,15 +10,17 @@ import iconGlobal from "@/../public/img/icon-global.svg";
 import Image from "next/image"
 import imgJeff from "@/../public/img/jeff.png"
 import imgEric from "@/../public/img/eric.png"
+import imgCommitment from "@/../public/img/commitment.png"
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import TeamMemberCard from "@/components/ui/HoverCardsGroup/TeamMemberCard"
+import PreFooter from "@/components/sections/PreFooter"
+
 export default function AboutPage() {
   return (
     <main
       className={`
         flex min-h-screen flex-col items-center justify-start 
-        py-6 px-0
-        border-4 border-dashed border-cyan-500
+        pt-6 px-0
       `}
     >
 
@@ -38,7 +40,7 @@ export default function AboutPage() {
       >
         <Heading2>Our Foundation</Heading2>
         <p className="font-medium text-base sm:text-xl md:text-lg text-coolgray-500 text-center mt-6 max-w-[822px]">
-          Rhinostake (RHINO) is the premier blockchain infrastructure provider for enterprises building the future of Web3. We deliver mission-critical node operations, RPC services, and cross-chain connectivity solutions with enterprise-grade reliability and 24/7 support.
+          Since 2020, RHINO has been at the forefront of blockchain infrastructure evolution. Founded by blockchain veterans with deep technical expertise, we emerged from a simple observation: the blockchain industry needed infrastructure partners who understand both cutting-edge technology and enterprise requirements. Over five years, we've built the robust, scalable infrastructure that serious blockchain projects demand.
         </p>
       </StandardSection>
 
@@ -202,7 +204,7 @@ export default function AboutPage() {
             title="Jeff."
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/eric-transparent.png"}
-            bgImageHoverClass="scale-[1.10] opacity-100"
+            bgImageHoverClass="scale-100 opacity-100"
             bgImageRestClass="scale-100 opacity-100"
 
           />
@@ -216,11 +218,38 @@ export default function AboutPage() {
             title="Eric B."
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/eric-transparent.png"}
-            bgImageHoverClass="scale-[1.10] opacity-100"
+            bgImageHoverClass="scale-100 opacity-100"
             bgImageRestClass="scale-100 opacity-100"
           />
         </HoverCardsGroup>
       </StandardSection>
+
+      <StandardSection
+        className="bg-coolgray-900"
+        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center"
+      >
+        <Image
+          src={imgCommitment}
+          alt="Our Commitment"
+          className="hidden lg:block w-5/12 max-w-[503px]"
+        />
+
+        <div
+          className="flex flex-col gap-[32px]"
+        >
+          <Heading2 className="text-white lg:text-left">
+            Our Commitment
+          </Heading2>
+
+          <p className="text-coolgray-50 text-center lg:text-left">
+            Every service we deliver is backed by commercial-grade SLAs, enterprise security standards,
+            and our ISO 27001-aligned information security management system.
+            When you need blockchain infrastructure that won't fail when it matters most, you need RHINO's proven reliability.
+          </p>
+        </div>
+      </StandardSection>
+
+      <PreFooter />
 
     </main>
   )

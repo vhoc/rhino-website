@@ -9,6 +9,7 @@ export interface ButtonProps {
   label?: string
   className?: string
   asChild?: boolean
+  disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
@@ -20,6 +21,7 @@ export default function Button({
   label,
   className,
   asChild = false,
+  disabled = false,
   onClick,
   ...props
 }: ButtonProps & { asChild?: boolean }) {
@@ -37,9 +39,14 @@ export default function Button({
             :
             "bg-coolgray-900 hover:bg-coolgray-700 border border-solid border-white "
           }
+        ${disabled ? "opacity-50 cursor-not-allowed!" : ""} 
         ${className}
       `}
         onClick={onClick}
+        disabled={disabled}
+        style={{
+          cursor: disabled ? "not-allowed" : "pointer",
+        }}
       >
         {
           label && label.length >= 1 ?
@@ -59,7 +66,7 @@ export default function Button({
       target={target}
       className={`
         flex justify-center items-center px-[22px] py-3 
-        rounded-lg cursor-pointer 
+        rounded-lg cursor-pointer! 
         ${variant === "primary" ?
           "bg-brightred-500 hover:bg-brightred-600 "
           :

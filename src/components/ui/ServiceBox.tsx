@@ -1,11 +1,15 @@
 import Image from "next/image"
 import { type StaticImport } from "next/dist/shared/lib/get-img-props"
+import clsx from "clsx"
+import { de } from "zod/v4/locales"
 
 interface ServiceBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   icon: string | StaticImport
   className?: string
   name?: string
   description?: string
+  nameClassName?: string
+  descriptionClassName?: string
 }
 
 export default function ServiceBox({
@@ -13,6 +17,8 @@ export default function ServiceBox({
   className,
   name,
   description,
+  nameClassName = "",
+  descriptionClassName = "",
   ...props
 }: ServiceBoxProps) {
 
@@ -37,8 +43,20 @@ export default function ServiceBox({
         />
       </div>
 
-      <p className="font-calsans text-2xl text-coolgray-900 mt-6 text-center md:text-left">{name}</p>
-      <p className="font-medium text-lg text-coolgray-500 mt-4 text-center md:text-left">{description}</p>
+      {
+        name && name.length > 0 ?
+          <p className={clsx("font-calsans text-2xl text-coolgray-900 mt-6 text-center md:text-left ", nameClassName)}>{name}</p>
+          :
+          null
+      }
+
+      {
+        description && description.length > 0 ?
+          <p className={clsx("font-medium text-lg text-coolgray-500 mt-4 text-center md:text-left ", descriptionClassName)}>{description}</p>
+          :
+          null
+      }
+
     </div>
   )
 

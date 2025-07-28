@@ -15,7 +15,9 @@ interface HoverCardProps {
   icon_hover?: string;
   title?: string;
   subtitle?: string;
+  truncateSubtitle?: boolean;
   body?: string;
+  bodyHoverClassName?: string;
   bgImage?: string;
   bgImageHoverClass?: string
   bgImageRestClass?: string
@@ -34,7 +36,9 @@ export default function HoverCard({
   icon_hover,
   title,
   subtitle,
+  truncateSubtitle = true,
   body,
+  bodyHoverClassName = "pointer-events-auto h-[120px] opacity-100",
   bgImage = "/img/item-hover-bg.svg",
   bgImageHoverClass = "scale-280 opacity-100",
   bgImageRestClass = "scale-[20] opacity-0"
@@ -130,20 +134,27 @@ export default function HoverCard({
             </p>
 
             <p
-              className={`mb-4 line-clamp-1 overflow-hidden text-lg font-medium text-white transition-all min-lg:min-h-[58px]`}
-              style={{
+              className={truncateSubtitle ?
+                `mb-4 line-clamp-1 overflow-hidden text-lg font-medium text-white transition-all min-lg:min-h-[58px]`
+                :
+                `mb-4 text-lg font-medium text-white transition-all min-lg:min-h-[58px]`
+              }
+              style={truncateSubtitle ? {
                 display: "-webkit-box",
                 WebkitLineClamp: 1,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-              }}
+              } : undefined}
             >
               {subtitle}
             </p>
 
             <p
-              className={`overflow-hidden text-white transition-all duration-300 ${hovered === key ? "pointer-events-auto h-[120px] opacity-100" : "pointer-events-none h-0 opacity-0"} `}
+              className={`
+                overflow-hidden text-white transition-all duration-300 
+                ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"}
+              `}
             >
               {body}
             </p>

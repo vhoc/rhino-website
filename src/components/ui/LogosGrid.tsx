@@ -8,7 +8,11 @@ interface LogosGridProps {
   items: string[]
 }
 
-const LogosGrid = ({ items, className = "grid gap-3 grid-cols-10 lg:grid-cols-14", iconSizes = "w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" }: LogosGridProps) => {
+const LogosGrid = ({
+  items,
+  className = "grid gap-3 grid-cols-10 lg:grid-cols-14",
+  iconSizes = "w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+}: LogosGridProps) => {
   const containerRef = useRef(null);
   const [columns, setColumns] = useState(1);
 

@@ -1,7 +1,7 @@
 "use server";
 
 import { ContactFormSchema } from '@/util/validations'
-import { type ContactFormData } from '@/util/types'
+import { type ContactFormData, type ICaptchaResponse } from '@/util/types'
 import postContactEntry from '../services/contact';
 
 export async function submitContactForm(data: ContactFormData, recaptchaToken: string) {
@@ -29,7 +29,7 @@ export async function submitContactForm(data: ContactFormData, recaptchaToken: s
     body: `secret=${secretKey}&response=${recaptchaToken}`
   });
 
-  const recaptchaResult = await recaptchaResponse.json();
+  const recaptchaResult: ICaptchaResponse = await recaptchaResponse.json() as ICaptchaResponse;
 
   if (!recaptchaResult.success) {
     return {

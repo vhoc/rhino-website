@@ -48,7 +48,7 @@ function ContactFormInner() {
       console.log('Form submission response:', response);
 
       if (response.status !== 200) {
-        setSubmitStatus({ error: response.error || 'Failed to send message' });
+        setSubmitStatus({ error: response.error ?? 'Failed to send message' });
       } else {
         setSubmitStatus({ success: 'Message sent successfully!' });
         setFormData({
@@ -246,7 +246,7 @@ function ContactFormInner() {
 export default function ContactForm() {
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
       scriptProps={{
         async: false,
         defer: false,

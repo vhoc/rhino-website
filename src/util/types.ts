@@ -71,3 +71,12 @@ type PagerDutyErrorResponse = {
 }
 
 export type PagerDutyResponse = PagerDutySuccessResponse | PagerDutyErrorResponse;
+
+export interface ICaptchaResponse {
+  success: boolean;
+  challenge_ts?: string; // timestamp of the challenge
+  hostname?: string; // hostname of the site where the reCAPTCHA was solved
+  score?: number; // score for v3 reCAPTCHA
+  action?: string; // action name for v3 reCAPTCHA
+  error_codes?: string[]; // error codes if any
+}

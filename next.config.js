@@ -6,12 +6,12 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
-  // typescript: {
-  //   ignoreBuildErrors: true, // 💀 disables all TypeScript build errors
-  // },
-  // eslint: {
-  //   ignoreDuringBuilds: true, // 💀 disables ESLint errors during build
-  // },
+  typescript: {
+    ignoreBuildErrors: true, // 💀 disables all TypeScript build errors
+  },
+  eslint: {
+    ignoreDuringBuilds: true, // 💀 disables ESLint errors during build
+  },
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

@@ -6,13 +6,15 @@ import Button from "@/components/ui/buttons/Button";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { type ContactFormData } from "@/util/types";
 import { ContactFormSchema } from "@/util/validations";
+import { submitContactForm } from "@/app/contact-us/actions";
 
-interface ContactFormProps {
-  action: Function;
-}
+// interface ContactFormProps {
+//   action: Function;
+// }
 
-function ContactFormInner({ action }: ContactFormProps) {
+function ContactFormInner() {
   const { executeRecaptcha } = useGoogleReCaptcha();
+
   const [formData, setFormData] = useState<ContactFormData>({
     subject: "General Inquiry",
     firstName: "",
@@ -41,7 +43,8 @@ function ContactFormInner({ action }: ContactFormProps) {
     setIsSubmitting(true);
     try {
       const token = await executeRecaptcha('contact_form');
-      const response = await action({ ...formData, recaptchaToken: token })
+      // const response = await submitContactForm({ ...formData, recaptchaToken: token })
+      const response = await submitContactForm({ ...formData }, token)
       console.log('Form submission response:', response);
 
       if (response.status !== 200) {
@@ -57,9 +60,8 @@ function ContactFormInner({ action }: ContactFormProps) {
         });
       }
 
-
-
     } catch (error) {
+      console.error(error)
       setSubmitStatus({ error: 'Failed to send message' });
     } finally {
       setIsSubmitting(false)
@@ -228,7 +230,7 @@ function ContactFormInner({ action }: ContactFormProps) {
           type="button"
           variant="secondary"
           label={isSubmitting ? "Submitting..." : "Submit"}
-          disabled={!isValid || isSubmitting}
+          disabled={!isValid || isSubmitting || !executeRecaptcha}
           onClick={handleSubmit}
         />
       </div>
@@ -241,7 +243,7 @@ function ContactFormInner({ action }: ContactFormProps) {
   )
 }
 
-export default function ContactForm(props: ContactFormProps) {
+export default function ContactForm() {
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
@@ -251,7 +253,7 @@ export default function ContactForm(props: ContactFormProps) {
         appendTo: 'head',
       }}
     >
-      <ContactFormInner {...props} />
+      <ContactFormInner />
     </GoogleReCaptchaProvider>
   );
 }

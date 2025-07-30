@@ -63,7 +63,7 @@ export default function HeroSection({
           className="
             font-calsans text-coolgray-900 text-[40px] leading-[120%] text-center 
             md:text-[64px] md:leading-[120%] 
-            max-w-sm sm:max-w-96 md:max-w-2xl 
+            max-w-sm sm:max-w-96 md:max-w-3xl 
           "
         >
           {heading}

@@ -1,7 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection"
 import StandardSection from "@/components/sections/StandardSection"
-import Image from "next/image"
-import imgTexture from "@/../public/img/texture-2.svg"
 import Heading2 from "@/components/ui/Text/Heading2"
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard"
@@ -59,11 +57,11 @@ export default async function NetworksPage() {
                 For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing.
               </p>
             </div>
-            <Image
+            {/* <Image
               src={imgTexture}
               alt="Background image"
               className="top-0 left-0 w-full h-full object-cover object-top sm:hidden"
-            />
+            /> */}
           </>
         }
       >

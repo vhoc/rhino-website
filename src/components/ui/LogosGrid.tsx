@@ -1,8 +1,14 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
-// import clsx from 'clsx';
+import clsx from 'clsx';
 
-const LogosGrid = ({ items }: { items: string[] }) => {
+interface LogosGridProps {
+  className?: string
+  iconSizes?: string
+  items: string[]
+}
+
+const LogosGrid = ({ items, className = "grid gap-3 grid-cols-10 lg:grid-cols-14", iconSizes = "w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" }: LogosGridProps) => {
   const containerRef = useRef(null);
   const [columns, setColumns] = useState(1);
 
@@ -29,17 +35,18 @@ const LogosGrid = ({ items }: { items: string[] }) => {
     <div
       ref={containerRef}
       // className="grid gap-2 grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-11 w-full"
-      className={`
-        w-full max-w-[1035px] 
-        grid grid-cols-10 gap-3 
-        lg:grid-cols-14
-        justify-center place-items-center
-      `}
+      className={clsx(
+        "w-full max-w-[1035px] justify-center place-items-center",
+        className,
+      )}
     >
       {items.slice(0, fullRows * columns).map((item, i) => (
         <div
           key={i}
-          className="w-4 h-4 object-contain"
+          className={clsx(
+            "object-contain",
+            iconSizes,
+          )}
           style={{
             maskImage: `url('${item}')`,
             WebkitMaskImage: `url('${item}')`, // for Safari
@@ -68,7 +75,10 @@ const LogosGrid = ({ items }: { items: string[] }) => {
           {items.slice(-remainder).map((item, i) => (
             <div
               key={fullRows * columns + i}
-              className="w-4 h-4 object-contain"
+              className={clsx(
+                "object-contain",
+                iconSizes,
+              )}
               style={{
                 maskImage: `url('${item}')`,
                 WebkitMaskImage: `url('${item}')`, // for Safari

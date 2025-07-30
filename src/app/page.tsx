@@ -8,6 +8,8 @@ import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard";
 import Heading2 from "@/components/ui/Text/Heading2";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import ServiceBox from "@/components/ui/ServiceBox";
+import LogosGrid from "@/components/ui/LogosGrid";
+import fetchLogos from "./services/logos";
 import iconIbc from "@/../public/img/icon-ibc.svg"
 import iconTestnet from "@/../public/img/icon-testnet.svg";
 import iconRpc from "@/../public/img/icon-rpc.svg";
@@ -16,7 +18,10 @@ import iconGlobal from "@/../public/img/icon-global.svg";
 import ChainlinkCard from "@/components/ui/ChainlinkCard/ChainlinkCard";
 import PreFooter from "@/components/sections/PreFooter";
 
-export default function HomePage() {
+export default async function HomePage() {
+
+  let logos: string[] = await fetchLogos();
+
   return (
     <main
       className={`
@@ -268,18 +273,24 @@ export default function HomePage() {
           {/* Right Column - spans both rows */}
           <div
             className="
-              max-lg:order-3 row-span-2 p-4 flex flex-col items-center justify-center gap-y-[34px]
+              max-lg:order-3 row-span-2 p-4 flex flex-col items-center justify-center gap-y-[34px] 
+              lg:justify-start 
               md:flex-row md:gap-x-[34px] md:items-start md:pt-16 lg:pt-4 lg:flex-col 
             "
           >
             <p className="font-calsans text-[32px] text-coolgray-900 text-center md:text-left lg:text-xl">
               +50 Blockchains
             </p>
-            <Image
-              src={imgIconGridPlaceholder}
-              alt="Icon Grid Placeholder"
-              className="w-full h-auto min-w-2xs"
-            />
+            {
+              logos && logos.length >= 1 ?
+                <LogosGrid
+                  items={logos}
+                  className="grid gap-3 grid-cols-10 lg:grid-cols-8 xl:grid-cols-8"
+                  iconSizes="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8"
+                />
+                :
+                null
+            }
           </div>
           {/* Left Column - Row 2 */}
           <div className="max-lg:order-2 p-4">

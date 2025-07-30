@@ -2,7 +2,6 @@ import StandardSection from "@/components/sections/StandardSection";
 import Button from "@/components/ui/buttons/Button";
 import Image from "next/image";
 import iconTeraSwitch from "@/../public/img/placeholder-teraswitch.svg"
-import imgIconGridPlaceholder from "@/../public/img/placeholder-icon-grid.svg"
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup";
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard";
 import Heading2 from "@/components/ui/Text/Heading2";
@@ -17,10 +16,11 @@ import iconValidator from "@/../public/img/icon-validator.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
 import ChainlinkCard from "@/components/ui/ChainlinkCard/ChainlinkCard";
 import PreFooter from "@/components/sections/PreFooter";
+import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export default async function HomePage() {
 
-  let logos: string[] = await fetchLogos();
+  const logos: string[] = await fetchLogos();
 
   return (
     <main
@@ -142,7 +142,7 @@ export default async function HomePage() {
           {/* Column 1 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -150,7 +150,7 @@ export default async function HomePage() {
           {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -158,7 +158,7 @@ export default async function HomePage() {
           {/* Column 3 */}
           <div className="hidden mx-auto sm:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -166,7 +166,7 @@ export default async function HomePage() {
           {/* Column 4 */}
           <div className="hidden mx-auto xl:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -174,7 +174,7 @@ export default async function HomePage() {
           {/* Column 5 */}
           <div className="hidden mx-auto xl:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -185,7 +185,7 @@ export default async function HomePage() {
           {/* Column 1 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
@@ -193,7 +193,7 @@ export default async function HomePage() {
           {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
@@ -201,7 +201,7 @@ export default async function HomePage() {
           {/* Column 3 */}
           <div className="hidden mx-auto md:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
@@ -331,31 +331,31 @@ export default async function HomePage() {
           >
 
             <ServiceBox
-              icon={iconIbc}
+              icon={iconIbc as StaticImport}
               name={'IBC Channel Support'}
               description="Seamless cross-chain connectivity and maintenance"
             />
 
             <ServiceBox
-              icon={iconTestnet}
+              icon={iconTestnet as StaticImport}
               name={"Testnet to Mainnet"}
               description={"Full lifecycle support from testing to production"}
             />
 
             <ServiceBox
-              icon={iconRpc}
+              icon={iconRpc as StaticImport}
               name={"RPC Infrastructure"}
               description={"High-performance API endpoints with global load balancing"}
             />
 
             <ServiceBox
-              icon={iconValidator}
+              icon={iconValidator as StaticImport}
               name={"Validator Operations"}
               description={"Enterprise-grade staking with institutional security"}
             />
 
             <ServiceBox
-              icon={iconGlobal}
+              icon={iconGlobal as StaticImport}
               name={"Global Node Clusters"}
               description={"Load-balanced infrastructure across US, Europe, East Asia, and Southeast Asia"}
             />

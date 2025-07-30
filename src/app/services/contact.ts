@@ -1,7 +1,7 @@
 "use server";
 import { type ContactFormData, type PagerDutyResponse } from "@/util/types";
 
-export default async function postContactEntry(formData: ContactFormData) {
+export default async function postContactEntry(formData: ContactFormData): Promise<PagerDutyResponse> {
   const body = {
     "payload": {
       // "summary": "Contact Us Form Received",
@@ -29,9 +29,8 @@ export default async function postContactEntry(formData: ContactFormData) {
     body: JSON.stringify(body)
   });
 
-  const result = await response.json()
+  const result: PagerDutyResponse = await response.json() as PagerDutyResponse
 
-  return result as PagerDutyResponse;
-
+  return result;
 
 }

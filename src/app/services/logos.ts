@@ -1,6 +1,7 @@
 "use server"
+import { type INetworksResponse, type INetwork } from "@/util/types";
 
-export default async function fetchLogos(limit: number = 1000) {
+export default async function fetchLogos(limit = 1000): Promise<string[]> {
 
 
   const query = `{
@@ -23,19 +24,38 @@ export default async function fetchLogos(limit: number = 1000) {
     throw new Error('Logos response was not ok');
   }
 
-  const { data } = await response.json();
+  const { data }: INetworksResponse = await response.json() as INetworksResponse;
 
-  // Flatten into a simple string array
-  const urls = data.networks.map((network: { logoMark: { url: string } }) => network.logoMark.url);
+  if (data?.networks && data.networks.length >= 1) {
+    // 1. Map to potential URLs (still can be string | undefined)
+    const rawUrls = data.networks.map(
+      (network: INetwork) => network.logoMark?.url,
+    );
 
-  // Create a new array with randomized elements using Fisher-Yates shuffle
-  const randomized = [...urls];
-  for (let i = randomized.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [randomized[i], randomized[j]] = [randomized[j], randomized[i]];
+    // 2. Filter out undefined values and explicitly declare the type of `urls` as `string[]`
+    const urls: string[] = rawUrls.filter(
+      (url): url is string => url !== undefined,
+    );
+
+    if (urls.length >= 1) {
+      // Create a new array that is explicitly typed as string[]
+      const randomized: string[] = [...urls]; // This ensures `randomized` is `string[]`
+
+      for (let i = randomized.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        // Use a temporary variable for the swap
+        // TypeScript now knows randomized[i] is a string because `randomized` is `string[]`
+        const temp: string = randomized[i] ?? "";
+        randomized[i] = randomized[j] ?? "";
+        randomized[j] = temp;
+      }
+
+      // console.log('Fetched logos:', randomized);
+      return randomized;
+    }
   }
 
-  // console.log('Fetched logos:', randomized);
-  return randomized;
+  return []
 
 }

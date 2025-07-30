@@ -11,6 +11,7 @@ import Heading2 from "@/components/ui/Text/Heading2";
 import Image from "next/image";
 import iconTeraSwitch from "@/../public/img/placeholder-teraswitch.svg";
 import PreFooter from "@/components/sections/PreFooter";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export default function InvestmentPage() {
   return (
@@ -65,28 +66,28 @@ export default function InvestmentPage() {
         innerClassName="!py-[72px] !lg:pb-[96px] !lg:pt-[96px] !xl:pb-[129px] !xl:pt-[140px]"
       >
         <ServiceBox
-          icon={iconIbc}
+          icon={iconIbc as StaticImport}
           name={'IBC Channel Support'}
           description="Seamless cross-chain connectivity and maintenance"
           className="max-w-full"
         />
 
         <ServiceBox
-          icon={iconTestnet}
+          icon={iconTestnet as StaticImport}
           name={"Testnet to Mainnet"}
           description={"Full lifecycle support from testing to production"}
           className="max-w-full"
         />
 
         <ServiceBox
-          icon={iconRpc}
+          icon={iconRpc as StaticImport}
           name={"RPC Infrastructure"}
           description={"High-performance API endpoints with global load balancing"}
           className="max-w-full"
         />
 
         <ServiceBox
-          icon={iconValidator}
+          icon={iconValidator as StaticImport}
           name={"Validator Operations"}
           description={"Enterprise-grade staking with institutional security"}
           className="max-w-full"
@@ -208,14 +209,14 @@ export default function InvestmentPage() {
         </Heading2>
 
         <p className="font-medium text-sm text-coolgray-500 mt-6 text-center md:text-xl">
-          Our investments have gone on to raise additional funding, launch successful mainnets, and build sustainable businesses in the Web3 ecosystem. We're proud to support teams that are defining the future of decentralized technology.
+          {"Our investments have gone on to raise additional funding, launch successful mainnets, and build sustainable businesses in the Web3 ecosystem. We're proud to support teams that are defining the future of decentralized technology."}
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 w-full mt-8 md:mt-14 gap-x-2">
           {/* Column 1 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -223,7 +224,7 @@ export default function InvestmentPage() {
           {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -231,7 +232,7 @@ export default function InvestmentPage() {
           {/* Column 3 */}
           <div className="hidden mx-auto sm:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -239,7 +240,7 @@ export default function InvestmentPage() {
           {/* Column 4 */}
           <div className="hidden mx-auto xl:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -247,7 +248,7 @@ export default function InvestmentPage() {
           {/* Column 5 */}
           <div className="hidden mx-auto xl:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -258,7 +259,7 @@ export default function InvestmentPage() {
           {/* Column 1 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
@@ -266,7 +267,7 @@ export default function InvestmentPage() {
           {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
@@ -274,7 +275,7 @@ export default function InvestmentPage() {
           {/* Column 3 */}
           <div className="hidden mx-auto md:block">
             <Image
-              src={iconTeraSwitch}
+              src={iconTeraSwitch as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />

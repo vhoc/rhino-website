@@ -1,6 +1,7 @@
 "use server"
+import { type IResourcesResponse } from "@/util/types";
 
-export default async function fetchResources(limit: number = 1000) {
+export default async function fetchResources(limit = 1000): Promise<IResourcesResponse> {
 
 
   const query = `{
@@ -30,7 +31,7 @@ export default async function fetchResources(limit: number = 1000) {
     throw new Error('Resource response was not ok');
   }
 
-  const result = await response.json();
-  return result.data;
+  const result: IResourcesResponse = await response.json() as IResourcesResponse;
+  return result;
 
 }

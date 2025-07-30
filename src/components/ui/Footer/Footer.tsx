@@ -6,6 +6,7 @@ import iconTelegram from "@/../public/img/telegram-icon.svg"
 import iconGithub from "@/../public/img/github-icon.svg"
 import Link from "next/link"
 import Button from "@/components/ui/buttons/Button"
+import { type StaticImport } from "next/dist/shared/lib/get-img-props"
 
 export default function Footer() {
   return (
@@ -41,7 +42,7 @@ export default function Footer() {
           `}
           >
             <Image
-              src={logo}
+              src={logo as StaticImport}
               alt="Rhino"
             />
             <p
@@ -161,7 +162,7 @@ export default function Footer() {
           >
             <Link href="#" target="_blank">
               <Image
-                src={iconX}
+                src={iconX as StaticImport}
                 alt="X"
                 className="md:h-[22px] xl:h-4"
                 style={{
@@ -172,7 +173,7 @@ export default function Footer() {
 
             <Link href="#" target="_blank">
               <Image
-                src={iconDiscord}
+                src={iconDiscord as StaticImport}
                 alt="Discord"
                 className="md:h-[22px] xl:h-4"
                 style={{
@@ -183,7 +184,7 @@ export default function Footer() {
 
             <Link href="#" target="_blank">
               <Image
-                src={iconTelegram}
+                src={iconTelegram as StaticImport}
                 alt="Telegram"
                 className="md:h-[22px] xl:h-4"
                 style={{
@@ -194,7 +195,7 @@ export default function Footer() {
 
             <Link href="#" target="_blank">
               <Image
-                src={iconGithub}
+                src={iconGithub as StaticImport}
                 alt="Github"
                 className="md:h-[22px] xl:h-4"
                 style={{

@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { ContactFormSchema } from "./validations"
+import { type z } from "zod";
+import { type ContactFormSchema } from "./validations"
 
 export interface IBlockchain {
   icon?: string
@@ -10,7 +10,7 @@ export interface IBlockchain {
 export interface ITextLink {
   label: string
   href: string
-  target?: "_blank" | "self" | "_parent" | "_top" | string
+  target?: "_blank" | "self" | "_parent" | "_top"
 }
 
 export interface INetwork {
@@ -23,6 +23,14 @@ export interface INetwork {
   logo?: {
     url: string
   }
+  logoMark?: { url: string }
+}
+
+export interface INetworksResponse {
+  data: {
+    networks: INetwork[]
+  } | null,
+  errors?: { message: string }[]
 }
 
 export interface IResource {
@@ -36,6 +44,13 @@ export interface IResource {
   description?: string
   active: boolean
   url?: string
+}
+
+export interface IResourcesResponse {
+  data: {
+    resources: IResource[]
+  } | null,
+  errors?: { message: string }[]
 }
 
 export type ContactFormData = z.infer<typeof ContactFormSchema>;

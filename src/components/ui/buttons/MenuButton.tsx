@@ -1,21 +1,16 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
-import { type ITextLink } from "@/util/types"
 // import NavSheet from "@/components/ui/Navbar/NavSheet"
 
 interface MenuButtonProps {
   variant?: "primary" | "secondary"
   className?: string
-  links: ITextLink[]
-  contact_us_link: ITextLink
   // onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
 export default function MenuButton({
   variant = "primary",
   className,
-  links,
-  contact_us_link,
   // onClick
 }: MenuButtonProps) {
 

@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot"
 export interface ButtonProps {
   type?: "button" | "link"
   href?: string
-  target?: "_blank" | "_self" | "_parent" | "_top" | string
+  target?: "_blank" | "_self" | "_parent" | "_top"
   variant?: "primary" | "secondary"
   label?: string
   className?: string
@@ -23,7 +23,6 @@ export default function Button({
   asChild = false,
   disabled = false,
   onClick,
-  ...props
 }: ButtonProps & { asChild?: boolean }) {
 
   if (type === "button") {

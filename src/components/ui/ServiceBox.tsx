@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { type StaticImport } from "next/dist/shared/lib/get-img-props"
 import clsx from "clsx"
-import { de } from "zod/v4/locales"
 
 interface ServiceBoxProps extends React.HTMLAttributes<HTMLDivElement> {
   icon: string | StaticImport

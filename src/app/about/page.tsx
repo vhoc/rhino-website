@@ -14,6 +14,7 @@ import imgCommitment from "@/../public/img/commitment.png"
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import TeamMemberCard from "@/components/ui/HoverCardsGroup/TeamMemberCard"
 import PreFooter from "@/components/sections/PreFooter"
+import type { StaticImport } from "next/dist/shared/lib/get-img-props"
 
 export default function AboutPage() {
   return (
@@ -40,7 +41,7 @@ export default function AboutPage() {
       >
         <Heading2>Our Foundation</Heading2>
         <p className="font-medium text-base sm:text-xl md:text-lg text-coolgray-500 text-center mt-6 max-w-[822px]">
-          Since 2020, RHINO has been at the forefront of blockchain infrastructure evolution. Founded by blockchain veterans with deep technical expertise, we emerged from a simple observation: the blockchain industry needed infrastructure partners who understand both cutting-edge technology and enterprise requirements. Over five years, we've built the robust, scalable infrastructure that serious blockchain projects demand.
+          {"Since 2020, RHINO has been at the forefront of blockchain infrastructure evolution. Founded by blockchain veterans with deep technical expertise, we emerged from a simple observation: the blockchain industry needed infrastructure partners who understand both cutting-edge technology and enterprise requirements. Over five years, we've built the robust, scalable infrastructure that serious blockchain projects demand."}
         </p>
       </StandardSection>
 
@@ -72,37 +73,37 @@ export default function AboutPage() {
           >
 
             <ServiceBox
-              icon={iconIbc}
+              icon={iconIbc as StaticImport}
               name={'5+ Years of Proven Experience'}
               description="Building enterprise blockchain infrastructure since 2020"
             />
 
             <ServiceBox
-              icon={iconTestnet}
+              icon={iconTestnet as StaticImport}
               name={"Security-First Operations"}
               description={"ISO 27001 certification in progress, with enterprise-grade security protocols"}
             />
 
             <ServiceBox
-              icon={iconRpc}
+              icon={iconRpc as StaticImport}
               name={"Enterprise SLA Commitments"}
               description={"99.9% to 99.99% uptime guarantees backed by real accountability"}
             />
 
             <ServiceBox
-              icon={iconValidator}
+              icon={iconValidator as StaticImport}
               name={"Validator Operations"}
               description={"Dedicated support teams ensuring rapid incident response and resolution"}
             />
 
             <ServiceBox
-              icon={iconGlobal}
+              icon={iconGlobal as StaticImport}
               name={"Global Infrastructure Clusters"}
               description={"Load-balanced infrastructure across US, Europe, East Asia, and Southeast Asia"}
             />
 
             <ServiceBox
-              icon={iconValidator}
+              icon={iconValidator as StaticImport}
               name={"Protocol Partnership"}
               description={"We actively contribute free public infrastructure back to the networks we support"}
             />
@@ -124,7 +125,7 @@ export default function AboutPage() {
           <p
             className="mt-10 text-white font-medium text-xl lg:text-lg text-center lg:text-left lg:text-coolgray-500 lg:mt-0"
           >
-            Led by [Partner Name], our team combines decades of experience in distributed systems, blockchain technology, and enterprise infrastructure. We're not just service providers - we're technical partners invested in your success.
+            {"Led by [Partner Name], our team combines decades of experience in distributed systems, blockchain technology, and enterprise infrastructure. We're not just service providers - we're technical partners invested in your success."}
           </p>
         </div>
 
@@ -242,9 +243,11 @@ export default function AboutPage() {
           </Heading2>
 
           <p className="text-coolgray-50 text-center lg:text-left">
+            {`
             Every service we deliver is backed by commercial-grade SLAs, enterprise security standards,
             and our ISO 27001-aligned information security management system.
             When you need blockchain infrastructure that won't fail when it matters most, you need RHINO's proven reliability.
+            `}
           </p>
         </div>
       </StandardSection>

@@ -1,16 +1,11 @@
 
 interface HoverCardsGroupProps {
   height?: string;
-  defaultItemBgClass?: string;
-  hoveredItemBgImage?: string;
-  itemRadius?: string;
   children: React.ReactNode[] | React.ReactNode
 }
 
 export default function HoverCardsGroup({
   height = "sm:h-[672px] md:h-[793px] lg:h-[450px]",
-  defaultItemBgClass = "bg-coolgray-900",
-  itemRadius = "5px",
   children
 }: HoverCardsGroupProps) {
   return (

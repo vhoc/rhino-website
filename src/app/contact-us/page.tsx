@@ -32,7 +32,7 @@ export default function ContactUsPage() {
           </h1>
 
           <p className="font-medium text-coolgray-500 mt-8 md:text-lg">
-            Whether you're launching a new blockchain network, scaling an existing application, or exploring investment opportunities, RHINO is here to help you succeed.
+            {"Whether you're launching a new blockchain network, scaling an existing application, or exploring investment opportunities, RHINO is here to help you succeed."}
           </p>
         </div>
 

@@ -21,14 +21,14 @@ export function useInView<T extends HTMLElement>(options?: { threshold?: number 
     const observer = new window.IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry && entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setInView(true);
           observer.disconnect(); // Only trigger once
         }
       },
       { threshold: options?.threshold ?? 0.1 }
     );
-    observer.observe(ref.current as T);
+    observer.observe(ref.current);
     return () => observer.disconnect();
   }, [options?.threshold]);
 

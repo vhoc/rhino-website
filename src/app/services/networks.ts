@@ -1,6 +1,8 @@
 "use server"
 
-export default async function fetchNetworks() {
+import type { INetworksResponse } from "@/util/types";
+
+export default async function fetchNetworks(): Promise<INetworksResponse> {
 
 
   const query = `{
@@ -32,7 +34,7 @@ export default async function fetchNetworks() {
     throw new Error('Network response was not ok');
   }
 
-  const result = await response.json();
-  return result.data;
+  const result: INetworksResponse = await response.json() as INetworksResponse;
+  return result;
 
 }

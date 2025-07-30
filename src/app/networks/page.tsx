@@ -11,15 +11,18 @@ import iconValidator from "@/../public/img/icon-validator.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
 import fetchNetworks from "../services/networks"
 import fetchLogos from "../services/logos"
-import { type INetwork } from "@/util/types"
+import { type INetworksResponse } from "@/util/types"
 import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid"
 import PreFooter from "@/components/sections/PreFooter"
 import LogosGrid from "@/components/ui/LogosGrid"
+import { type StaticImport } from "next/dist/shared/lib/get-img-props"
 
 export default async function NetworksPage() {
 
-  let { networks }: { networks: INetwork[] } = await fetchNetworks();
-  let logos: string[] = await fetchLogos();
+  const { data }: INetworksResponse = await fetchNetworks();
+  const networks = data?.networks
+
+  const logos: string[] = await fetchLogos();
 
   return (
     <main
@@ -79,11 +82,11 @@ export default async function NetworksPage() {
         /> */}
 
         <h3 className="block text-xl text-coolgray-500 font-bold text-center mt-10 sm:mt-10 md:hidden">
-          We don't just run nodes
+          {"We don't just run nodes"}
         </h3>
 
         <p className="font-medium text-base text-coolgray-500 text-center mt-2 md:mt-10 lg:mt-14 max-w-3xl">
-          <span className="hidden md:inline">We don't just run nodes </span>- we provide comprehensive infrastructure solutions that enable networks to scale with confidence while aiving back to the ecosystem through free public resources.
+          <span className="hidden md:inline">{"We don't just run nodes "} </span>{"- we provide comprehensive infrastructure solutions that enable networks to scale with confidence while aiving back to the ecosystem through free public resources."}
         </p>
 
       </StandardSection>
@@ -184,31 +187,31 @@ export default async function NetworksPage() {
           >
 
             <ServiceBox
-              icon={iconIbc}
+              icon={iconIbc as StaticImport}
               name={'IBC Channel Support'}
               description="Seamless cross-chain connectivity and maintenance"
             />
 
             <ServiceBox
-              icon={iconTestnet}
+              icon={iconTestnet as StaticImport}
               name={"Testnet to Mainnet"}
               description={"Full lifecycle support from testing to production"}
             />
 
             <ServiceBox
-              icon={iconRpc}
+              icon={iconRpc as StaticImport}
               name={"RPC Infrastructure"}
               description={"High-performance API endpoints with global load balancing"}
             />
 
             <ServiceBox
-              icon={iconValidator}
+              icon={iconValidator as StaticImport}
               name={"Validator Operations"}
               description={"Enterprise-grade staking with institutional security"}
             />
 
             <ServiceBox
-              icon={iconGlobal}
+              icon={iconGlobal as StaticImport}
               name={"Global Node Clusters"}
               description={"Load-balanced infrastructure across US, Europe, East Asia, and Southeast Asia"}
             />
@@ -225,7 +228,7 @@ export default async function NetworksPage() {
         }}
       >
         {
-          networks.length >= 1 ?
+          networks && networks.length >= 1 ?
             <BlockchainsGrid
               networks={networks}
               className="mt-10"

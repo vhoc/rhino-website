@@ -22,7 +22,6 @@ export default function AnimatedCounter({
   useEffect(() => {
     if (inView && !hasAnimated.current) {
       hasAnimated.current = true;
-      let start = 0;
       const duration = 1600; // ms
       const frameRate = 1000 / 60;
       const totalFrames = Math.round(duration / frameRate);

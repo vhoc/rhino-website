@@ -27,7 +27,7 @@ export default function ChainlinkCard({
         min-w-32 
         py-[52px] px-8 rounded-[5px] 
         relative z-0
-        ${className || ''}
+        ${className ?? ''}
       `}
     >
 

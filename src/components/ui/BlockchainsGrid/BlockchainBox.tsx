@@ -69,7 +69,7 @@ export default function BlockchainBox({
         )}
       >
         <Image
-          src={logo?.url as string}
+          src={logo!.url}
           fill
           className={`
             object-contain object-center-top transition-all duration-300 ease-in-out 

@@ -11,12 +11,13 @@ import iconValidator from "@/../public/img/icon-validator.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
 import PreFooter from "@/components/sections/PreFooter"
 import fetchResources from "../services/resources"
-import type { IResource } from "@/util/types"
+import type { IResourcesResponse } from "@/util/types"
+import { type StaticImport } from "next/dist/shared/lib/get-img-props"
 
 export default async function ResourcesPage() {
 
-  let { resources }: { resources: IResource[] } = await fetchResources(4);
-  // console.log('Fetched resources data:', resources);
+  const { data }: IResourcesResponse = await fetchResources(4);
+  const resources = data?.resources
 
   return (
     <main
@@ -93,31 +94,31 @@ export default async function ResourcesPage() {
           >
 
             <ServiceBox
-              icon={iconIbc}
+              icon={iconIbc as StaticImport}
               name={'99.99% uptime commitment with real-time monitoring'}
               nameClassName="text-white"
             />
 
             <ServiceBox
-              icon={iconTestnet}
+              icon={iconTestnet as StaticImport}
               name={"Enterprise-grade security with ISO 27001-aligned protocols"}
               nameClassName="text-white"
             />
 
             <ServiceBox
-              icon={iconRpc}
+              icon={iconRpc as StaticImport}
               name={"Global load balancing across US, Europe, East Asia, and Southeast Asia clusters"}
               nameClassName="text-white"
             />
 
             <ServiceBox
-              icon={iconValidator}
+              icon={iconValidator as StaticImport}
               name={"Instant failover and automated incident response"}
               nameClassName="text-white"
             />
 
             <ServiceBox
-              icon={iconGlobal}
+              icon={iconGlobal as StaticImport}
               name={"Custom rate limiting and access controls"}
               nameClassName="text-white"
             />
@@ -159,27 +160,27 @@ export default async function ResourcesPage() {
           >
 
             <ServiceBox
-              icon={iconIbc}
+              icon={iconIbc as StaticImport}
               description={'Comprehensive documentation and examples'}
             />
 
             <ServiceBox
-              icon={iconTestnet}
+              icon={iconTestnet as StaticImport}
               description={"Multiple response formats (JSON-RCP, REST, WebSocket)"}
             />
 
             <ServiceBox
-              icon={iconRpc}
+              icon={iconRpc as StaticImport}
               description={"Multiple response formats (JSON-RCP, REST, WebSocket)"}
             />
 
             <ServiceBox
-              icon={iconValidator}
+              icon={iconValidator as StaticImport}
               description={"24/7 technical support from blockchain security experts"}
             />
 
             <ServiceBox
-              icon={iconGlobal}
+              icon={iconGlobal as StaticImport}
               description={"Free public endpoints supporting the broader ecosytem"}
             />
 

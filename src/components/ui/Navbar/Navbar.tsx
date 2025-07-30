@@ -94,7 +94,7 @@ export default function Navbar({
         <Popover>
           <PopoverTrigger asChild>
             <button className="lg:hidden">
-              <MenuButton links={links} contact_us_link={contact_us_link} />
+              <MenuButton />
             </button>
           </PopoverTrigger>
 

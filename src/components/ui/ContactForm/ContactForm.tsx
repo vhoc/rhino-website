@@ -153,7 +153,7 @@ function ContactFormInner({ action }: ContactFormProps) {
             minLength={2}
             maxLength={50}
             className={clsx(
-              "rounded p-2 bg-coolgray-25 text-coolgray-700",
+              "rounded p-2 bg-coolgray-25 text-coolgray-700 w-full",
               errors.firstName && "border-2 border-red-500"
             )}
             placeholder="Enter your first name"
@@ -173,7 +173,7 @@ function ContactFormInner({ action }: ContactFormProps) {
             minLength={2}
             maxLength={50}
             className={clsx(
-              "rounded p-2 bg-coolgray-25 text-coolgray-700",
+              "rounded p-2 bg-coolgray-25 text-coolgray-700 w-full",
               errors.lastName && "border-2 border-red-500"
             )}
             placeholder="Enter your last name"
@@ -223,7 +223,7 @@ function ContactFormInner({ action }: ContactFormProps) {
         </label>
       </div>
 
-      <div className="flex flex-col gap-2 px-6 mt-4">
+      <div className="flex flex-col gap-2 px-6 mt-4 mb-8">
         <Button
           type="button"
           variant="secondary"

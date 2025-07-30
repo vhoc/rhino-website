@@ -65,7 +65,7 @@ export default function Button({
       href={href ?? '#'}
       target={target}
       className={`
-        flex justify-center items-center px-[22px] py-3 
+        flex justify-center items-center px-[22px] h-[42px] py-0  
         rounded-lg cursor-pointer! 
         ${variant === "primary" ?
           "bg-brightred-500 hover:bg-brightred-600 "
@@ -77,7 +77,7 @@ export default function Button({
     >
       {
         label && label.length >= 1 ?
-          <span className="font-bold text-white">
+          <span className="font-bold text-white m-0 p-0">
             {label}
           </span>
           :

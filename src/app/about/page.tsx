@@ -20,7 +20,7 @@ export default function AboutPage() {
     <main
       className={`
         flex min-h-screen flex-col items-center justify-start 
-        pt-6 px-0
+        pt-0 px-0
       `}
     >
 

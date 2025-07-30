@@ -78,49 +78,49 @@ export default function Footer() {
           >
             <a
               href={"/about"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               About
             </a>
 
             <a
               href={"/networks"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               Networks
             </a>
 
             <a
               href={"/investment"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               Investment
             </a>
 
             <a
               href={"#"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               Our API Network
             </a>
 
             <a
               href={"#"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               FAQs
             </a>
 
             <a
               href={"#"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               Schedule a Call
             </a>
 
             <a
               href={"#"}
-              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800"
+              className="text-white font-medium w-full py-3 px-4 hover:bg-coolgray-800 hover:rounded-[6px]"
             >
               Game of Nodes
             </a>
@@ -134,7 +134,7 @@ export default function Footer() {
             label="Contact Us"
             className={`
                 hidden xl:block min-w-fit
-                h-[45px] max-md:w-full cursor-pointer pt-2 
+                max-md:w-full cursor-pointer pt-2 
               `}
           />
 
@@ -209,7 +209,7 @@ export default function Footer() {
             type="link"
             href="/contact-us"
             label="Contact Us"
-            className="h-[45px] w-full md:hidden"
+            className="w-full md:hidden"
           />
 
           {/* COPYRIGHT */}

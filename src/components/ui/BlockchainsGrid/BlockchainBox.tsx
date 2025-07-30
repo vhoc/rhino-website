@@ -3,6 +3,7 @@ import { type INetwork } from "@/util/types";
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
+import clsx from "clsx";
 
 interface BlockchainBoxProps extends Omit<INetwork, "id" | "slug" | "active"> {
   className?: string
@@ -28,12 +29,12 @@ export default function BlockchainBox({
   return (
     <div
       className={`
-          aspect-[304/148] min-w-[304px] min-h-[148px] px-6 py-4 rounded-[5px] 
-          ${hovered ? 'bg-brightred-500' : 'bg-coolgray-800'} 
+          relative aspect-[304/148] min-w-[304px] min-h-[148px] px-6 py-4 rounded-[5px] 
+          ${hovered ? 'bg-[#FF233B]' : 'bg-coolgray-800'} 
           transition-all 
           flex flex-col justify-center items-center 
           group 
-          ${className}
+          ${className ?? ""}
       `}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -62,18 +63,16 @@ export default function BlockchainBox({
 
       {/* ICON */}
       <div
-        className={`
-          relative w-full max-h-10 max-w-3/4 flex justify-center 
-          transition-all duration-300 ease-in-out 
-          ${hovered ? 'h-0 opacity-0' : 'h-14 opacity-100'} 
-        `}
+        className={clsx(
+          "absolute top-1/3 w-full max-h-10 max-w-3/4 flex justify-center transition-all duration-500 ease-in-out h-14 ",
+          hovered ? "opacity-0" : "opacity-100"
+        )}
       >
         <Image
           src={logo?.url as string}
           fill
           className={`
             object-contain object-center-top transition-all duration-300 ease-in-out 
-            ${hovered ? 'h-0' : 'h-14'} 
           `}
           alt={name}
           style={{ filter: 'brightness(0) invert(1)' }}
@@ -82,35 +81,49 @@ export default function BlockchainBox({
 
       {/* BUTTONS */}
       <div
-        className={`
-           flex-col gap-2 items-end w-full transition-all duration-300 ease-in-out delay-700 
-          ${hovered ? 'flex' : 'hidden'} 
-        `}
+        className={clsx(
+          "absolute top-0 flex flex-col gap-2 items-center justify-center w-full h-full transition-all duration-500 ease-in-out py-8 px-6",
+          hovered ? 'opacity-100' : 'opacity-0'
+        )}
+      // className={`
+      //    flex-col gap-2 items-end w-full transition-all duration-300 ease-in-out delay-700 
+      //   ${hovered ? 'flex' : 'hidden'} 
+      // `}
       >
         <div
           className={`
-            w-full flex justify-between items-center gap-1 border-b border-solid border-white 
-            transition-all duration-300 ease-in-out delay-700 
-            ${hovered ? 'h-[29px] opacity-100' : 'h-0 opacity-0'}
+            w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
+            transition-all duration-500 ease-in-out group/link1 px-1.5
+            active:bg-[#DF1A30] active:rounded-t-sm 
+            ${hovered ? 'opacity-100' : 'opacity-0'}
           `}
         >
-          <Link href={blockchainurl ?? "#"} className="transition-all duration-300 ease-in-out delay-700 font-calsans text-xl text-white w-full hover:bg-gradient-to-r from-white to-transparent hover:text-brightred-500" target="_blank">
+          <Link href={blockchainurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" target="_blank">
             {name}
           </Link>
-          <p className="font-calsans text-xl text-white font-bold">&#43;</p>
+          <p
+            className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link1:translate-x-[-4px]"}
+          >
+            &#43;
+          </p>
         </div>
 
         <div
           className={`
-              w-full justify-between items-center gap-1 border-b border-solid border-white
-              transition-all flex duration-300 delay-700 
-              ${hovered ? 'h-[29px] opacity-100' : 'h-0 opacity-0'}
+            w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
+            transition-all duration-500 ease-in-out group/link2 px-1.5
+            active:bg-[#DF1A30] active:rounded-t-sm 
+            ${hovered ? 'opacity-100' : 'opacity-0'}
           `}
         >
-          <Link href={stakeurl ?? "#"} className="transition-all duration-300 ease-in-out delay-700 font-calsans text-xl text-white w-full hover:bg-gradient-to-r from-white to-transparent  hover:text-brightred-500" target="_blank">
+          <Link href={stakeurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link2:translate-x-[4px]" target="_blank">
             Stake Now
           </Link>
-          <p className="font-calsans text-xl text-white font-bold">&#43;</p>
+          <p
+            className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link2:translate-x-[-4px]"}
+          >
+            &#43;
+          </p>
         </div>
       </div>
 

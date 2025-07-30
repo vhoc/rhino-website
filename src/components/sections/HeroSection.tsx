@@ -72,7 +72,7 @@ export default function HeroSection({
         <hr className="h-10 " />
 
         <p
-          className={clsx(`font-medium text-coolgray-500 text-center lg:max-w-3xl`, excertpClassName)}
+          className={clsx(`font-medium text-coolgray-500 text-center lg:max-w-3xl sm:text-lg`, excertpClassName)}
         >
           {excertp}
         </p>

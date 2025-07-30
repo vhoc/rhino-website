@@ -23,7 +23,7 @@ export default function AnimatedCounter({
     if (inView && !hasAnimated.current) {
       hasAnimated.current = true;
       let start = 0;
-      const duration = 3600; // ms
+      const duration = 1600; // ms
       const frameRate = 1000 / 60;
       const totalFrames = Math.round(duration / frameRate);
       let frame = 0;

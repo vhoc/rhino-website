@@ -2,7 +2,6 @@ import HeroSection from "@/components/sections/HeroSection"
 import StandardSection from "@/components/sections/StandardSection"
 import Image from "next/image"
 import imgTexture from "@/../public/img/texture-2.svg"
-import imgTextureFull from "@/../public/img/texture-2-full.svg"
 import Heading2 from "@/components/ui/Text/Heading2"
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard"
@@ -13,21 +12,22 @@ import iconRpc from "@/../public/img/icon-rpc.svg";
 import iconValidator from "@/../public/img/icon-validator.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
 import fetchNetworks from "../services/networks"
+import fetchLogos from "../services/logos"
 import { type INetwork } from "@/util/types"
 import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid"
 import PreFooter from "@/components/sections/PreFooter"
+import LogosGrid from "@/components/ui/LogosGrid"
 
 export default async function NetworksPage() {
 
   let { networks }: { networks: INetwork[] } = await fetchNetworks();
-  // console.log('Fetched networks data:', networks);
-  // console.log('Fetched networks qty:', networks.length);
+  let logos: string[] = await fetchLogos();
 
   return (
     <main
       className={`
         flex min-h-screen flex-col items-center justify-start 
-        pt-6 px-0
+        pt-0 px-0
       `}
     >
 
@@ -54,7 +54,7 @@ export default async function NetworksPage() {
           sm:px-14 lg:px-[94px] xl:px-[94px] 
           md:bg-none ">
               <p
-                className={`md:block font-medium text-coolgray-500 text-center lg:max-w-3xl`}
+                className={`md:block font-medium text-coolgray-500 text-center lg:max-w-3xl md:text-lg`}
               >
                 For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing.
               </p>
@@ -68,14 +68,19 @@ export default async function NetworksPage() {
         }
       >
 
-
-        <Image
+        {
+          logos && logos.length >= 1 ?
+            <LogosGrid items={logos} />
+            :
+            null
+        }
+        {/* <Image
           src={imgTextureFull}
           alt="Background image"
           className="hidden  w-full h-full object-contain object-top sm:block max-w-[1035px]"
-        />
+        /> */}
 
-        <h3 className="block text-xl text-coolgray-500 font-bold text-center sm:mt-10 md:hidden">
+        <h3 className="block text-xl text-coolgray-500 font-bold text-center mt-10 sm:mt-10 md:hidden">
           We don't just run nodes
         </h3>
 

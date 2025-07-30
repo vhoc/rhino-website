@@ -44,7 +44,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${cal_sans.variable} ${geist.variable}`}>
-      <body className="pt-[80px]">
+      <body className="pt-[70px]">
         <Navbar
           links={NAVIGATION_LINKS}
           contact_us_link={{ label: "Contact Us", href: "/contact-us" }}

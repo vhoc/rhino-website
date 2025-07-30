@@ -55,7 +55,7 @@ export default function NavWrapper({ children }: NavWrapperProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () =>
-      window.removeEventListener("scroll", handleScroll, { passive: true });
+      window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

@@ -217,7 +217,7 @@ export default async function HomePage() {
           <HoverCard
             key={0}
             icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
+            icon_hover="/img/upward-arrow-red.svg"
             title="Experience"
             subtitle="Proven track record since 2020"
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
@@ -226,8 +226,8 @@ export default async function HomePage() {
 
           <HoverCard
             key={1}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
+            icon="/img/safe.svg"
+            icon_hover="/img/safe-red.svg"
             title="Security"
             subtitle="ISO 27001-aligned security protocols and process definition"
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
@@ -236,8 +236,8 @@ export default async function HomePage() {
 
           <HoverCard
             key={2}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
+            icon="/img/speech.svg"
+            icon_hover="/img/speech-red.svg"
             title="Support"
             subtitle="Proven track record since 2020"
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
@@ -246,8 +246,8 @@ export default async function HomePage() {
 
           <HoverCard
             key={3}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
+            icon="/img/tiles.svg"
+            icon_hover="/img/tiles-red.svg"
             title="+50 Blockchains"
             subtitle="ISO 27001-aligned security protocols and process definition"
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.

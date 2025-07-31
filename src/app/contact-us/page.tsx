@@ -1,6 +1,5 @@
 import StandardSection from "@/components/sections/StandardSection";
 import ContactForm from "@/components/ui/ContactForm/ContactForm";
-// import { submitContactForm } from "./actions";
 import clsx from "clsx";
 
 export default function ContactUsPage() {
@@ -13,9 +12,6 @@ export default function ContactUsPage() {
     >
 
       <StandardSection
-        // contentClassName={`
-        //   flex flex-col gap-[64px] 
-        // `}
         contentClassName={clsx(
           "flex flex-col items-start gap-[64px] lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:items-start lg:gap-x-[91px] lg:gap-y-[32px] lg:h-fit",
         )}

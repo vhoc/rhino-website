@@ -65,9 +65,9 @@ export default function HoverCard({
     if (!video) return;
 
     if (hovered === key) {
-      video.play()
+      void video.play()
     } else {
-      video.pause()
+      void video.pause()
       video.currentTime = 0; // Reset video to start
     }
   }, [hovered])

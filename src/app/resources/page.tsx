@@ -4,11 +4,15 @@ import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import TeamMemberCard from "@/components/ui/HoverCardsGroup/TeamMemberCard"
 import Heading2 from "@/components/ui/Text/Heading2"
 import ServiceBox from "@/components/ui/ServiceBox"
-import iconIbc from "@/../public/img/icon-ibc.svg"
-import iconTestnet from "@/../public/img/icon-testnet.svg";
+import iconClock from "@/../public/img/icon-clock.svg"
+import iconGlobe from "@/../public/img/globe-red.svg";
 import iconRpc from "@/../public/img/icon-rpc.svg";
-import iconValidator from "@/../public/img/icon-validator.svg";
-import iconGlobal from "@/../public/img/icon-global.svg";
+import iconGear from "@/../public/img/gear-red.svg";
+import iconSafe2 from "@/../public/img/safe2-red.svg";
+import iconArticles from "@/../public/img/articles-red.svg";
+import iconList from "@/../public/img/icon-list-red.svg";
+import iconCode from "@/../public/img/icon-code-red.svg";
+import iconPeople from "@/../public/img/icon-people-red.svg";
 import PreFooter from "@/components/sections/PreFooter"
 import fetchResources from "../services/resources"
 import type { IResourcesResponse } from "@/util/types"
@@ -43,15 +47,10 @@ export default async function ResourcesPage() {
               resources.map((resource, index) => (
                 <TeamMemberCard
                   key={`resource-${index}-${resource.slug}`}
-                  // itemWidth={'lg:w-1/3'}
-                  // itemWidthHover={'lg:w-2/3'}
-                  // itemHeight={'h-1/4 sm:h-3/10 md:h-2/8'}
                   itemHeight={'h-1/6 sm:h-3/10 md:h-2/10'}
-                  // itemHeightHover={'max-lg:h-6/8'}
                   itemHeightHover={'h-2/6 sm:h-1/2 md:h-1/4'}
                   title={resource.name}
                   defaultItemBgClass="bg-coolgray-800 group"
-                  // truncateSubtitle={false}
                   body={resource.description}
                   bodyHoverClassName="pointer-events-auto h-[140px] opacity-100"
                 />
@@ -94,13 +93,13 @@ export default async function ResourcesPage() {
           >
 
             <ServiceBox
-              icon={iconIbc as StaticImport}
+              icon={iconClock as StaticImport}
               name={'99.99% uptime commitment with real-time monitoring'}
               nameClassName="text-white"
             />
 
             <ServiceBox
-              icon={iconTestnet as StaticImport}
+              icon={iconGlobe as StaticImport}
               name={"Enterprise-grade security with ISO 27001-aligned protocols"}
               nameClassName="text-white"
             />
@@ -112,13 +111,13 @@ export default async function ResourcesPage() {
             />
 
             <ServiceBox
-              icon={iconValidator as StaticImport}
+              icon={iconGear as StaticImport}
               name={"Instant failover and automated incident response"}
               nameClassName="text-white"
             />
 
             <ServiceBox
-              icon={iconGlobal as StaticImport}
+              icon={iconSafe2 as StaticImport}
               name={"Custom rate limiting and access controls"}
               nameClassName="text-white"
             />
@@ -160,27 +159,27 @@ export default async function ResourcesPage() {
           >
 
             <ServiceBox
-              icon={iconIbc as StaticImport}
+              icon={iconList as StaticImport}
               description={'Comprehensive documentation and examples'}
             />
 
             <ServiceBox
-              icon={iconTestnet as StaticImport}
+              icon={iconCode as StaticImport}
               description={"Multiple response formats (JSON-RCP, REST, WebSocket)"}
             />
 
             <ServiceBox
-              icon={iconRpc as StaticImport}
-              description={"Multiple response formats (JSON-RCP, REST, WebSocket)"}
+              icon={iconArticles as StaticImport}
+              description={"Detailed erros handling and status reporting"}
             />
 
             <ServiceBox
-              icon={iconValidator as StaticImport}
+              icon={iconClock as StaticImport}
               description={"24/7 technical support from blockchain security experts"}
             />
 
             <ServiceBox
-              icon={iconGlobal as StaticImport}
+              icon={iconPeople as StaticImport}
               description={"Free public endpoints supporting the broader ecosytem"}
             />
 

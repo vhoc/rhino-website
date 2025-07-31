@@ -34,7 +34,7 @@ export default function AboutPage() {
           sm:bg-[url('/img/backgrounds/texture-hero-about.svg')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
           md:bg-none 
         `}
-        bgVideo="/video/cloudy.mp4"
+        bgVideo="/video/hero02.webm"
       />
 
       <StandardSection

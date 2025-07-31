@@ -34,7 +34,7 @@ export default async function ResourcesPage() {
       <HeroSection
         caption="Resources"
         heading="Enterprise-Grade Blockchains APIs"
-        bgVideo="/video/cloudy.mp4"
+        bgVideo="/video/hero02.webm"
         excertp="RHINO provides public and private API infrastructure for leading blockchain networks. Our endpoints are built for production applications that demand reliability, speed, and comprehensive data access."
       />
 

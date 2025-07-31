@@ -42,8 +42,8 @@ export default async function HomePage() {
 
         {/* VIDEO BACKGROUND (TABLET & DESKTOP ONLY) */}
         <video
-          className="hidden md:block absolute top-0 left-0 w-full h-full object-cover object-top pointer-events-none z-0 "
-          src="/video/cloudy.mp4"
+          className="hidden md:block absolute top-0 left-0 w-full h-full object-cover 2xl:object-contain object-top pointer-events-none z-0 "
+          src="/video/hero01.webm"
           autoPlay
           loop
           muted

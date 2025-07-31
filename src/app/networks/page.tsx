@@ -35,7 +35,7 @@ export default async function NetworksPage() {
       <HeroSection
         caption="Rhino Networks"
         heading="Powering Tomorrow's Blockchain Networks"
-        bgVideo="/video/cloudy.mp4"
+        bgVideo="/video/hero02.webm"
         className={`
           sm:bg-[url('/img/backgrounds/texture-hero-networks.png')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
           md:bg-none 

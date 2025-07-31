@@ -28,7 +28,7 @@ export default function InvestmentPage() {
       <HeroSection
         caption="Investment"
         heading="Funding Success in Web3"
-        bgVideo="/video/cloudy.mp4"
+        bgVideo="/video/hero02.webm"
         className={`
           sm:bg-[url('/img/backgrounds/texture-hero.png')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
           md:bg-none 

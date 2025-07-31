@@ -29,7 +29,7 @@ export default function HeroSection({
     >
       {/* Background Video */}
       <video
-        className="hidden md:block absolute top-0 left-0 w-full h-full object-cover object-top pointer-events-none z-0 "
+        className="hidden md:block absolute top-0 left-0 w-full h-full object-cover 2xl:object-contain object-top pointer-events-none z-0 "
         src={bgVideo}
         autoPlay
         loop

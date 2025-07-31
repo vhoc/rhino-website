@@ -60,11 +60,6 @@ export default async function NetworksPage() {
                 For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing.
               </p>
             </div>
-            {/* <Image
-              src={imgTexture}
-              alt="Background image"
-              className="top-0 left-0 w-full h-full object-cover object-top sm:hidden"
-            /> */}
           </>
         }
       >
@@ -75,11 +70,6 @@ export default async function NetworksPage() {
             :
             null
         }
-        {/* <Image
-          src={imgTextureFull}
-          alt="Background image"
-          className="hidden  w-full h-full object-contain object-top sm:block max-w-[1035px]"
-        /> */}
 
         <h3 className="block text-xl text-coolgray-500 font-bold text-center mt-10 sm:mt-10 md:hidden">
           {"We don't just run nodes"}
@@ -114,9 +104,6 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage="/img/backgrounds/item-hover-3.svg"
-            bgImageHoverClass="scale-120 opacity-100"
-            bgImageRestClass="scale-[20] opacity-0"
           />
 
           <HoverCard
@@ -128,9 +115,6 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage="/img/backgrounds/item-hover-3.svg"
-            bgImageHoverClass="scale-120 opacity-100"
-            bgImageRestClass="scale-[20] opacity-0"
           />
 
           <HoverCard
@@ -142,9 +126,6 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage="/img/backgrounds/item-hover-3.svg"
-            bgImageHoverClass="scale-120 opacity-100"
-            bgImageRestClass="scale-[20] opacity-0"
           />
 
           <HoverCard
@@ -156,9 +137,6 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage="/img/backgrounds/item-hover-3.svg"
-            bgImageHoverClass="scale-120 opacity-100"
-            bgImageRestClass="scale-[20] opacity-0"
           />
         </HoverCardsGroup>
       </StandardSection>

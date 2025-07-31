@@ -12,9 +12,20 @@ export default function ContactUsPage() {
     >
 
       <StandardSection
-        contentClassName={clsx(
-          "flex flex-col items-start gap-[64px] lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:items-start lg:gap-x-[91px] lg:gap-y-[32px] lg:h-fit",
+        innerClassName={clsx(
+          "bg-[url('/img/backgrounds/bg-form.svg')]! bg-no-repeat bg-auto",
+          "bg-position-[100%_70%] sm:bg-position-[100%_75%] md:bg-position-[100%_85%]",
+          "xl:bg-none!",
+          "xl:pb-0"
         )}
+        contentClassName={clsx(
+          "flex flex-col items-start gap-[64px] xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:items-start xl:gap-x-[91px] xl:gap-y-[32px] xl:h-fit",
+          "px-0 xl:pr-10 xl:pb-20",
+          "xl:bg-[url('/img/backgrounds/bg-form.svg')]! xl:bg-auto! bg-no-repeat max-md:bg-right xl:bg-bottom-right"
+        )}
+        contentStyle={{
+          backgroundPosition: "100% 82%"
+        }}
       >
 
         {/* HEADING */}

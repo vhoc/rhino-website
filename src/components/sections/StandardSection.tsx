@@ -7,9 +7,10 @@ interface StandardSection extends HTMLAttributes<HTMLElement> {
   className?: string
   innerClassName?: string
   contentClassName?: string
+  contentStyle?: React.CSSProperties
 }
 
-export default function StandardSection({ id, outerContent, children, className, innerClassName, contentClassName, ...props }: StandardSection) {
+export default function StandardSection({ id, outerContent, children, className, innerClassName, contentClassName, contentStyle, ...props }: StandardSection) {
 
   return (
     <section
@@ -36,6 +37,7 @@ export default function StandardSection({ id, outerContent, children, className,
             max-w-7xl w-full 
             ${contentClassName}
           `}
+          style={contentStyle}
         >
 
           {children}

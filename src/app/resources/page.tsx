@@ -1,7 +1,7 @@
 import StandardSection from "@/components/sections/StandardSection"
 import HeroSection from "@/components/sections/HeroSection"
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
-import TeamMemberCard from "@/components/ui/HoverCardsGroup/TeamMemberCard"
+import ResourceCard from "@/components/ui/HoverCardsGroup/ResourceCard"
 import Heading2 from "@/components/ui/Text/Heading2"
 import ServiceBox from "@/components/ui/ServiceBox"
 import iconClock from "@/../public/img/icon-clock.svg"
@@ -45,7 +45,7 @@ export default async function ResourcesPage() {
           {
             resources && resources.length >= 1 ?
               resources.map((resource, index) => (
-                <TeamMemberCard
+                <ResourceCard
                   key={`resource-${index}-${resource.slug}`}
                   itemHeight={'h-1/6 sm:h-3/10 md:h-2/10'}
                   itemHeightHover={'h-2/6 sm:h-1/2 md:h-1/4'}

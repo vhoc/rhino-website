@@ -119,7 +119,7 @@ export default function InvestmentPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/backgrounds/item-hover-2.svg"}
+            bgVideo={"/video/investment.webm"}
           />
 
           <HoverCard
@@ -135,7 +135,7 @@ export default function InvestmentPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/backgrounds/item-hover-2.svg"}
+            bgVideo={"/video/investment.webm"}
           />
         </HoverCardsGroup>
       </StandardSection>
@@ -162,7 +162,7 @@ export default function InvestmentPage() {
             subtitleLineClamp={3}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/backgrounds/item-hover-2.svg"}
+            bgVideo={"/video/investment.webm"}
           />
 
           <HoverCard
@@ -178,7 +178,7 @@ export default function InvestmentPage() {
             subtitleLineClamp={3}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/backgrounds/item-hover-2.svg"}
+            bgVideo={"/video/investment.webm"}
           />
 
           <HoverCard
@@ -194,7 +194,7 @@ export default function InvestmentPage() {
             subtitleLineClamp={3}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/backgrounds/item-hover-2.svg"}
+            bgVideo={"/video/investment.webm"}
           />
         </HoverCardsGroup>
       </StandardSection>

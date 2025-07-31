@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import clsx from "clsx";
 
-interface HoverCardProps {
+interface ResourceCardProps {
   defaultItemBgClass?: string;
   itemRadius?: string;
   itemWidth?: string;
@@ -11,19 +10,13 @@ interface HoverCardProps {
   itemHeight?: string;
   itemHeightHover?: string;
   key: React.Key;
-  topCaption?: string;
-  icon?: string;
-  icon_hover?: string;
   title?: string;
-  subtitle?: string;
-  subtitleLineClamp?: number;
-  truncateSubtitle?: boolean;
-  body?: string;
+  body?: string | React.ReactNode;
   bodyHoverClassName?: string;
   bgVideo?: string;
 }
 
-export default function HoverCard({
+export default function ResourceCard({
   defaultItemBgClass = "bg-coolgray-900",
   itemRadius = "5px",
   itemWidth = "lg:w-1/4",
@@ -31,17 +24,11 @@ export default function HoverCard({
   itemHeight = "max-lg:h-1/4",
   itemHeightHover = "max-lg:h-1/2",
   key,
-  topCaption,
-  icon,
-  icon_hover,
   title,
-  subtitle,
-  subtitleLineClamp = 1,
-  truncateSubtitle = true,
   body,
-  bodyHoverClassName = "pointer-events-auto h-[120px] opacity-100",
-  bgVideo = "/video/home.webm",
-}: HoverCardProps) {
+  bodyHoverClassName = "pointer-events-auto h-[80px] opacity-100",
+  bgVideo = "/video/resources.webm",
+}: ResourceCardProps) {
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = useState<React.Key | null>(null);
@@ -106,80 +93,44 @@ export default function HoverCard({
       }}
     >
       <div
-        className={`absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-between px-8 py-8 text-white md:px-14 md:py-12`}
+        className={`absolute top-0 left-0 z-10 flex h-full w-full flex-col justify-end px-8 py-8 text-white md:px-14 md:py-12`}
       >
-        <div>
-          {topCaption && topCaption.length >= 1 ? <p>{topCaption}</p> : null}
-        </div>
 
         <div
-          className={`flex h-full flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6`}
+          className={`flex h-full flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6 `}
         >
-          {
-            // ICON
-            icon && icon.length >= 1 ? (
-              <div
-                className={`relative h-14 min-h-8 w-14 min-w-8 sm:min-h-14 sm:min-w-14`}
-              >
-                <Image
-                  src={hovered === key && icon_hover ? icon_hover : icon}
-                  alt={title ?? "Icon"}
-                  fill
-                  className="object-contain object-left-top"
-                />
-              </div>
-            ) : null
-          }
 
           <div
-            className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end`}
+            className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end `}
           >
-            {
-              title && title.length >= 1 ?
-                <p
-                  className={clsx(
-                    "font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white",
-                  )}
-                  style={{
-                    display: "-webkit-box",
-                    WebkitLineClamp: 1,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  {title}
-                </p>
-                :
-                null
-            }
-
-
             <p
-              className={truncateSubtitle ?
-                clsx(`mb-4 line-clamp-${String(subtitleLineClamp)} overflow-hidden text-lg font-medium text-white transition-all min-lg:min-h-[58px]`)
-                :
-                clsx(`mb-4 text-lg font-medium text-white transition-all min-lg:min-h-[58px]`)
-              }
-              style={truncateSubtitle ? {
+              className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white`}
+              style={{
                 display: "-webkit-box",
-                WebkitLineClamp: subtitleLineClamp,
+                WebkitLineClamp: 1,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-              } : undefined}
+              }}
             >
-              {subtitle}
+              {title}
             </p>
 
-            <p
-              className={`
+            {
+              typeof body === "string" ?
+                <p
+                  className={`
                 overflow-hidden text-white transition-all duration-300 
-                ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"}
+                ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
               `}
-            >
-              {body}
-            </p>
+                >
+                  {body}
+                </p>
+                :
+                body
+            }
+
+
           </div>
         </div>
       </div>

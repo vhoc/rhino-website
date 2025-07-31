@@ -5,7 +5,7 @@ import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard"
 import ServiceBox from "@/components/ui/ServiceBox"
 import iconIbc from "@/../public/img/icon-ibc.svg"
-import iconTestnet from "@/../public/img/icon-testnet.svg";
+import iconRocket from "@/../public/img/icon-rocket.svg";
 import iconRpc from "@/../public/img/icon-rpc.svg";
 import iconValidator from "@/../public/img/icon-validator.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
@@ -107,10 +107,11 @@ export default async function NetworksPage() {
         <HoverCardsGroup>
           <HoverCard
             key={0}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Experience"
-            subtitle="Proven track record since 2020"
+            icon="/img/building.svg"
+            icon_hover="/img/building-red.svg"
+            // title="Experience"
+            subtitle="Cross-chain interoperability (IBC-enabled networks)"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage="/img/backgrounds/item-hover-3.svg"
@@ -120,10 +121,11 @@ export default async function NetworksPage() {
 
           <HoverCard
             key={1}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Security"
-            subtitle="ISO 27001-aligned security protocols and process definition"
+            icon="/img/speed.svg"
+            icon_hover="/img/speed-red.svg"
+            // title="Security"
+            subtitle="High-performance consensus mechanisms"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage="/img/backgrounds/item-hover-3.svg"
@@ -133,10 +135,11 @@ export default async function NetworksPage() {
 
           <HoverCard
             key={2}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Support"
-            subtitle="Proven track record since 2020"
+            icon="/img/icon-ibc-gray.svg"
+            icon_hover="/img/icon-ibc.svg"
+            // title="Support"
+            subtitle="Enterprise-focused blockchain solutions"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage="/img/backgrounds/item-hover-3.svg"
@@ -146,10 +149,11 @@ export default async function NetworksPage() {
 
           <HoverCard
             key={3}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="+50 Blockchains"
-            subtitle="ISO 27001-aligned security protocols and process definition"
+            icon="/img/note.svg"
+            icon_hover="/img/note-red.svg"
+            // title="+50 Blockchains"
+            subtitle="Emerging DeFi and institutional protocols"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage="/img/backgrounds/item-hover-3.svg"
@@ -193,7 +197,7 @@ export default async function NetworksPage() {
             />
 
             <ServiceBox
-              icon={iconTestnet as StaticImport}
+              icon={iconRocket as StaticImport}
               name={"Testnet to Mainnet"}
               description={"Full lifecycle support from testing to production"}
             />

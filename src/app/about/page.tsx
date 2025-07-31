@@ -2,11 +2,12 @@ import HeroSection from "@/components/sections/HeroSection"
 import StandardSection from "@/components/sections/StandardSection"
 import Heading2 from "@/components/ui/Text/Heading2"
 import ServiceBox from "@/components/ui/ServiceBox"
-import iconIbc from "@/../public/img/icon-ibc.svg"
+import iconStar from "@/../public/img/icon-star.svg"
+import iconShield from "@/../public/img/icon-shield.svg";
 import iconTestnet from "@/../public/img/icon-testnet.svg";
-import iconRpc from "@/../public/img/icon-rpc.svg";
-import iconValidator from "@/../public/img/icon-validator.svg";
+import iconClock from "@/../public/img/icon-clock.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
+import iconNodes from "@/../public/img/icon-nodes.svg";
 import Image from "next/image"
 import imgJeff from "@/../public/img/jeff.png"
 import imgEric from "@/../public/img/eric.png"
@@ -73,25 +74,25 @@ export default function AboutPage() {
           >
 
             <ServiceBox
-              icon={iconIbc as StaticImport}
+              icon={iconStar as StaticImport}
               name={'5+ Years of Proven Experience'}
               description="Building enterprise blockchain infrastructure since 2020"
             />
 
             <ServiceBox
-              icon={iconTestnet as StaticImport}
+              icon={iconShield as StaticImport}
               name={"Security-First Operations"}
               description={"ISO 27001 certification in progress, with enterprise-grade security protocols"}
             />
 
             <ServiceBox
-              icon={iconRpc as StaticImport}
+              icon={iconClock as StaticImport}
               name={"Enterprise SLA Commitments"}
               description={"99.9% to 99.99% uptime guarantees backed by real accountability"}
             />
 
             <ServiceBox
-              icon={iconValidator as StaticImport}
+              icon={iconTestnet as StaticImport}
               name={"Validator Operations"}
               description={"Dedicated support teams ensuring rapid incident response and resolution"}
             />
@@ -103,7 +104,7 @@ export default function AboutPage() {
             />
 
             <ServiceBox
-              icon={iconValidator as StaticImport}
+              icon={iconNodes as StaticImport}
               name={"Protocol Partnership"}
               description={"We actively contribute free public infrastructure back to the networks we support"}
             />

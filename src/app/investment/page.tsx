@@ -1,15 +1,18 @@
 import HeroSection from "@/components/sections/HeroSection"
 import StandardSection from "@/components/sections/StandardSection"
 import ServiceBox from "@/components/ui/ServiceBox"
-import iconIbc from "@/../public/img/icon-ibc.svg"
+import iconRoads from "@/../public/img/icon-roads.svg"
+import iconIbc from "@/../public/img/icon-ibc.svg";
+import iconFocus from "@/../public/img/icon-focus.svg";
 import iconTestnet from "@/../public/img/icon-testnet.svg";
-import iconRpc from "@/../public/img/icon-rpc.svg";
-import iconValidator from "@/../public/img/icon-validator.svg";
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup";
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard";
 import Heading2 from "@/components/ui/Text/Heading2";
 import Image from "next/image";
-import iconTeraSwitch from "@/../public/img/placeholder-teraswitch.svg";
+import iconOptfun from "@/../public/img/icon-optfun.svg";
+import iconMevvy from "@/../public/img/icon-mevvy.svg";
+import iconSilo from "@/../public/img/icon-silo.svg";
+import iconPlaza from "@/../public/img/icon-plaza.svg";
 import PreFooter from "@/components/sections/PreFooter";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 
@@ -66,30 +69,26 @@ export default function InvestmentPage() {
         innerClassName="!py-[72px] !lg:pb-[96px] !lg:pt-[96px] !xl:pb-[129px] !xl:pt-[140px]"
       >
         <ServiceBox
+          icon={iconRoads as StaticImport}
+          description="Infrastructure and tooling that enhances blockchain adoption"
+          className="max-w-full"
+        />
+
+        <ServiceBox
           icon={iconIbc as StaticImport}
-          name={'IBC Channel Support'}
-          description="Seamless cross-chain connectivity and maintenance"
+          description={"Cross-chain solutions and interoperability protocols"}
+          className="max-w-full"
+        />
+
+        <ServiceBox
+          icon={iconFocus as StaticImport}
+          description={"Enterprise-focused blockchain applications"}
           className="max-w-full"
         />
 
         <ServiceBox
           icon={iconTestnet as StaticImport}
-          name={"Testnet to Mainnet"}
-          description={"Full lifecycle support from testing to production"}
-          className="max-w-full"
-        />
-
-        <ServiceBox
-          icon={iconRpc as StaticImport}
-          name={"RPC Infrastructure"}
-          description={"High-performance API endpoints with global load balancing"}
-          className="max-w-full"
-        />
-
-        <ServiceBox
-          icon={iconValidator as StaticImport}
-          name={"Validator Operations"}
-          description={"Enterprise-grade staking with institutional security"}
+          description={"Teams with proven technical execution capability"}
           className="max-w-full"
         />
       </StandardSection>
@@ -114,10 +113,10 @@ export default function InvestmentPage() {
             itemWidthHover={'lg:w-1/1'}
             itemHeight={'max-lg:h-1/2'}
             itemHeightHover={'max-lg:h-1/1'}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Experience"
-            subtitle="Proven track record since 2020"
+            icon="/img/building.svg"
+            icon_hover="/img/building-red.svg"
+            subtitle="Technical expertise in scaling blockchain systems with enterprise-grade security"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/backgrounds/item-hover-2.svg"}
@@ -130,10 +129,10 @@ export default function InvestmentPage() {
             itemWidthHover={'lg:w-1/1'}
             itemHeight={'max-lg:h-1/2'}
             itemHeightHover={'max-lg:h-1/1'}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Security"
-            subtitle="ISO 27001-aligned security protocols and process definition"
+            icon="/img/icon-ibc-gray.svg"
+            icon_hover="/img/icon-ibc.svg"
+            subtitle="Deep network effects across multiple ecosystems"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/backgrounds/item-hover-2.svg"}
@@ -157,10 +156,10 @@ export default function InvestmentPage() {
             itemWidthHover={'lg:w-2/3'}
             itemHeight={'max-lg:h-1/3'}
             itemHeightHover={'max-lg:h-2/3'}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Experience"
-            subtitle="Proven track record since 2020"
+            icon="/img/article.svg"
+            icon_hover="/img/articles-red.svg"
+            subtitle="Enterprise customer insights and connections"
+            subtitleLineClamp={3}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/backgrounds/item-hover-2.svg"}
@@ -173,10 +172,10 @@ export default function InvestmentPage() {
             itemWidthHover={'lg:w-2/3'}
             itemHeight={'max-lg:h-1/3'}
             itemHeightHover={'max-lg:h-2/3'}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Security"
-            subtitle="ISO 27001-aligned security protocols and process definition"
+            icon="/img/clock.svg"
+            icon_hover="/img/clock-red.svg"
+            subtitle="Operational knowledge from running production systems with 99.99% uptime"
+            subtitleLineClamp={3}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/backgrounds/item-hover-2.svg"}
@@ -189,10 +188,10 @@ export default function InvestmentPage() {
             itemWidthHover={'lg:w-2/3'}
             itemHeight={'max-lg:h-1/3'}
             itemHeightHover={'max-lg:h-2/3'}
-            icon="/img/upward-arrow.svg"
-            icon_hover="/img/red-square.svg"
-            title="Support"
-            subtitle="Proven track record since 2020"
+            icon="/img/globe.svg"
+            icon_hover="/img/globe-red.svg"
+            subtitle="Security best practices and ISO 27001-aligned governance frameworks"
+            subtitleLineClamp={3}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgImage={"/img/backgrounds/item-hover-2.svg"}
@@ -212,75 +211,41 @@ export default function InvestmentPage() {
           {"Our investments have gone on to raise additional funding, launch successful mainnets, and build sustainable businesses in the Web3 ecosystem. We're proud to support teams that are defining the future of decentralized technology."}
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 w-full mt-8 md:mt-14 gap-x-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 w-full mt-8 md:mt-14 gap-x-8 gap-y-16 items-center">
           {/* Column 1 */}
-          <div className="mx-auto">
+          <div className="mx-auto w-full h-auto max-w-[171px]">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconOptfun as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconMevvy as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 3 */}
-          <div className="hidden mx-auto sm:block">
+          <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconSilo as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 4 */}
-          <div className="hidden mx-auto xl:block">
+          <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconPlaza as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
-            />
-          </div>
-          {/* Column 5 */}
-          <div className="hidden mx-auto xl:block">
-            <Image
-              src={iconTeraSwitch as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 w-full mt-10 gap-x-2 xl:hidden">
-          {/* Column 1 */}
-          <div className="mx-auto">
-            <Image
-              src={iconTeraSwitch as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
-            />
-          </div>
-          {/* Column 2 */}
-          <div className="mx-auto">
-            <Image
-              src={iconTeraSwitch as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
-            />
-          </div>
-          {/* Column 3 */}
-          <div className="hidden mx-auto md:block">
-            <Image
-              src={iconTeraSwitch as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
-            />
-          </div>
-        </div>
       </StandardSection>
 
       <PreFooter />

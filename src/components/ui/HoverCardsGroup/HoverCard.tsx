@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 interface HoverCardProps {
   defaultItemBgClass?: string;
@@ -15,6 +16,7 @@ interface HoverCardProps {
   icon_hover?: string;
   title?: string;
   subtitle?: string;
+  subtitleLineClamp?: number;
   truncateSubtitle?: boolean;
   body?: string;
   bodyHoverClassName?: string;
@@ -36,6 +38,7 @@ export default function HoverCard({
   icon_hover,
   title,
   subtitle,
+  subtitleLineClamp = 1,
   truncateSubtitle = true,
   body,
   bodyHoverClassName = "pointer-events-auto h-[120px] opacity-100",
@@ -120,28 +123,36 @@ export default function HoverCard({
           <div
             className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end`}
           >
-            <p
-              className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white`}
-              style={{
-                display: "-webkit-box",
-                WebkitLineClamp: 1,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {title}
-            </p>
+            {
+              title && title.length >= 1 ?
+                <p
+                  className={clsx(
+                    "font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white",
+                  )}
+                  style={{
+                    display: "-webkit-box",
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {title}
+                </p>
+                :
+                null
+            }
+
 
             <p
               className={truncateSubtitle ?
-                `mb-4 line-clamp-1 overflow-hidden text-lg font-medium text-white transition-all min-lg:min-h-[58px]`
+                clsx(`mb-4 line-clamp-${String(subtitleLineClamp)} overflow-hidden text-lg font-medium text-white transition-all min-lg:min-h-[58px]`)
                 :
-                `mb-4 text-lg font-medium text-white transition-all min-lg:min-h-[58px]`
+                clsx(`mb-4 text-lg font-medium text-white transition-all min-lg:min-h-[58px]`)
               }
               style={truncateSubtitle ? {
                 display: "-webkit-box",
-                WebkitLineClamp: 1,
+                WebkitLineClamp: subtitleLineClamp,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",

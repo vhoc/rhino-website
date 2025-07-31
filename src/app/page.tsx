@@ -1,7 +1,11 @@
 import StandardSection from "@/components/sections/StandardSection";
 import Button from "@/components/ui/buttons/Button";
 import Image from "next/image";
-import iconTeraSwitch from "@/../public/img/placeholder-teraswitch.svg"
+import iconChainlink from "@/../public/img/icon-chainlink.svg";
+import iconAptos from "@/../public/img/icon-aptos.svg";
+import iconInterchain from "@/../public/img/icon-interchain.svg";
+import iconSei from "@/../public/img/icon-sei.svg";
+import iconDydx from "@/../public/img/icon-dydx.svg";
 import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup";
 import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard";
 import Heading2 from "@/components/ui/Text/Heading2";
@@ -10,7 +14,7 @@ import ServiceBox from "@/components/ui/ServiceBox";
 import LogosGrid from "@/components/ui/LogosGrid";
 import fetchLogos from "./services/logos";
 import iconIbc from "@/../public/img/icon-ibc.svg"
-import iconTestnet from "@/../public/img/icon-testnet.svg";
+import iconRocket from "@/../public/img/icon-rocket.svg";
 import iconRpc from "@/../public/img/icon-rpc.svg";
 import iconValidator from "@/../public/img/icon-validator.svg";
 import iconGlobal from "@/../public/img/icon-global.svg";
@@ -138,11 +142,11 @@ export default async function HomePage() {
           Trusted by leading Web3 companies for mission-critical operations
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 w-full mt-8 md:mt-14 gap-x-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 w-full mt-8 md:mt-14 gap-x-2 gap-y-6 max-w-[1038px]">
           {/* Column 1 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconChainlink as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
@@ -150,63 +154,55 @@ export default async function HomePage() {
           {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconAptos as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
           </div>
           {/* Column 3 */}
-          <div className="hidden mx-auto sm:block">
+          <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconInterchain as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
           </div>
           {/* Column 4 */}
-          <div className="hidden mx-auto xl:block">
+          <div className=" mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconSei as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
           </div>
           {/* Column 5 */}
-          <div className="hidden mx-auto xl:block">
+          <div className="mx-auto max-md:col-span-2">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconDydx as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 w-full mt-10 gap-x-2 xl:hidden">
-          {/* Column 1 */}
+        {/* <div className="grid grid-cols-4 w-full mt-10 gap-x-2 xl:hidden">
+          <div></div>
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconSei as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
           </div>
-          {/* Column 2 */}
           <div className="mx-auto">
             <Image
-              src={iconTeraSwitch as StaticImport}
+              src={iconDydx as StaticImport}
               alt="Placeholder"
               style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
             />
           </div>
-          {/* Column 3 */}
-          <div className="hidden mx-auto md:block">
-            <Image
-              src={iconTeraSwitch as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
-            />
-          </div>
-        </div>
+          <div></div>
+        </div> */}
 
 
       </StandardSection>
@@ -337,7 +333,7 @@ export default async function HomePage() {
             />
 
             <ServiceBox
-              icon={iconTestnet as StaticImport}
+              icon={iconRocket as StaticImport}
               name={"Testnet to Mainnet"}
               description={"Full lifecycle support from testing to production"}
             />

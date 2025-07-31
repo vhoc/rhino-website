@@ -185,26 +185,6 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* <div className="grid grid-cols-4 w-full mt-10 gap-x-2 xl:hidden">
-          <div></div>
-          <div className="mx-auto">
-            <Image
-              src={iconSei as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
-            />
-          </div>
-          <div className="mx-auto">
-            <Image
-              src={iconDydx as StaticImport}
-              alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '120px' }}
-            />
-          </div>
-          <div></div>
-        </div> */}
-
-
       </StandardSection>
 
       {/* HOVER CARDS SECTION */}
@@ -216,6 +196,7 @@ export default async function HomePage() {
             icon_hover="/img/upward-arrow-red.svg"
             title="Experience"
             subtitle="Proven track record since 2020"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
           />
@@ -226,6 +207,7 @@ export default async function HomePage() {
             icon_hover="/img/safe-red.svg"
             title="Security"
             subtitle="ISO 27001-aligned security protocols and process definition"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
           />
@@ -236,6 +218,7 @@ export default async function HomePage() {
             icon_hover="/img/speech-red.svg"
             title="Support"
             subtitle="Proven track record since 2020"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
           />
@@ -246,6 +229,7 @@ export default async function HomePage() {
             icon_hover="/img/tiles-red.svg"
             title="+50 Blockchains"
             subtitle="ISO 27001-aligned security protocols and process definition"
+            subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
           />

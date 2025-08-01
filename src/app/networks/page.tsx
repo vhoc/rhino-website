@@ -66,7 +66,10 @@ export default async function NetworksPage() {
 
         {
           logos && logos.length >= 1 ?
-            <LogosGrid items={logos} />
+            <LogosGrid
+              items={logos}
+              className="grid gap-5 grid-cols-10 lg:grid-cols-14"
+            />
             :
             null
         }

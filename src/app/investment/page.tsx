@@ -15,6 +15,8 @@ import iconSilo from "@/../public/img/icon-silo.svg";
 import iconPlaza from "@/../public/img/icon-plaza.svg";
 import PreFooter from "@/components/sections/PreFooter";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import gifInvestmentAnimated from "@/../public/video/investmentcard-animated-bg-noloop.gif";
+import posterInvestmentCard from "@/../public/video/investmentcard-poster.png"
 
 export default function InvestmentPage() {
   return (
@@ -120,6 +122,8 @@ export default function InvestmentPage() {
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgVideo={"/video/investment.webm"}
+            bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
+            bgImage={posterInvestmentCard as StaticImport}// For iOS devices
           />
 
           <HoverCard
@@ -136,6 +140,8 @@ export default function InvestmentPage() {
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgVideo={"/video/investment.webm"}
+            bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
+            bgImage={posterInvestmentCard as StaticImport}// For iOS devices
           />
         </HoverCardsGroup>
       </StandardSection>
@@ -163,6 +169,8 @@ export default function InvestmentPage() {
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgVideo={"/video/investment.webm"}
+            bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
+            bgImage={posterInvestmentCard as StaticImport}// For iOS devices
           />
 
           <HoverCard
@@ -179,6 +187,8 @@ export default function InvestmentPage() {
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgVideo={"/video/investment.webm"}
+            bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
+            bgImage={posterInvestmentCard as StaticImport}// For iOS devices
           />
 
           <HoverCard
@@ -195,6 +205,8 @@ export default function InvestmentPage() {
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
             bgVideo={"/video/investment.webm"}
+            bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
+            bgImage={posterInvestmentCard as StaticImport}// For iOS devices
           />
         </HoverCardsGroup>
       </StandardSection>

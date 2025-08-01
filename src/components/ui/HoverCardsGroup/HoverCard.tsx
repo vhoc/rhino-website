@@ -1,7 +1,11 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import useIsIphone from "@/hooks/useIsIphone";
 import Image from "next/image";
 import clsx from "clsx";
+import gifBg from "@/../public/video/hovercard-animated-bg-noloop.gif"
+import imgHoverCardPoster from "@/../public/video/hovercard-home-poster.png";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface HoverCardProps {
   defaultItemBgClass?: string;
@@ -22,6 +26,8 @@ interface HoverCardProps {
   bodyHoverClassName?: string;
   bgVideo?: string;
   bgVideoPoster?: string;
+  bgGif?: string | StaticImport;// For iOS only
+  bgImage?: string | StaticImport;// For iOS only
 }
 
 export default function HoverCard({
@@ -42,9 +48,12 @@ export default function HoverCard({
   body,
   bodyHoverClassName = "pointer-events-auto h-[120px] opacity-100",
   bgVideo = "/video/home.webm",
-  bgVideoPoster = "/video/hovercard-home-poster.png"
+  bgVideoPoster = "/video/hovercard-home-poster.png",
+  bgGif = gifBg,
+  bgImage = imgHoverCardPoster
 }: HoverCardProps) {
 
+  const isIphone = useIsIphone();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = useState<React.Key | null>(null);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
@@ -63,6 +72,7 @@ export default function HoverCard({
 
   // Control the video playback based on hover state
   useEffect(() => {
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -101,6 +111,7 @@ export default function HoverCard({
             y: e.changedTouches[0].clientY,
           };
           if (isTap(touchStart, end)) {
+
             setHovered(hovered === key ? null : key);
           }
         }
@@ -190,16 +201,34 @@ export default function HoverCard({
         className="relative flex h-full w-full items-center justify-center overflow-hidden"
         style={{ borderRadius: itemRadius }}
       >
-        <video
-          ref={videoRef}
-          className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
-          poster={bgVideoPoster}
-          src={bgVideo}
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        />
+        {
+          isIphone ?// iOS devices
+            hovered === key ?
+              <Image
+                src={bgGif as StaticImport}
+                alt="Background Animation"
+                className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+              />
+              :
+              <Image
+                src={bgImage as StaticImport}
+                alt="Background"
+                className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+              />
+            :
+            <video
+              ref={videoRef}
+              className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+              poster={bgVideoPoster}
+              src={bgVideo}
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            />
+        }
+
       </div>
     </div>
   );

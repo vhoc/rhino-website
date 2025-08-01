@@ -1,5 +1,10 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { type StaticImport } from "next/dist/shared/lib/get-img-props";
+import useIsIphone from "@/hooks/useIsIphone";
+import Image from "next/image";
+import gifBg from "@/../public/video/resourcecard-animated-bg-noloop.gif";
+import imgResourcesCardPoster from "@/../public/video/hovercard-resources-poster.png"
 
 interface ResourceCardProps {
   defaultItemBgClass?: string;
@@ -14,6 +19,8 @@ interface ResourceCardProps {
   bodyHoverClassName?: string;
   bgVideo?: string;
   bgVideoPoster?: string;
+  bgGif?: string | StaticImport;// For iOS only
+  bgImage?: string | StaticImport;// For iOS only
 }
 
 export default function ResourceCard({
@@ -28,9 +35,12 @@ export default function ResourceCard({
   body,
   bodyHoverClassName = "pointer-events-auto h-[80px] opacity-100",
   bgVideo = "/video/resources.webm",
-  bgVideoPoster = "/video/hovercard-resources-poster.png"
+  bgVideoPoster = "/video/hovercard-resources-poster.png",
+  bgGif = gifBg,
+  bgImage = imgResourcesCardPoster
 }: ResourceCardProps) {
 
+  const isIphone = useIsIphone();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = useState<React.Key | null>(null);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
@@ -140,16 +150,33 @@ export default function ResourceCard({
         className="relative flex h-full w-full items-center justify-center overflow-hidden"
         style={{ borderRadius: itemRadius }}
       >
-        <video
-          ref={videoRef}
-          className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
-          poster={bgVideoPoster}
-          src={bgVideo}
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        />
+        {
+          isIphone ?// iOS devices
+            hovered === key ?
+              <Image
+                src={bgGif as StaticImport}
+                alt="Background Animation"
+                className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+              />
+              :
+              <Image
+                src={bgImage as StaticImport}
+                alt="Background"
+                className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+              />
+            :
+            <video
+              ref={videoRef}
+              className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+              poster={bgVideoPoster}
+              src={bgVideo}
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            />
+        }
+
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ interface HoverCardProps {
   body?: string;
   bodyHoverClassName?: string;
   bgVideo?: string;
+  bgVideoPoster?: string;
 }
 
 export default function HoverCard({
@@ -41,6 +42,7 @@ export default function HoverCard({
   body,
   bodyHoverClassName = "pointer-events-auto h-[120px] opacity-100",
   bgVideo = "/video/home.webm",
+  bgVideoPoster = "/video/hovercard-home-poster.png"
 }: HoverCardProps) {
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -191,6 +193,7 @@ export default function HoverCard({
         <video
           ref={videoRef}
           className="relative z-0 h-full w-full object-cover object-center pointer-events-none"
+          poster={bgVideoPoster}
           src={bgVideo}
           muted
           preload="auto"

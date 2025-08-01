@@ -21,7 +21,6 @@ import iconGlobal from "@/../public/img/icon-global.svg";
 import ChainlinkCard from "@/components/ui/ChainlinkCard/ChainlinkCard";
 import PreFooter from "@/components/sections/PreFooter";
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
-import Hero01Lottie from "@/components/ui/Hero01Lottie";
 
 export default async function HomePage() {
 
@@ -42,9 +41,9 @@ export default async function HomePage() {
       >
 
         {/* VIDEO BACKGROUND (TABLET & DESKTOP ONLY) */}
-        <Hero01Lottie />
-        {/* <video
+        <video
           className="hidden md:block absolute top-0 left-0 w-full h-full object-cover 2xl:object-contain object-top pointer-events-none z-0"
+          poster="/video/hero01-poster.png"
           src="/video/hero01.webm"
           autoPlay
           loop
@@ -52,7 +51,7 @@ export default async function HomePage() {
           playsInline
           preload="auto"
           aria-hidden="true"
-        /> */}
+        />
 
         <div
           className={`relative z-10 

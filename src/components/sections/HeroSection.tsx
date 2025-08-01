@@ -4,6 +4,7 @@ interface HeroSectionProps {
   caption?: string
   heading?: string
   bgVideo?: string
+  bgVideoPoster?: string
   excertp?: string
   excertpClassName?: string
   className?: string
@@ -13,6 +14,7 @@ export default function HeroSection({
   caption,
   heading,
   bgVideo,
+  bgVideoPoster = "/video/hero02-poster.png",
   excertp,
   excertpClassName,
   className,
@@ -31,6 +33,7 @@ export default function HeroSection({
       <video
         className="hidden md:block absolute top-0 left-0 w-full h-full object-cover 2xl:object-contain object-top pointer-events-none z-0 "
         src={bgVideo}
+        poster={bgVideoPoster}
         autoPlay
         loop
         muted

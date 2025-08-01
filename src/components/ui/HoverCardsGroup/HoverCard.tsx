@@ -196,6 +196,7 @@ export default function HoverCard({
           poster={bgVideoPoster}
           src={bgVideo}
           muted
+          playsInline
           preload="auto"
           aria-hidden="true"
         />

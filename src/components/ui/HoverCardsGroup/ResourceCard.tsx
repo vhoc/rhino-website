@@ -146,6 +146,7 @@ export default function ResourceCard({
           poster={bgVideoPoster}
           src={bgVideo}
           muted
+          playsInline
           preload="auto"
           aria-hidden="true"
         />

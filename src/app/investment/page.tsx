@@ -211,6 +211,7 @@ export default function InvestmentPage() {
         </HoverCardsGroup>
       </StandardSection>
 
+      {/* PORFOLIO SUCCESS STORIES */}
       <StandardSection
         contentClassName="max-w-[822px]"
         innerClassName="!py-[72px] !lg:pb-[96px] !lg:pt-[96px] !xl:pb-[129px] !xl:pt-[140px]"
@@ -229,7 +230,9 @@ export default function InvestmentPage() {
             <Image
               src={iconOptfun as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
+              width={171}
+              height={44}
+            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 2 */}
@@ -237,7 +240,9 @@ export default function InvestmentPage() {
             <Image
               src={iconMevvy as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
+              width={151}
+              height={38}
+            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 3 */}
@@ -245,7 +250,9 @@ export default function InvestmentPage() {
             <Image
               src={iconSilo as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
+              width={58}
+              height={48}
+            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 4 */}
@@ -253,7 +260,9 @@ export default function InvestmentPage() {
             <Image
               src={iconPlaza as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
+              width={139}
+              height={46}
+            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
         </div>

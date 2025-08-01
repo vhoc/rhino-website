@@ -69,6 +69,7 @@ export default async function NetworksPage() {
             <LogosGrid
               items={logos}
               className="grid gap-5 grid-cols-10 lg:grid-cols-14"
+              lastRowClassName="col-span-full grid gap-6 sm:gap-12 md:gap-14 lg:gap-14"
             />
             :
             null

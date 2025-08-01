@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 interface LogosGridProps {
   className?: string
+  lastRowClassName?: string
   iconSizes?: string
   items: string[]
 }
@@ -11,7 +12,8 @@ interface LogosGridProps {
 const LogosGrid = ({
   items,
   className = "grid gap-3 grid-cols-10 lg:grid-cols-14",
-  iconSizes = "w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+  iconSizes = "w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6",
+  lastRowClassName = "col-span-full grid gap-3"
 }: LogosGridProps) => {
   const containerRef = useRef(null);
   const [columns, setColumns] = useState(1);
@@ -71,7 +73,10 @@ const LogosGrid = ({
 
       {remainder > 0 && (
         <div
-          className="col-span-full grid gap-3"
+          className={clsx(
+            "col-span-full grid gap-3",
+            lastRowClassName
+          )}
           style={{
             gridTemplateColumns: `repeat(${remainder}, minmax(0, 1fr))`,
           }}

@@ -58,7 +58,7 @@ export default function ResourceCard({
       void video.pause()
       video.currentTime = 0; // Reset video to start
     }
-  }, [hovered])
+  }, [hovered, key])
 
   return (
     <div

@@ -6,7 +6,8 @@ export default function useIsIphone(): boolean {
 
   useEffect(() => {
     if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
-    const ua = navigator.userAgent || navigator.vendor || (window as any).opera || "";
+    const win = window as Window & { opera?: string };
+    const ua: string = navigator.userAgent ?? navigator.vendor ?? win.opera ?? "";
     if (/iPhone/i.test(ua)) {
       setIsIphone(true);
       return;

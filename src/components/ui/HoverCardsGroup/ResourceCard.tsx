@@ -5,6 +5,7 @@ import useIsIphone from "@/hooks/useIsIphone";
 import Image from "next/image";
 import gifBg from "@/../public/video/resourcecard-animated-bg-noloop.gif";
 import imgResourcesCardPoster from "@/../public/video/hovercard-resources-poster.png"
+import Link from "next/link";
 
 interface ResourceCardProps {
   defaultItemBgClass?: string;
@@ -21,6 +22,7 @@ interface ResourceCardProps {
   bgVideoPoster?: string;
   bgGif?: string | StaticImport;// For iOS only
   bgImage?: string | StaticImport;// For iOS only
+  cta_url?: string;
 }
 
 export default function ResourceCard({
@@ -37,7 +39,8 @@ export default function ResourceCard({
   bgVideo = "/video/resources.webm",
   bgVideoPoster = "/video/hovercard-resources-poster.png",
   bgGif = gifBg,
-  bgImage = imgResourcesCardPoster
+  bgImage = imgResourcesCardPoster,
+  cta_url,
 }: ResourceCardProps) {
 
   const isIphone = useIsIphone();
@@ -115,7 +118,7 @@ export default function ResourceCard({
             className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end `}
           >
             <p
-              className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white`}
+              className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-[28px] text-nowrap text-white transition-none`}
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 1,
@@ -131,7 +134,7 @@ export default function ResourceCard({
               typeof body === "string" ?
                 <p
                   className={`
-                overflow-hidden text-white transition-all duration-300 
+                overflow-hidden text-white transition-all duration-300 text-lg 
                 ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
               `}
                 >
@@ -140,6 +143,25 @@ export default function ResourceCard({
                 :
                 body
             }
+
+            {/* CTA */}
+            <div
+              className={`
+            w-2/3 flex justify-between items-center gap-1 border-b border-solid border-white h-10 mt-6
+            transition-all duration-500 ease-in-out group/link1 px-1.5 
+            active:bg-[#DF1A30] active:rounded-t-sm 
+            ${hovered === key ? 'opacity-100 h-10' : 'opacity-0 h-0'}
+          `}
+            >
+              <Link href={cta_url ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" target="_blank">
+                Read more
+              </Link>
+              <p
+                className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link1:translate-x-[-4px]"}
+              >
+                &#43;
+              </p>
+            </div>
 
 
           </div>

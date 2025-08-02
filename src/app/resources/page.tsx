@@ -47,12 +47,13 @@ export default async function ResourcesPage() {
               resources.map((resource, index) => (
                 <ResourceCard
                   key={`resource-${index}-${resource.slug}`}
-                  itemHeight={'h-1/6 sm:h-3/10 md:h-2/10'}
-                  itemHeightHover={'h-2/6 sm:h-1/2 md:h-1/4'}
+                  itemHeight={'h-2/6 sm:h-3/10 md:h-2/10'}
+                  itemHeightHover={'h-5/6 sm:h-2/3 md:h-2/4'}
                   title={resource.name}
                   defaultItemBgClass="bg-coolgray-800 group"
                   body={resource.description}
-                  bodyHoverClassName="pointer-events-auto h-[140px] opacity-100"
+                  bodyHoverClassName="pointer-events-auto h-[240px] sm:h-[100px] lg:h-[200px] xl:h-[140px] 2xl:h-[120px] opacity-100 delay-150"
+                  cta_url={resource.url}
                 />
               ))
               :

@@ -21,6 +21,7 @@ import iconGlobal from "@/../public/img/icon-global.svg";
 import ChainlinkCard from "@/components/ui/ChainlinkCard/ChainlinkCard";
 import PreFooter from "@/components/sections/PreFooter";
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
+import ResponsiveGrid from "@/components/ui/ResponsiveGrid/ResponsiveGrid";
 
 export default async function HomePage() {
 
@@ -264,11 +265,37 @@ export default async function HomePage() {
             </p>
             {
               logos && logos.length >= 1 ?
-                <LogosGrid
-                  items={logos}
-                  className="grid gap-5 grid-cols-10 lg:grid-cols-8 xl:grid-cols-8"
-                  iconSizes="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8"
-                />
+                <ResponsiveGrid
+                  defaultCols={8}
+                  className="mx-auto lg:ml-0 lg:mr-auto"
+                  gridClassName="grid gap-4 grid-cols-8 sm:grid-cols-8 md:grid-cols-8 lg:grid-cols-8 md:gap-x-8 lg:gap-x-10"
+                >
+                  {
+                    logos.map((logo, index) => (
+                      <div
+                        key={index}
+                        className={"object-contain w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8"}
+                        style={{
+                          maskImage: `url('${logo}')`,
+                          WebkitMaskImage: `url('${logo}')`, // for Safari
+                          maskRepeat: 'no-repeat',
+                          WebkitMaskRepeat: 'no-repeat',
+                          maskSize: 'contain',
+                          WebkitMaskSize: 'contain',
+                          maskPosition: 'center',
+                          WebkitMaskPosition: 'center',
+                          backgroundColor: '#466883',
+                          display: 'inline-block'
+                        }}
+                      />
+                    ))
+                  }
+                </ResponsiveGrid>
+                // <LogosGrid
+                //   items={logos}
+                //   className="grid gap-5 grid-cols-10 lg:grid-cols-8 xl:grid-cols-8"
+                //   iconSizes="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8"
+                // />
                 :
                 null
             }

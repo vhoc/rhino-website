@@ -14,10 +14,10 @@ import fetchLogos from "../services/logos"
 import { type INetworksResponse } from "@/util/types"
 import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid"
 import PreFooter from "@/components/sections/PreFooter"
-import LogosGrid from "@/components/ui/LogosGrid"
 import { type StaticImport } from "next/dist/shared/lib/get-img-props"
 import gifBg from "@/../public/video/hovercard-networks-bg-noloop.gif"
 import poster from "@/../public/video/hovercard-networks-bg-poster.png"
+import ResponsiveGrid from "@/components/ui/ResponsiveGrid/ResponsiveGrid"
 
 export default async function NetworksPage() {
 
@@ -68,11 +68,35 @@ export default async function NetworksPage() {
 
         {
           logos && logos.length >= 1 ?
-            <LogosGrid
-              items={logos}
-              className="grid gap-5 grid-cols-10 lg:grid-cols-14"
-              lastRowClassName="col-span-full grid gap-6 sm:gap-12 md:gap-14 lg:gap-14"
-            />
+            <ResponsiveGrid
+              defaultCols={8}
+            >
+              {
+                logos.map((logo, index) => (
+                  <div
+                    key={index}
+                    className={"object-contain w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"}
+                    style={{
+                      maskImage: `url('${logo}')`,
+                      WebkitMaskImage: `url('${logo}')`, // for Safari
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskSize: 'contain',
+                      WebkitMaskSize: 'contain',
+                      maskPosition: 'center',
+                      WebkitMaskPosition: 'center',
+                      backgroundColor: '#466883',
+                      display: 'inline-block'
+                    }}
+                  />
+                ))
+              }
+            </ResponsiveGrid>
+            // <LogosGrid
+            //   items={logos}
+            //   className="grid gap-5 grid-cols-10 lg:grid-cols-14"
+            //   lastRowClassName="col-span-full grid gap-6 sm:gap-12 md:gap-14 lg:gap-14"
+            // />
             :
             null
         }

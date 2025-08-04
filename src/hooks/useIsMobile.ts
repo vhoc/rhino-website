@@ -13,7 +13,7 @@ export default function useIsMobile(): boolean {
         typeof window !== "undefined" &&
         ("ontouchstart" in window ||
           navigator.maxTouchPoints > 0 ||
-          // @ts-ignore
+          // @ts-expect-error: msMaxTouchPoints is not standard but used by IE
           navigator.msMaxTouchPoints > 0);
 
       // Check user agent for mobile devices

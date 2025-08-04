@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
+import useIsMobile from "@/hooks/useIsMobile";
 
 interface BlockchainBoxProps extends Omit<INetwork, "id" | "slug" | "active"> {
   className?: string
@@ -13,7 +14,9 @@ export default function BlockchainBox({
   logo, name, blockchainurl, stakeurl, className
 }: BlockchainBoxProps) {
 
+  const isMobile = useIsMobile();// We don't want to toggle the hover state with hover action on mobile devices
   const [hovered, setHovered] = useState(false)
+  const [showButtons, setShowButtons] = useState(false)
   const [touchStart, setTouchStart] = useState<{ x: number; y: number; } | null>(null)
 
   // Helper to determine if touch is a tap or a swipe
@@ -36,8 +39,18 @@ export default function BlockchainBox({
           group 
           ${className ?? ""}
       `}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => {
+        if (!isMobile) {
+          setHovered(true);
+          setShowButtons(true);
+        }
+      }}
+      onMouseLeave={() => {
+        if (!isMobile) {
+          setHovered(false);
+          setShowButtons(false);
+        }
+      }}
       onTouchStart={(e) => {
         if (e.touches.length === 1 && e.touches[0]) {
           setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
@@ -49,12 +62,24 @@ export default function BlockchainBox({
           e.changedTouches.length === 1 &&
           e.changedTouches[0]
         ) {
+          // If the tap is on a link or button, do not toggle hovered state
+          const target = e.target as HTMLElement;
+          if (target.closest('a,button')) {
+            setTouchStart(null);
+            return;
+          }
           const end = {
             x: e.changedTouches[0].clientX,
             y: e.changedTouches[0].clientY,
           };
           if (isTap(touchStart, end)) {
-            setHovered(hovered ? false : true);
+            if (!hovered) {
+              setHovered(true);
+              setTimeout(() => setShowButtons(true), 120);
+            } else {
+              setHovered(false);
+              setShowButtons(false);
+            }
           }
         }
         setTouchStart(null);
@@ -80,52 +105,54 @@ export default function BlockchainBox({
       </div>
 
       {/* BUTTONS */}
-      <div
-        className={clsx(
-          "absolute top-0 flex flex-col gap-2 items-center justify-center w-full h-full transition-all duration-500 ease-in-out py-8 px-6",
-          hovered ? 'opacity-100' : 'opacity-0'
-        )}
-      // className={`
-      //    flex-col gap-2 items-end w-full transition-all duration-300 ease-in-out delay-700 
-      //   ${hovered ? 'flex' : 'hidden'} 
-      // `}
-      >
-        <div
-          className={`
-            w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
-            transition-all duration-500 ease-in-out group/link1 px-1.5
-            active:bg-[#DF1A30] active:rounded-t-sm 
-            ${hovered ? 'opacity-100' : 'opacity-0'}
-          `}
-        >
-          <Link href={blockchainurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" target="_blank">
-            {name}
-          </Link>
-          <p
-            className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link1:translate-x-[-4px]"}
+      {
+        showButtons ?
+          <div
+            className={clsx(
+              "absolute top-0 flex flex-col gap-2 items-center justify-center w-full h-full transition-all duration-500 ease-in-out py-8 px-6 z-0",
+              hovered ? 'opacity-100' : 'opacity-0'
+            )}
           >
-            &#43;
-          </p>
-        </div>
+            <div
+              className={`
+                w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
+                transition-all duration-500 ease-in-out group/link1 px-1.5
+                active:bg-[#DF1A30] active:rounded-t-sm 
+                ${hovered ? 'opacity-100 z-10' : 'opacity-0 z-0'}
+              `}
+            >
+              <Link href={blockchainurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" target="_blank">
+                {name}
+              </Link>
+              <p
+                className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link1:translate-x-[-4px]"}
+              >
+                &#43;
+              </p>
+            </div>
 
-        <div
-          className={`
+            <div
+              className={`
             w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
             transition-all duration-500 ease-in-out group/link2 px-1.5
             active:bg-[#DF1A30] active:rounded-t-sm 
             ${hovered ? 'opacity-100' : 'opacity-0'}
           `}
-        >
-          <Link href={stakeurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link2:translate-x-[4px]" target="_blank">
-            Stake Now
-          </Link>
-          <p
-            className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link2:translate-x-[-4px]"}
-          >
-            &#43;
-          </p>
-        </div>
-      </div>
+            >
+              <Link href={stakeurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link2:translate-x-[4px]" target="_blank">
+                Stake Now
+              </Link>
+              <p
+                className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link2:translate-x-[-4px]"}
+              >
+                &#43;
+              </p>
+            </div>
+          </div>
+          :
+          null
+      }
+
 
     </div>
   )

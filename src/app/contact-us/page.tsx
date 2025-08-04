@@ -49,6 +49,9 @@ export default function ContactUsPage() {
             bg-white shadow-xl w-full p-4 
             lg:row-span-3 lg:col-start-2 lg:row-start-1 
           `}
+          style={{
+            boxShadow: "0 0px 10px 4px rgba(0, 0, 0, 0.1)"
+          }}
         >
 
           <ContactForm />

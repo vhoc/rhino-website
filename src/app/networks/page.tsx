@@ -16,6 +16,8 @@ import BlockchainsGrid from "@/components/ui/BlockchainsGrid/BlockchainGrid"
 import PreFooter from "@/components/sections/PreFooter"
 import LogosGrid from "@/components/ui/LogosGrid"
 import { type StaticImport } from "next/dist/shared/lib/get-img-props"
+import gifBg from "@/../public/video/hovercard-networks-bg-noloop.gif"
+import poster from "@/../public/video/hovercard-networks-bg-poster.png"
 
 export default async function NetworksPage() {
 
@@ -108,6 +110,9 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bgVideo="/video/hovercard-networks-bg.mp4"
+            bgImage={poster as StaticImport}
+            bgGif={gifBg as StaticImport}
           />
 
           <HoverCard
@@ -119,6 +124,9 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bgVideo="/video/hovercard-networks-bg.mp4"
+            bgImage={poster as StaticImport}
+            bgGif={gifBg as StaticImport}
           />
 
           <HoverCard
@@ -130,6 +138,9 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bgVideo="/video/hovercard-networks-bg.mp4"
+            bgImage={poster as StaticImport}
+            bgGif={gifBg as StaticImport}
           />
 
           <HoverCard
@@ -141,6 +152,9 @@ export default async function NetworksPage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bgVideo="/video/hovercard-networks-bg.mp4"
+            bgImage={poster as StaticImport}
+            bgGif={gifBg as StaticImport}
           />
         </HoverCardsGroup>
       </StandardSection>

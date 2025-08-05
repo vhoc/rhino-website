@@ -11,7 +11,6 @@ import HoverCard from "@/components/ui/HoverCardsGroup/HoverCard";
 import Heading2 from "@/components/ui/Text/Heading2";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import ServiceBox from "@/components/ui/ServiceBox";
-import LogosGrid from "@/components/ui/LogosGrid";
 import fetchLogos from "./services/logos";
 import iconIbc from "@/../public/img/icon-ibc.svg"
 import iconRocket from "@/../public/img/icon-rocket.svg";

@@ -189,7 +189,7 @@ export default async function HomePage() {
       </StandardSection>
 
       {/* HOVER CARDS SECTION */}
-      <section className="px-6 sm:px-14 lg:px-0 py-10 md:py-12 lg:py-[60px]">
+      <section className="px-6 sm:px-14 lg:px-0 py-10 md:py-12 lg:py-[60px] w-full">
         <HoverCardsGroup>
           <HoverCard
             key={0}

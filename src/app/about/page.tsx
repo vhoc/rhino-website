@@ -16,6 +16,7 @@ import HoverCardsGroup from "@/components/ui/HoverCardsGroup/HoverCardsGroup"
 import TeamMemberCard from "@/components/ui/HoverCardsGroup/TeamMemberCard"
 import PreFooter from "@/components/sections/PreFooter"
 import type { StaticImport } from "next/dist/shared/lib/get-img-props"
+import TeamMemberCardsGroup from "@/components/ui/HoverCardsGroup/TeamMemberCardsGroup"
 
 export default function AboutPage() {
   return (
@@ -196,34 +197,8 @@ export default function AboutPage() {
           background: 'linear-gradient(to bottom, white 0%, white 50%, #011219 50%, #011219 100%)'
         }}
       >
-        <HoverCardsGroup height="h-[600px]! sm:h-[500px]! max-w-[915px]!">
-          <TeamMemberCard
-            key={0}
-            itemWidth={'lg:w-1/2'}
-            itemWidthHover={'lg:w-1/1'}
-            itemHeight={'max-lg:h-1/2'}
-            itemHeightHover={'max-lg:h-1/1'}
-            title="Jeff."
-            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/eric-transparent.png"}
-            bgImageHoverClass="scale-100 opacity-100"
-            bgImageRestClass="scale-100 opacity-100"
+        <TeamMemberCardsGroup height="h-[600px]! sm:h-[500px]! max-w-[915px]!" />
 
-          />
-
-          <TeamMemberCard
-            key={1}
-            itemWidth={'lg:w-1/2'}
-            itemWidthHover={'lg:w-1/1'}
-            itemHeight={'max-lg:h-1/2'}
-            itemHeightHover={'max-lg:h-1/1'}
-            title="Eric B."
-            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
-            bgImage={"/img/eric-transparent.png"}
-            bgImageHoverClass="scale-100 opacity-100"
-            bgImageRestClass="scale-100 opacity-100"
-          />
-        </HoverCardsGroup>
       </StandardSection>
 
       <StandardSection

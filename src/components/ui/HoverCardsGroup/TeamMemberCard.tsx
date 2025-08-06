@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 interface TeamMemberCardProps {
   defaultItemBgClass?: string;
@@ -9,13 +10,19 @@ interface TeamMemberCardProps {
   itemWidthHover?: string;
   itemHeight?: string;
   itemHeightHover?: string;
-  key: React.Key;
+  cardKey: React.Key;
   title?: string;
+  caption?: string;
   body?: string | React.ReactNode;
   bodyHoverClassName?: string;
   bgImage?: string;
   bgImageHoverClass?: string
   bgImageRestClass?: string
+  hovered: React.Key | null;
+  setHovered: React.Dispatch<React.SetStateAction<React.Key | null>>;
+  touchStart: { x: number; y: number } | null;
+  setTouchStart: React.Dispatch<React.SetStateAction<{ x: number; y: number } | null>>;
+  isTap: (start: { x: number; y: number }, end: { x: number; y: number }) => boolean;
 }
 
 export default function TeamMemberCard({
@@ -25,39 +32,30 @@ export default function TeamMemberCard({
   itemWidthHover = "lg:w-1/2",
   itemHeight = "max-lg:h-1/4",
   itemHeightHover = "max-lg:h-1/2",
-  key,
+  cardKey,
   title,
+  caption,
   body,
   bodyHoverClassName = "pointer-events-auto h-[80px] opacity-100",
   bgImage = "/img/item-hover-bg.svg",
   bgImageHoverClass = "scale-280 opacity-100",
-  bgImageRestClass = "scale-[20] opacity-0"
+  bgImageRestClass = "scale-[20] opacity-0",
+  hovered,
+  setHovered,
+  touchStart,
+  setTouchStart,
+  isTap
 }: TeamMemberCardProps) {
-  const [hovered, setHovered] = useState<React.Key | null>(null);
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
-    null,
-  );
-
-  // Helper to determine if touch is a tap or a swipe
-  const isTap = (
-    start: { x: number; y: number },
-    end: { x: number; y: number },
-  ) => {
-    const dx = Math.abs(start.x - end.x);
-    const dy = Math.abs(start.y - end.y);
-    return dx < 10 && dy < 10; // 10px threshold
-  };
 
   return (
     <div
-      key={key}
       className={`
         relative min-h-[50px] w-full transition-all duration-300 ease-in-out lg:h-[450px] lg:max-h-[450px] rounded-md
-        ${hovered === key ? itemHeightHover : itemHeight} 
-        ${hovered === key ? itemWidthHover : itemWidth} 
+        ${hovered === cardKey ? itemHeightHover : itemHeight} 
+        ${hovered === cardKey ? itemWidthHover : itemWidth} 
         ${defaultItemBgClass}
       `}
-      onMouseEnter={() => setHovered(key)}
+      onMouseEnter={() => setHovered(cardKey)}
       onMouseLeave={() => setHovered(null)}
       onTouchStart={(e) => {
         if (e.touches.length === 1 && e.touches[0]) {
@@ -75,7 +73,7 @@ export default function TeamMemberCard({
             y: e.changedTouches[0].clientY,
           };
           if (isTap(touchStart, end)) {
-            setHovered(hovered === key ? null : key);
+            setHovered(hovered === cardKey ? null : cardKey);
           }
         }
         setTouchStart(null);
@@ -93,7 +91,7 @@ export default function TeamMemberCard({
             className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end `}
           >
             <p
-              className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white`}
+              className={`font-calsans line-clamp-1 min-h-[38px] overflow-hidden text-3xl text-nowrap text-white`}
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 1,
@@ -105,12 +103,16 @@ export default function TeamMemberCard({
               {title}
             </p>
 
+            <p className="font-calsans text-xl text-white mt-1">
+              {caption}
+            </p>
+
             {
               typeof body === "string" ?
                 <p
-                  className={`
+                  className={` mt-3.5
                 overflow-hidden text-white transition-all duration-300 
-                ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
+                ${hovered === cardKey ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
               `}
                 >
                   {body}
@@ -132,11 +134,22 @@ export default function TeamMemberCard({
           src={bgImage}
           width={454}
           height={408}
-          className={`
-            object-center transition-all duration-700 ease-in-out object-cover 
-            min-w-[454px] min-h-[408px]
-            ${hovered === key ? bgImageHoverClass : bgImageRestClass} 
-          `}
+          className={clsx(
+            "object-center transition-all duration-700 ease-in-out object-cover",
+            "min-w-[454px] min-h-[408px]",
+            hovered === cardKey ? bgImageHoverClass : bgImageRestClass,
+            // hovered !== null && hovered !== cardKey ? "translate-x-[-15%]" : "translate-x-0"
+            hovered !== null ?
+              hovered !== cardKey ?
+                hovered === 0 ?
+                  "translate-x-[20%]"
+                  :
+                  "translate-x-[-20%]"
+                :
+                "translate-x-0"
+              :
+              "translate-x-0"
+          )}
           alt=""
         />
       </div>

@@ -1,6 +1,7 @@
 import StandardSection from "@/components/sections/StandardSection";
 import ContactForm from "@/components/ui/ContactForm/ContactForm";
 import clsx from "clsx";
+import Button from "@/components/ui/buttons/Button";
 
 export default function ContactUsPage() {
   return (
@@ -67,17 +68,32 @@ export default function ContactUsPage() {
           <div className="grid grid-cols-[auto_1fr] grid-rows-5 gap-y-3 gap-x-6 mt-8">
 
             <p className="font-medium text-sm text-coolgray-500">General Inquiries:</p>
-            <p className="font-medium text-sm text-coolgray-500">info@rhinostake.com</p>
+            <p className="font-medium text-sm text-brightred-500"><a href="mailto:info@rhinostake.com" >info@rhinostake.com</a></p>
             <p className="font-medium text-sm text-coolgray-500">Enterprise Sales:</p>
-            <p className="font-medium text-sm text-coolgray-500">[sales-email]</p>
+            <p className="font-medium text-sm text-brightred-500"><a href="mailto:sales@rhinostake.com" >sales@rhinostake.com</a></p>
             <p className="font-medium text-sm text-coolgray-500">Tech Support:</p>
-            <p className="font-medium text-sm text-coolgray-500">[support-email]</p>
+            <p className="font-medium text-sm text-brightred-500"><a href="mailto:support@rhinostake.com" >support@rhinostake.com</a></p>
             <p className="font-medium text-sm text-coolgray-500">Business Hours:</p>
             <p className="font-medium text-sm text-coolgray-500">Available 24/7 for enterprise clients</p>
             <p className="font-medium text-sm text-coolgray-500">Response and commitment:</p>
             <p className="font-medium text-sm text-coolgray-500">All inquiries receive a response within 24 hours</p>
 
           </div>
+
+          <p className="font-calsans text-xl text-coolgray-900 mt-8">Schedule a Consultation</p>
+
+          <p className="font-medium text-lg text-coolgray-500 mt-4">
+            Discuss your specific infrastructure needs with our team. We'll design a solution that meets your technical requirements and business objectives.
+          </p>
+
+          <Button
+            type="link"
+            variant="outline"
+            href="https://calendly.com/rhino-eric/30min"
+            target="_blank"
+            label="Schedule 30 minutes with us"
+            className="mt-4 w-fit"
+          />
         </div>
 
       </StandardSection>

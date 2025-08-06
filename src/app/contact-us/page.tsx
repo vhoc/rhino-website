@@ -83,7 +83,7 @@ export default function ContactUsPage() {
           <p className="font-calsans text-xl text-coolgray-900 mt-8">Schedule a Consultation</p>
 
           <p className="font-medium text-lg text-coolgray-500 mt-4">
-            Discuss your specific infrastructure needs with our team. We'll design a solution that meets your technical requirements and business objectives.
+            {"Discuss your specific infrastructure needs with our team. We'll design a solution that meets your technical requirements and business objectives."}
           </p>
 
           <Button

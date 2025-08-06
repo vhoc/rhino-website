@@ -127,24 +127,24 @@ export default function TeamMemberCard({
       </div>
 
       <div
-        className="absolute inset-0 flex-shrink-0 flex items-center justify-center overflow-hidden"
+        className="absolute inset-0 flex-shrink-0 flex items-center justify-center overflow-hidden "
         style={{ borderRadius: itemRadius }}
       >
         <Image
           src={bgImage}
-          width={454}
-          height={408}
+          width={745}
+          height={550}
           className={clsx(
-            "object-center transition-all duration-700 ease-in-out object-cover",
-            "min-w-[454px] min-h-[408px]",
+            "transition-all duration-700 ease-in-out object-cover ",
+            "min-w-[745px] min-h-[550px]",
             hovered === cardKey ? bgImageHoverClass : bgImageRestClass,
             // hovered !== null && hovered !== cardKey ? "translate-x-[-15%]" : "translate-x-0"
             hovered !== null ?
               hovered !== cardKey ?
                 hovered === 0 ?
-                  "translate-x-[20%]"
+                  "translate-x-[10%]"
                   :
-                  "translate-x-[-20%]"
+                  "translate-x-[-10%]"
                 :
                 "translate-x-0"
               :

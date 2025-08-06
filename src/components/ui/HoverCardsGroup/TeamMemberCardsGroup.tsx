@@ -45,8 +45,8 @@ export default function TeamMemberCardsGroup({
         body="Serial entrepreneur with 30+ years enterprise infrastructure expertise. Leads RHINO’s technology vision, strategic partnerships, and investment initiatives while architecting ISO 27001-aligned global blockchain infrastructure serving institutional clients."
         bodyHoverClassName={"pointer-events-auto h-[130px] opacity-100"}
         bgImage={"/img/profile-eric.png"}
-        bgImageHoverClass="scale-100 opacity-100"
-        bgImageRestClass="scale-100 opacity-100"
+        bgImageHoverClass="scale-90 opacity-100"
+        bgImageRestClass="scale-90 opacity-100"
         hovered={hovered}
         setHovered={setHovered}
         touchStart={touchStart}
@@ -66,8 +66,8 @@ export default function TeamMemberCardsGroup({
         body="30+ year security architect specializing in cryptography and threat detection. Spearheads RHINO’s ISO 27001 certification and enterprise-grade security protocols protecting hundreds of millions in staked assets across mission-critical blockchain infrastructure."
         bodyHoverClassName={"pointer-events-auto h-[130px] opacity-100"}
         bgImage={"/img/profile-jeff.png"}
-        bgImageHoverClass="scale-100 opacity-100"
-        bgImageRestClass="scale-100 opacity-100"
+        bgImageHoverClass="scale-90 opacity-100"
+        bgImageRestClass="scale-90 opacity-100"
         hovered={hovered}
         setHovered={setHovered}
         touchStart={touchStart}

@@ -139,7 +139,27 @@ export default function AboutPage() {
           `}
         >
 
+          {/* ERIC B. */}
+          <div
+            className={`
+            flex flex-col gap-6 
+            md:flex-row md:items-center
+          `}
+          >
+            <Image
+              src={imgEric}
+              alt="Eric's photo"
+              className="w-full"
+            />
 
+            <div>
+              <p className="font-calsans text-[32px] text-white">Eric</p>
+              <p className="font-bold text-white text-lg mt-2">CEO/CTO</p>
+              <p className="mt-2 text-white text-base">
+                {"Serial entrepreneur with 30+ years enterprise infrastructure expertise. Leads RHINO’s technology vision, strategic partnerships, and investment initiatives while architecting ISO 27001-aligned global blockchain infrastructure serving institutional clients."}
+              </p>
+            </div>
+          </div>
 
           {/* JEFF */}
           <div
@@ -155,30 +175,10 @@ export default function AboutPage() {
             />
 
             <div>
-              <p className="font-calsans text-[32px] text-white">Jeff.</p>
+              <p className="font-calsans text-[32px] text-white">Jeff</p>
+              <p className="font-bold text-white text-lg mt-2">CISO</p>
               <p className="mt-2 text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-              </p>
-            </div>
-          </div>
-
-          {/* ERIC B. */}
-          <div
-            className={`
-            flex flex-col gap-6 
-            md:flex-row md:items-center
-          `}
-          >
-            <Image
-              src={imgEric}
-              alt="Eric B.'s photo"
-              className="w-full"
-            />
-
-            <div>
-              <p className="font-calsans text-[32px] text-white">Eric B.</p>
-              <p className="mt-2 text-white text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                {"30+ year security architect specializing in cryptography and threat detection. Spearheads RHINO’s ISO 27001 certification and enterprise-grade security protocols protecting hundreds of millions in staked assets across mission-critical blockchain infrastructure."}
               </p>
             </div>
           </div>

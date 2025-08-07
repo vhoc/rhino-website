@@ -16,7 +16,7 @@ function ContactFormInner() {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [formData, setFormData] = useState<ContactFormData>({
-    subject: "General Inquiry",
+    subject: "Partnerships",
     firstName: "",
     lastName: "",
     email: "",
@@ -52,7 +52,7 @@ function ContactFormInner() {
       } else {
         setSubmitStatus({ success: 'Message sent successfully!' });
         setFormData({
-          subject: "General Inquiry",
+          subject: "Partnerships",
           firstName: "",
           lastName: "",
           email: "",
@@ -114,11 +114,11 @@ function ContactFormInner() {
 
       <RadioBox
         name={"subject"}
-        value="General Inquiry"
-        checked={formData.subject === "General Inquiry"}
+        value="Partnerships"
+        checked={formData.subject === "Partnerships"}
         onChange={handleChange}
-        title="General Inquiry"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam."
+        title="Partnerships"
+        description="Explore collaboration opportunities for infrastructure services, network support, or strategic partnerships."
       />
 
       <RadioBox
@@ -127,7 +127,7 @@ function ContactFormInner() {
         checked={formData.subject === "Technical Issue"}
         onChange={handleChange}
         title="Technical Issue"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam."
+        description="Need help with RPC endpoints, node operations, or other RHINO services? We're here to assist."
       />
 
       <RadioBox
@@ -136,7 +136,25 @@ function ContactFormInner() {
         checked={formData.subject === "Finance"}
         onChange={handleChange}
         title="Finance"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris. Suspendisse lacinia euismod quam."
+        description="Questions about billing, pricing, payment methods, or contract terms for our services."
+      />
+
+      <RadioBox
+        name={"subject"}
+        value="Feedback"
+        checked={formData.subject === "Feedback"}
+        onChange={handleChange}
+        title="Feedback"
+        description="Share suggestions on how we can improve our infrastructure services or customer experience."
+      />
+
+      <RadioBox
+        name={"subject"}
+        value="Careers"
+        checked={formData.subject === "Careers"}
+        onChange={handleChange}
+        title="Careers"
+        description="Interested in joining our blockchain infrastructure team? Tell us about your background and interests."
       />
 
       <div

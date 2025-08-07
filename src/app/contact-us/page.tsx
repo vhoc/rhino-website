@@ -15,7 +15,7 @@ export default function ContactUsPage() {
       <StandardSection
         innerClassName={clsx(
           "bg-[url('/img/backgrounds/bg-form.svg')]! bg-no-repeat bg-auto",
-          "bg-position-[100%_70%] sm:bg-position-[100%_75%] md:bg-position-[100%_85%]",
+          "bg-position-[10%_70%] sm:bg-position-[100%_70%] md:bg-position-[100%_75%]",
           "xl:bg-none!",
           "xl:pb-0"
         )}

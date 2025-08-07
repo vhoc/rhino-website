@@ -3,7 +3,7 @@ import { z } from "zod";
 const nameRegex = /^[a-zá-źñ' ]+$/i;
 
 export const ContactFormSchema = z.object({
-  subject: z.enum(["General Inquiry", "Technical Issue", "Finance"]),
+  subject: z.enum(["Partnerships", "Technical Issue", "Finance", "Feedback", "Careers"]),
   firstName: z.string()
     .min(2, "First name is required")
     .max(50, "First name is too long")

@@ -143,7 +143,7 @@ export default async function HomePage() {
           Trusted by leading Web3 companies for mission-critical operations
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 w-full mt-8 md:mt-14 gap-x-2 gap-y-6 max-w-[1038px]">
+        <div className="grid grid-cols-2 md:grid-cols-5 w-full mt-8 md:mt-14 gap-x-2 gap-y-6 max-w-[1038px] md:items-center">
           {/* Column 1 */}
           <div className="mx-auto">
             <Image

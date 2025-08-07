@@ -149,7 +149,9 @@ export default async function HomePage() {
             <Image
               src={iconChainlink as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              width={107}
+              height={27}
+              className="lg:w-[157px] lg:h-[40px]"
             />
           </div>
           {/* Column 2 */}
@@ -157,7 +159,9 @@ export default async function HomePage() {
             <Image
               src={iconAptos as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              width={106}
+              height={26}
+              className="lg:w-[155px] lg:h-[38px]"
             />
           </div>
           {/* Column 3 */}
@@ -165,7 +169,9 @@ export default async function HomePage() {
             <Image
               src={iconInterchain as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              width={93}
+              height={34}
+              className="lg:w-[136px] lg:h-[50px]"
             />
           </div>
           {/* Column 4 */}
@@ -173,7 +179,9 @@ export default async function HomePage() {
             <Image
               src={iconSei as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              width={82}
+              height={31}
+              className="lg:w-[120px] lg:h-[45px]"
             />
           </div>
           {/* Column 5 */}
@@ -181,7 +189,9 @@ export default async function HomePage() {
             <Image
               src={iconDydx as StaticImport}
               alt="Placeholder"
-              style={{ width: '100%', height: 'auto', maxWidth: '93px' }}
+              width={78}
+              height={34}
+              className="lg:w-[115px] lg:h-[51px]"
             />
           </div>
         </div>

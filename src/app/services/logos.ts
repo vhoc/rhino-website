@@ -90,7 +90,7 @@ export const fetchOneLogo = async (slug: string): Promise<string | null> => {
   const { data }: INetworksResponse = await response.json() as INetworksResponse;
 
   if (data?.networks && data.networks.length >= 1) {
-    return data?.networks[0]?.logoMark?.url || "";// Use a fallback image url
+    return data?.networks[0]?.logoMark?.url ?? "";// Use a fallback image url
   }
 
   return "";// Use a fallback image url

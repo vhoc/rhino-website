@@ -19,7 +19,7 @@ export default async function fetchSnapshots(slug?: string): Promise<ISnapshot[]
   }
 
   const json = await response.json() as ISnapshotsResponse;
-  const { result, ...snapshotsObject } = json; // Remove the `result` property
+  const { result: _, ...snapshotsObject } = json; // Remove the `result` property
   const snapshots = Object.entries(snapshotsObject).flatMap(([key, arr]) =>
     arr.map(obj => ({ ...obj, resourceName: key }))
   )

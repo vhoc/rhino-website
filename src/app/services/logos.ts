@@ -59,3 +59,39 @@ export default async function fetchLogos(limit = 1000): Promise<string[]> {
   return []
 
 }
+
+export const fetchOneLogo = async (slug: string): Promise<string | null> => {
+
+  const resourceName = slug.split('-')[0]?.toLowerCase()
+
+  const query = `{
+    networks( where: {
+      slug: "${resourceName}"
+      logoMark: {}
+    }) {
+      slug,
+      logoMark {url}
+    }
+  }`;
+
+  const response = await fetch(process.env.GRAPHQL_ENDPOINT!, {
+    cache: 'no-store',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Logo response was not ok');
+  }
+
+  const { data }: INetworksResponse = await response.json() as INetworksResponse;
+
+  if (data?.networks && data.networks.length >= 1) {
+    return data?.networks[0]?.logoMark?.url || "";// Use a fallback image url
+  }
+
+  return "";// Use a fallback image url
+}

@@ -44,6 +44,9 @@ export interface IResource {
   description?: string
   active: boolean
   url?: string
+  logo?: {
+    url: string
+  }
 }
 
 export interface IResourcesResponse {
@@ -80,3 +83,43 @@ export interface ICaptchaResponse {
   action?: string; // action name for v3 reCAPTCHA
   error_codes?: string[]; // error codes if any
 }
+
+export interface IResourceEnvironment {
+  chain_id: string;
+  endpoints?: { html: string; };
+  environment: string;
+  nodeLocations?: string;
+  rateLimit?: string;
+  backingNodes?: string;
+  snapshotName?: string;
+  status_badge?: string;
+  resource?: {
+    slug: string;
+    name: string;
+  };
+}
+
+export interface IResourceEnvironmentResponse {
+  data: {
+    resourceEnvironments: IResourceEnvironment[]
+  } | null,
+  errors?: { message: string }[]
+}
+
+export interface ISnapshot {
+  name: string;
+  url: string;
+  size: number;
+  last_modified: string;
+  app_hash: string;
+  chain_id: string;
+  last_block_height: string;
+  resourceName: string;
+}
+
+export type ISnapshotsResponse = {
+  result: {
+    last_update: string;
+  };
+
+} & Record<Exclude<string, "result">, ISnapshot[]>;

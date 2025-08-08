@@ -12,11 +12,11 @@ import "./page.css";
 export default async function ResourcePage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
 
   // Prepare the resource data
-  const { slug } = params;
+  const { slug } = await params;
 
   const resource = await fetchOneResource(slug);
   const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";

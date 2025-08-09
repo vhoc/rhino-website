@@ -18,18 +18,20 @@ export default async function ResourcePage({
   // Prepare the resource data
   const { slug } = await params;
 
-  const resource = await fetchOneResource(slug);
-  const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";
+  // const resource = await fetchOneResource(slug);
+  // const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";
 
-  const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
+  // const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
 
-  const { data } = await fetchResourceEnvironments(slug);
-  const environments = data?.resourceEnvironments ?? [];
+  // const { data } = await fetchResourceEnvironments(slug);
+  // const environments = data?.resourceEnvironments ?? [];
+
   // console.log("resourceEnvironments:", JSON.stringify(environments, null, 2));
 
-  const logo = await fetchOneLogo(slug);
-  const snapshots = await fetchSnapshots(slug);
-  console.log("snapshots:", JSON.stringify(snapshots, null, 2));
+  // const logo = await fetchOneLogo(slug);
+  // const snapshots = await fetchSnapshots(slug);
+
+  // console.log("snapshots:", JSON.stringify(snapshots, null, 2));
 
   // CSS filter tuned to approximate #FF233B across a variety of source logos
   // Adjust if your source assets vary significantly in brightness/contrast

@@ -24,11 +24,11 @@ export default async function ResourcePage({
   const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
 
   const { data } = await fetchResourceEnvironments(slug);
-  // const environments = data?.resourceEnvironments ?? [];
+  const environments = data?.resourceEnvironments ?? [];
 
   // console.log("resourceEnvironments:", JSON.stringify(environments, null, 2));
 
-  // const logo = await fetchOneLogo(slug);
+  const logo = await fetchOneLogo(slug);
   // const snapshots = await fetchSnapshots(slug);
 
   // console.log("snapshots:", JSON.stringify(snapshots, null, 2));

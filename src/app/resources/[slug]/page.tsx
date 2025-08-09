@@ -23,7 +23,7 @@ export default async function ResourcePage({
 
   const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
 
-  // const { data } = await fetchResourceEnvironments(slug);
+  const { data } = await fetchResourceEnvironments(slug);
   // const environments = data?.resourceEnvironments ?? [];
 
   // console.log("resourceEnvironments:", JSON.stringify(environments, null, 2));

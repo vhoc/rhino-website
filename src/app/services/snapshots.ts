@@ -6,7 +6,7 @@ export default async function fetchSnapshots(slug: string): Promise<ISnapshot[]>
   if (slug && slug.length > 0) {
     const resourceName = slug?.split('-')[0]?.toLowerCase()
 
-    const response = await fetch(process.env.SNAPSHOTS_URL!, {
+    const response = await fetch("https://snapshots.rhinostake.com/snapshot_list", {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

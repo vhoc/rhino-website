@@ -18,7 +18,7 @@ export default async function ResourcePage({
   // Prepare the resource data
   const { slug } = await params;
 
-  // const resource = await fetchOneResource(slug);
+  const resource = await fetchOneResource(slug);
   // const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";
 
   // const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;

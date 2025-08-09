@@ -29,7 +29,7 @@ export default async function ResourcePage({
   // console.log("resourceEnvironments:", JSON.stringify(environments, null, 2));
 
   const logo = await fetchOneLogo(slug);
-  // const snapshots = await fetchSnapshots(slug);
+  const snapshots = await fetchSnapshots(slug);
 
   // console.log("snapshots:", JSON.stringify(snapshots, null, 2));
 

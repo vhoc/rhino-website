@@ -28,7 +28,7 @@ export default async function fetchSnapshots(slug?: string): Promise<ISnapshot[]
 
   if (resourceName && resourceName.length > 0) {
     const filteredSnapshots = snapshots.filter(snapshot => snapshot.resourceName === resourceName);
-    console.log('Filtered snapshots:', filteredSnapshots);
+    // console.log('Filtered snapshots:', filteredSnapshots);
     return filteredSnapshots;
   }
 

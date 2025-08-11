@@ -53,7 +53,7 @@ export default async function ResourcesPage() {
                   defaultItemBgClass="bg-coolgray-800 group"
                   body={resource.description}
                   bodyHoverClassName="pointer-events-auto h-[240px] sm:h-[100px] lg:h-[200px] xl:h-[140px] 2xl:h-[120px] opacity-100 delay-150"
-                  cta_url={resource.url}
+                  cta_url={`/resources/${resource.slug}`}
                 />
               ))
               :

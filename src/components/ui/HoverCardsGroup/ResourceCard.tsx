@@ -153,7 +153,7 @@ export default function ResourceCard({
             ${hovered === key ? 'opacity-100 h-10' : 'opacity-0 h-0'}
           `}
             >
-              <Link href={cta_url ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" target="_blank">
+              <Link href={cta_url ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" >
                 Read more
               </Link>
               <p

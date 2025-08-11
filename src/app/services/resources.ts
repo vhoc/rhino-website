@@ -51,6 +51,9 @@ export async function fetchOneResource(slug: string): Promise<IResourcesResponse
       active,
       logo {
         url
+      },
+      aboutChain {
+        html
       }
     }
   }`;

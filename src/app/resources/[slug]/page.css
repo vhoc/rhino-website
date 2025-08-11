@@ -4,8 +4,14 @@
   margin-bottom: 1rem;
 }
 
+.dangerouslySetInnerHTML div {
+  margin-bottom: 0.5rem;
+  color: var(--color-gray-500);
+}
+
 .dangerouslySetInnerHTML p {
   margin-bottom: 0.5rem;
+  color: var(--color-gray-500);
 }
 
 .data-content > :nth-child(even) {

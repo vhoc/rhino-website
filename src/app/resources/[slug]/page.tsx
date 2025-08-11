@@ -7,6 +7,7 @@ import Image from "next/image";
 import DataBlock from "@/components/ui/DataBlock/DataBlock";
 import fetchSnapshots from "@/app/services/snapshots";
 import SnapshotItem from "@/components/ui/SnapshotItem/SnapshotItem";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import "./page.css";
 
 export default async function ResourcePage({
@@ -20,16 +21,14 @@ export default async function ResourcePage({
 
   const resource = await fetchOneResource(slug);
   const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";
-
   const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
+  const resourceAbout = resource?.data?.resources[0]?.aboutChain?.html ?? null;
 
   const { data } = await fetchResourceEnvironments(slug);
   const environments = data?.resourceEnvironments ?? [];
-  // console.log("resourceEnvironments:", JSON.stringify(environments, null, 2));
 
   const logo = await fetchOneLogo(slug);
   const snapshots = await fetchSnapshots(slug);
-  // console.log("snapshots:", JSON.stringify(snapshots, null, 2));
 
   // CSS filter tuned to approximate #FF233B across a variety of source logos
   // Adjust if your source assets vary significantly in brightness/contrast
@@ -39,7 +38,6 @@ export default async function ResourcePage({
     <main
       className={clsx(
         "flex flex-col items-center w-full",
-        "lg:overflow-hidden",
         "min-h-[100dvh] ",
         "pt-0 px-0"
       )}
@@ -102,7 +100,7 @@ export default async function ResourcePage({
       >
         {/* STATIC MENU */}
         <div
-          className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-hidden"
+          className="hidden lg:flex lg:flex-col lg:sticky lg:top-20 lg:self-start"
         >
           <p className="font-calsans text-coolgray-900 text-xl capitalize">{resourceName}</p>
           <p className="text-black">Connectivity Instructions</p>
@@ -231,14 +229,99 @@ export default async function ResourcePage({
               null
           }
           {/* FAQ */}
-          <div id={"section-faq"} className="mt-16">
-            [ FAQ SECTION UNDER DEVELOPMENT... ]
+          <h3 id={"section-faq"} className="font-calsans text-2xl md:text-[32px] text-coolgray-900 mt-16 border-b border-b-solid border-b-coolgray-50 py-4">Frequently Asked Questions</h3>
+          <div className="mt-4 mb-16">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full"
+              defaultValue="item-1"
+            >
+
+              <AccordionItem value="item-1" className="border-none data-[state=open]:bg-coolgray-25 py-0 px-3 rounded-[8px]">
+                <AccordionTrigger className="font-bold text-coolgray-900 cursor-pointer">
+                  Are these APIs free to use?
+                </AccordionTrigger>
+
+                <AccordionContent>
+                  <p className="text-coolgray-500 leading-[160%] ">
+                    RHINO provides free, unlimited access to testnet APIs. For mainnet, these interfaces are rate limited to 50,000 requests per 24 hour period. If it is determined that these interfaces are being abused in testnet, the RHINO team will ban IP addresses, or enforce rate-limiting keys in the future. All rate limits subject to change.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Added FAQ items */}
+              <AccordionItem value="item-2" className="border-none data-[state=open]:bg-coolgray-25 py-0 px-3 rounded-[8px]">
+                <AccordionTrigger className="font-bold text-coolgray-900 cursor-pointer">
+                  What if my project needs more requests per day?
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-coolgray-500 leading-[160%]">
+                    Contact the RHINO team for higher limits or unlimited usage. Email <Link href="mailto:info@rhinostake.com" className="underline hover:text-coolgray-700">info@rhinostake.com</Link> or <Link href="https://calendly.com/rhino-eric/rpc-api-capacity-and-pricing-discussion" className="underline hover:text-coolgray-700">schedule a meeting</Link>.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border-none data-[state=open]:bg-coolgray-25 py-0 px-3 rounded-[8px]">
+                <AccordionTrigger className="font-bold text-coolgray-900 cursor-pointer">
+                  Do you offer an SLA?
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-coolgray-500 leading-[160%]">
+                    Yes. We include an SLA with unlimited-use plans. Our multi-region, multi-tier stack&mdash;geo-routing, load balancing, state sync, and continuous monitoring&mdash;is built for high availability.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border-none data-[state=open]:bg-coolgray-25 py-0 px-3 rounded-[8px]">
+                <AccordionTrigger className="font-bold text-coolgray-900 cursor-pointer">
+                  How do I implement authorization to bypass the rate limiter?
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-coolgray-500 leading-[160%]">
+                    Once you receive an API key for sei-apis.com, add the header <code>x-apikey</code> to your requests. We can also whitelist IP subnets for backend services or indexers.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border-none data-[state=open]:bg-coolgray-25 py-0 px-3 rounded-[8px]">
+                <AccordionTrigger className="font-bold text-coolgray-900 cursor-pointer">
+                  Is custom reporting available?
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-coolgray-500 leading-[160%]">
+                    Yes. We can provide a custom dashboard showing front-end metrics (requests, unique users) and back-end metrics (latency, node health), tailored to your needs.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border-none data-[state=open]:bg-coolgray-25 py-0 px-3 rounded-[8px]">
+                <AccordionTrigger className="font-bold text-coolgray-900 cursor-pointer">
+                  Do you take crypto?
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-coolgray-500 leading-[160%]">
+                    Yes. We accept USD as well as stablecoins like USDC and USDT on the Cosmos, Ethereum, or Polygon networks.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+
+            </Accordion>
           </div>
 
           {/* ABOUT */}
-          <div id="section-about" className="my-16">
-            [ ABOUT SECTION UNDER DEVELOPMENT... ]
-          </div>
+          {
+            resourceAbout && resourceAbout.length > 0 ?
+              <div id="section-about" className="mb-[96px] md:mb-[120px]">
+                <h3 id={"section-faq"} className="font-calsans text-2xl md:text-[32px] text-coolgray-900 mt-16 border-b border-b-solid border-b-coolgray-50 py-4">
+                  About {resourceName}
+                </h3>
+                <div className="bg-white! text-coolgray-500 mt-4 px-3 py-2" dangerouslySetInnerHTML={{ __html: resourceName }} />
+              </div>
+              :
+              null
+          }
+
 
         </div>
 

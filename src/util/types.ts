@@ -46,6 +46,9 @@ export interface IResource {
   url?: string
   logo?: {
     url: string
+  },
+  aboutChain?: {
+    html: string
   }
 }
 

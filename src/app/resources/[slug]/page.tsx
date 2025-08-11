@@ -316,7 +316,7 @@ export default async function ResourcePage({
                 <h3 id={"section-faq"} className="font-calsans text-2xl md:text-[32px] text-coolgray-900 mt-16 border-b border-b-solid border-b-coolgray-50 py-4">
                   About {resourceName}
                 </h3>
-                <div className="bg-white! text-coolgray-500 mt-4 px-3 py-2" dangerouslySetInnerHTML={{ __html: resourceName }} />
+                <div className="bg-white! text-coolgray-500 mt-4 px-3 py-2" dangerouslySetInnerHTML={{ __html: resourceAbout }} />
               </div>
               :
               null

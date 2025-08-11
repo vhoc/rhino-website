@@ -29,7 +29,7 @@ export default async function ResourcePage({
 
   const logo = await fetchOneLogo(slug);
   const snapshots = await fetchSnapshots(slug);
-  console.log("snapshots:", JSON.stringify(snapshots, null, 2));
+  // console.log("snapshots:", JSON.stringify(snapshots, null, 2));
 
   // CSS filter tuned to approximate #FF233B across a variety of source logos
   // Adjust if your source assets vary significantly in brightness/contrast
@@ -104,7 +104,43 @@ export default async function ResourcePage({
         <div
           className="hidden lg:flex lg:flex-col lg:h-full lg:overflow-hidden"
         >
-          [ MENU UNDER DEVELOPMENT... ]
+          <p className="font-calsans text-coolgray-900 text-xl capitalize">{resourceName}</p>
+          <p className="text-black">Connectivity Instructions</p>
+
+          {/* MENU */}
+          <div className="mt-6 flex flex-col gap-2">
+            <ul>
+              {environments.length > 0 &&
+                environments.map((env, index) => (
+                  <li
+                    key={`menu-env-${index}-${env.environment}`}
+                    className={clsx(
+                      "h-[35px] flex items-center text-lg text-coolgray-900 transition-discrete duration-300 ease-in-out border-b-2 border-b-transparent",
+                      "hover:text-brightred-500 hover:pl-2 hover:border-b-2 hover:border-b-solid hover:border-b-brightred-500",
+                    )}
+                  >
+                    <Link className="w-full" href={`#section-${env.environment}-${index}`}>{env.environment}</Link>
+                  </li>
+                ))
+              }
+              <li
+                className={clsx(
+                  "h-[35px] flex items-center text-lg text-coolgray-900 transition-discrete duration-300 ease-in-out border-b-2 border-b-transparent",
+                  "hover:text-brightred-500 hover:pl-2 hover:border-b-2 hover:border-b-solid hover:border-b-brightred-500",
+                )}
+              >
+                <Link className="w-full" href="#section-faq">FAQ</Link>
+              </li>
+              <li
+                className={clsx(
+                  "h-[35px] flex items-center text-lg text-coolgray-900 transition-discrete duration-300 ease-in-out border-b-2 border-b-transparent",
+                  "hover:text-brightred-500 hover:pl-2 hover:border-b-2 hover:border-b-solid hover:border-b-brightred-500",
+                )}
+              >
+                <Link className="w-full" href="#section-about">About</Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* CONTENT */}
@@ -116,7 +152,7 @@ export default async function ResourcePage({
                 {
                   environments.map((env, index) => {
                     return (
-                      <div key={`env-${index}-${env.environment}`} className="mt-16" >
+                      <div id={`section-${env.environment}-${index}`} key={`env-${index}-${env.environment}`} className="mt-16" >
 
                         <div className="bg-white md:flex md:flex-row md:justify-between md:items-center md:gap-4">
                           <h3 className="font-calsans text-2xl text-coolgray-900 bg-white">{env.environment}</h3>
@@ -195,12 +231,12 @@ export default async function ResourcePage({
               null
           }
           {/* FAQ */}
-          <div className="mt-16">
+          <div id={"section-faq"} className="mt-16">
             [ FAQ SECTION UNDER DEVELOPMENT... ]
           </div>
 
           {/* ABOUT */}
-          <div className="my-16">
+          <div id="section-about" className="my-16">
             [ ABOUT SECTION UNDER DEVELOPMENT... ]
           </div>
 

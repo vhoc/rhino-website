@@ -58,15 +58,11 @@ export default function AboutPage() {
             <Heading2 className="md:text-left md:w-1/2 xl:w-full">
               What Sets Us Apart
             </Heading2>
-
-            <p className="font-medium text-xl text-coolgray-500 text-center md:text-left md:w-1/2 xl:w-full">
-              Institutional staking, secure infrastructure, enterprise blockchain solutions. Your partner in building the decentralized future.
-            </p>
           </div>
 
           <div
             className={`
-              flex flex-col gap-8 items-center 
+              flex flex-col gap-8 gap-y-14 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}

@@ -45,7 +45,7 @@ export default function AnimatedCounter({
         {title}
       </p>
 
-      <div className={`font-calsans text-coolgray-900 text-center lg:text-left text-[32px] lg:text-[40px] xl:text-[56px]`}>
+      <div className={`font-calsans text-coolgray-900 text-center lg:text-left text-[32px] lg:text-[40px] xl:text-[52px] 2xl:text-[56px]`}>
         {`${currency_sign ?? ""}${animatedAmount.toLocaleString()}`}
       </div>
     </div>

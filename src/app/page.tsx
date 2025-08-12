@@ -21,6 +21,7 @@ import ChainlinkCard from "@/components/ui/ChainlinkCard/ChainlinkCard";
 import PreFooter from "@/components/sections/PreFooter";
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 import ResponsiveGrid from "@/components/ui/ResponsiveGrid/ResponsiveGrid";
+import clsx from "clsx";
 
 export default async function HomePage() {
 
@@ -252,10 +253,10 @@ export default async function HomePage() {
       <StandardSection id="key-metrics">
         <Heading2>Key Metrics</Heading2>
         <div
-          className="w-full mt-8 flex flex-col lg:grid lg:grid-cols-[40%_60%] lg:grid-rows-[1fr_1fr]"
+          className="w-full mt-8 flex flex-col lg:grid lg:grid-cols-[33%_67%] lg:grid-rows-[1fr_1fr] gap-x-[37px] lg:gap-x-[36px]"
         >
           {/* Left Column - Row 1 */}
-          <div className="max-lg:order-1 p-4">
+          <div className="max-lg:order-1 p-4 border-b border-b-coolgray-100 border-solid">
             <AnimatedCounter
               title="Total Value Locked"
               amount={900000000}
@@ -278,7 +279,14 @@ export default async function HomePage() {
                 <ResponsiveGrid
                   defaultCols={8}
                   className="mx-auto lg:ml-0 lg:mr-auto"
-                  gridClassName="grid gap-4 grid-cols-8 sm:grid-cols-8 md:grid-cols-8 lg:grid-cols-8 md:gap-x-8 lg:gap-x-10"
+                  gridClassName={clsx(
+                    "grid gap-4 grid-cols-8",
+                    "sm:grid-cols-8 sm:gap-x-10",
+                    "md:grid-cols-8 md:gap-x-8",
+                    "lg:grid-cols-8 lg:gap-x-11 lg:gap-y-6",
+                    "xl:gap-x-15",
+                    "2xl:gap-x-20"
+                  )}
                 >
                   {
                     logos.map((logo, index) => (
@@ -311,7 +319,7 @@ export default async function HomePage() {
             }
           </div>
           {/* Left Column - Row 2 */}
-          <div className="max-lg:order-2 p-4">
+          <div className="max-lg:order-2 p-4 lg:mt-[44px]">
             <AnimatedCounter
               title="RPC request handled"
               amount={12900000000}

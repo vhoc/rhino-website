@@ -24,6 +24,7 @@ export default async function ResourcePage({
   const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";
   const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
   const resourceAbout = resource?.data?.resources[0]?.aboutChain?.html ?? null;
+  const logo = resource.data?.resources[0]?.logo?.url ?? null;
 
   const { data } = await fetchResourceEnvironments(slug);
   const unsortedEnvironments = data?.resourceEnvironments ?? [];
@@ -34,10 +35,6 @@ export default async function ResourcePage({
     const bw = typeof b?.weight === 'number' ? b.weight : Number.MAX_SAFE_INTEGER;
     return aw - bw;
   });
-
-  const logo = await fetchOneLogo(slug);
-  console.log("Environments: ", JSON.stringify(environments, null, 2));
-
 
   // CSS filter tuned to approximate #FF233B across a variety of source logos
   // Adjust if your source assets vary significantly in brightness/contrast
@@ -71,16 +68,22 @@ export default async function ResourcePage({
             <Link href="/resources" className="hover:text-coolgray-700">Resources</Link> / <span>{resourceName} Endpoints</span>
           </div>
 
-          <div className="w-[72px] h-[72px]">
-            <Image
-              src={logo!}
-              alt={resourceName}
-              width={72}
-              height={72}
-              className="object-contain object-center w-full h-full"
-              style={{ filter: rhinoRedFilter }}
-            />
-          </div>
+          {
+            logo ?
+              <div className="w-[72px] h-[72px]">
+                <Image
+                  src={logo!}
+                  alt={resourceName}
+                  width={72}
+                  height={72}
+                  className="object-contain object-center w-full h-full"
+                  style={{ filter: rhinoRedFilter }}
+                />
+              </div>
+              :
+              null
+          }
+
 
           <h1 className="font-calsans text-4xl text-coolgray-900">
             {resourceName} Endpoints

@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { type INetwork } from "@/util/types"
 import BlockchainBox from "./BlockchainBox"
 import { useViewportWidth } from "@/hooks/useViewportWidth"
@@ -20,7 +20,19 @@ export default function BlockchainsGrid({
   const [loadMore, setLoadMore] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
 
-  let displayedNetworks = networks;
+  // Sort by weight (asc), then by name (A→Z). Items without weight are placed last.
+  const sortedNetworks = useMemo(() => {
+    return [...networks].sort((a, b) => {
+      const aw = a.weight ?? Number.POSITIVE_INFINITY
+      const bw = b.weight ?? Number.POSITIVE_INFINITY
+      if (aw !== bw) return aw - bw
+      return a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+    })
+  }, [networks])
+
+  console.log("sortedNetworks:", sortedNetworks);
+
+  let displayedNetworks = sortedNetworks;
   if (!loadMore) {
     if (viewportWidth < 640) {
       displayedNetworks = networks.slice(0, 6);

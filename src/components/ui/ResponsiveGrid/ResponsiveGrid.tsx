@@ -15,7 +15,7 @@ const ResponsiveGrid: React.FC<ResponsiveGridProps> = ({
   rows = 1,
   maxWidth,
   className = "mx-auto",
-  gridClassName = "grid gap-4 grid-cols-8 sm:grid-cols-12 md:grid-cols-16 xl:gap-x-8 2xl:gap-x-12"
+  gridClassName = "grid gap-4 grid-cols-8 sm:grid-cols-12 md:grid-cols-16 xl:gap-x-8 2xl:gap-x-12 xl:gap-y-8"
 }) => {
   // Calculate the total number of items
   const totalItems = React.Children.count(children);

@@ -6,7 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import useIsMobile from "@/hooks/useIsMobile";
 
-interface BlockchainBoxProps extends Omit<INetwork, "id" | "slug" | "active"> {
+interface BlockchainBoxProps extends Omit<INetwork, "id" | "slug" | "active" | "weight"> {
   className?: string
 }
 
@@ -131,23 +131,31 @@ export default function BlockchainBox({
               </p>
             </div>
 
-            <div
-              className={`
-            w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
-            transition-all duration-500 ease-in-out group/link2 px-1.5
-            active:bg-[#DF1A30] active:rounded-t-sm 
-            ${hovered ? 'opacity-100' : 'opacity-0'}
-          `}
-            >
-              <Link href={stakeurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link2:translate-x-[4px]" target="_blank">
-                Stake Now
-              </Link>
-              <p
-                className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link2:translate-x-[-4px]"}
-              >
-                &#43;
-              </p>
-            </div>
+
+
+            {
+              stakeurl && stakeurl.length >= 1 ?
+                <div
+                  className={`
+              w-full flex justify-between items-center gap-1 border-b border-solid border-white h-10
+              transition-all duration-500 ease-in-out group/link2 px-1.5
+              active:bg-[#DF1A30] active:rounded-t-sm 
+              ${hovered ? 'opacity-100' : 'opacity-0'}
+            `}
+                >
+                  <Link href={stakeurl ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link2:translate-x-[4px]" target="_blank">
+                    Stake Now
+                  </Link>
+                  <p
+                    className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link2:translate-x-[-4px]"}
+                  >
+                    &#43;
+                  </p>
+                </div>
+                :
+                null
+            }
+
           </div>
           :
           null

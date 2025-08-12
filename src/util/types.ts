@@ -15,6 +15,7 @@ export interface ITextLink {
 
 export interface INetwork {
   id: string
+  weight: number
   slug: string
   name: string
   active: boolean
@@ -97,6 +98,9 @@ export interface IResourceEnvironment {
   backingNodes?: string;
   snapshotName?: string;
   status_badge?: string;
+  privateAccess?: {
+    html: string;
+  };
   resource?: {
     slug: string;
     name: string;

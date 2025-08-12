@@ -68,7 +68,7 @@ export default function InvestmentPage() {
           grid grid-cols-1 gap-8 items-start justify-center
           md:grid-cols-2 xl:grid-cols-4 
         `}
-        innerClassName="!py-[72px] !lg:pb-[96px] !lg:pt-[96px] !xl:pb-[129px] !xl:pt-[140px]"
+        innerClassName="py-[72px]! sm:pb-[96px]! sm:pt-[56px]! md:pb-[114px]! md:pt-[122px]!"
       >
         <ServiceBox
           icon={iconRoads as StaticImport}

@@ -5,7 +5,7 @@ export default function PreFooter() {
   return (
     <section
       className={`
-          px-6 py-20 bg-coolgray-900 w-full flex justify-center 
+          px-6 pt-20 pb-[23px] bg-coolgray-900 w-full flex justify-center 
           sm:px-14 lg:px-[94px] xl:px-[94px] 
         `}
     >

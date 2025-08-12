@@ -201,16 +201,16 @@ export default function AboutPage() {
 
       <StandardSection
         className="bg-coolgray-900"
-        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center"
+        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center max-w-[1006px]"
       >
         <Image
           src={imgCommitment}
           alt="Our Commitment"
-          className="hidden lg:block w-5/12 max-w-[503px]"
+          className="hidden lg:block w-5/12 lg:w-1/2 max-w-[503px]"
         />
 
         <div
-          className="flex flex-col gap-[32px]"
+          className="flex flex-col gap-[32px] lg:w-1/2 lg:max-w-[503px]"
         >
           <Heading2 className="text-white lg:text-left">
             Our Commitment

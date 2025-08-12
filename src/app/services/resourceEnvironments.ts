@@ -15,6 +15,9 @@ export default async function fetchResourceEnvironments(slug: string): Promise<I
       backingNodes
       snapshotName
       status_badge
+      privateAccess {
+        html
+      }
       resource {
           slug
           name

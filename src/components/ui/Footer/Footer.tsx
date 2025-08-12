@@ -14,7 +14,7 @@ export default function Footer() {
       className={`
         py-16 px-6
         sm:px-14 lg:px-[94px] xl:px-[94px] 
-        md:py-16 lg:py-[120px] 
+        md:pt-16 md:pb-[96px] lg:pt-[97px] lg:pb-[120px] 
         w-full bg-coolgray-900 flex justify-center 
       `}
     >

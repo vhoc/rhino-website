@@ -8,6 +8,7 @@ export default async function fetchNetworks(): Promise<INetworksResponse> {
   const query = `{
 	networks(first:1000) {
 		stage,
+    weight,
 		publishedAt,
 		createdAt,
 		id,

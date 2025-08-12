@@ -57,7 +57,7 @@ export default async function NetworksPage() {
           sm:px-14 lg:px-[94px] xl:px-[94px] 
           md:bg-none ">
               <p
-                className={`md:block font-medium text-coolgray-500 text-center lg:max-w-3xl md:text-lg`}
+                className={`md:block font-medium text-coolgray-500 text-center lg:max-w-3xl`}
               >
                 For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing.
               </p>
@@ -123,6 +123,7 @@ export default async function NetworksPage() {
         innerClassName={`
           lg:px-0!
         `}
+        contentClassName="max-w-[1440px]"
       >
         <HoverCardsGroup>
           <HoverCard
@@ -204,7 +205,7 @@ export default async function NetworksPage() {
 
           <div
             className={`
-              flex flex-col gap-8 items-center 
+              flex flex-col gap-8 md:gap-y-14 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}

@@ -2,7 +2,6 @@ import clsx from "clsx"
 import Link from "next/link"
 import { fetchOneResource } from "@/app/services/resources";
 import fetchResourceEnvironments from "@/app/services/resourceEnvironments";
-import { fetchOneLogo } from "@/app/services/logos";
 import Image from "next/image";
 import DataBlock from "@/components/ui/DataBlock/DataBlock";
 import { fetchAllSnapshots } from "@/app/services/snapshots";

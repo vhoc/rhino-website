@@ -309,11 +309,6 @@ export default async function HomePage() {
                     ))
                   }
                 </ResponsiveGrid>
-                // <LogosGrid
-                //   items={logos}
-                //   className="grid gap-5 grid-cols-10 lg:grid-cols-8 xl:grid-cols-8"
-                //   iconSizes="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8"
-                // />
                 :
                 null
             }

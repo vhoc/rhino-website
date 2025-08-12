@@ -36,6 +36,7 @@ export default async function ResourcePage({
   });
 
   const logo = await fetchOneLogo(slug);
+  console.log("Environments: ", JSON.stringify(environments, null, 2));
 
 
   // CSS filter tuned to approximate #FF233B across a variety of source logos
@@ -211,7 +212,7 @@ export default async function ResourcePage({
 
                           {/* PRIVATE ACCESS */}
                           {
-                            env.privateAccess && env.privateAccess?.html?.length > 0 ?
+                            env.privateAccess && env.privateAccess?.html?.length > 0 && env.privateAccess?.html !== "<p></p>" ?
                               <DataBlock title="Private access:">
                                 <div className="dangerouslySetInnerHTML lg:w-1/2" dangerouslySetInnerHTML={{ __html: env.privateAccess.html }} />
                               </DataBlock>

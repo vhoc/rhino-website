@@ -94,7 +94,7 @@ export default async function HomePage() {
           id="hero"
           className={`relative z-10 
           flex flex-col items-center 
-          w-full 
+          w-full pt-8 
           px-6 md:pb-40 
           sm:px-14 lg:px-[94px] xl:px-[94px] 
           bg-[url('/img/backgrounds/bg-home-hero-2.svg')] 

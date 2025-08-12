@@ -1,10 +1,9 @@
 "use server"
 import { type ISnapshotsResponse, type ISnapshot } from "@/util/types"
 
-export default async function fetchSnapshots(slug: string): Promise<ISnapshot[]> {
+export default async function fetchSnapshots(snapshotName: string): Promise<ISnapshot[]> {
 
-  if (slug && slug.length > 0) {
-    const resourceName = slug?.split('-')[0]?.toLowerCase()
+  if (snapshotName && snapshotName.length > 0) {
 
     const response = await fetch("https://snapshots.rhinostake.com/snapshot_list", {
       method: 'GET',
@@ -15,28 +14,70 @@ export default async function fetchSnapshots(slug: string): Promise<ISnapshot[]>
     })
 
     if (!response.ok) {
-      console.error('Logos response was not ok');
+      console.error('Snapshots response was not ok');
       return []
     }
 
     const json = await response.json() as ISnapshotsResponse;
-    const { result: _, ...snapshotsObject } = json; // Remove the `result` property
-    const snapshots = Object.entries(snapshotsObject).flatMap(([key, arr]) =>
-      arr.map(obj => ({ ...obj, resourceName: key }))
-    )
 
-    // console.log('Fetched snapshots:', snapshots);
+    // Check if the json object contains a key that matches snapshotName
+    const { result: _result, ...rest } = json;
+    const snapshotsObject = rest as Record<string, ISnapshot[]>;
 
-    if (resourceName && resourceName.length > 0) {
-      const filteredSnapshots = snapshots.filter(snapshot => snapshot.resourceName === resourceName);
-      // console.log('Filtered snapshots:', filteredSnapshots);
-      return filteredSnapshots;
-    }
-
-    if (snapshots.length >= 1) {
-      return snapshots;
+    if (Object.prototype.hasOwnProperty.call(snapshotsObject, snapshotName)) {
+      const arr = snapshotsObject[snapshotName];
+      if (arr && arr.length > 0) {
+        return arr
+      } else {
+        return []
+      }
+      // console.log('Fe
     }
   }
 
   return [];
+}
+
+export async function fetchAllSnapshots(): Promise<ISnapshot[] | null> {
+  const response = await fetch("https://snapshots.rhinostake.com/snapshot_list", {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+  });
+
+  if (!response.ok) {
+    console.error('Snapshots response was not ok');
+    return null;
+  }
+
+  const json = await response.json() as ISnapshotsResponse;
+
+  // Remove any non-snapshot keys like "result" and flatten
+  const { result: _result, ...rest } = json as Record<string, unknown>;
+
+  const flattened: (ISnapshot)[] = [];
+
+  for (const [snapshotName, value] of Object.entries(rest)) {
+    if (Array.isArray(value)) {
+      for (const item of value as ISnapshot[]) {
+        flattened.push({ ...item, snapshotName });
+      }
+    }
+  }
+
+  if (flattened && flattened.length >= 1) {
+    return flattened
+  }
+
+  return [];
+
+
+
+  // Check if the json object contains a key that matches snapshotName
+  // const { result: _result, ...rest } = json;
+  // const snapshotsObject = rest as Record<string, ISnapshot[]>;
+
+  // Combine all arrays into one
 }

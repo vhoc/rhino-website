@@ -89,6 +89,7 @@ export interface ICaptchaResponse {
 
 export interface IResourceEnvironment {
   chain_id: string;
+  weight: number;
   endpoints?: { html: string; };
   environment: string;
   nodeLocations?: string;
@@ -117,7 +118,7 @@ export interface ISnapshot {
   app_hash: string;
   chain_id: string;
   last_block_height: string;
-  resourceName: string;
+  snapshotName: string;
 }
 
 export type ISnapshotsResponse = {

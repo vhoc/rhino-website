@@ -5,6 +5,7 @@ export default async function fetchResourceEnvironments(slug: string): Promise<I
   const query = `{
   resourceEnvironments(where: { resource: { slug: "${slug}" } }, stage: PUBLISHED) {
       chain_id
+      weight
       endpoints {
         html
       }

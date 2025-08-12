@@ -5,7 +5,7 @@ import fetchResourceEnvironments from "@/app/services/resourceEnvironments";
 import { fetchOneLogo } from "@/app/services/logos";
 import Image from "next/image";
 import DataBlock from "@/components/ui/DataBlock/DataBlock";
-import fetchSnapshots from "@/app/services/snapshots";
+import { fetchAllSnapshots } from "@/app/services/snapshots";
 import SnapshotItem from "@/components/ui/SnapshotItem/SnapshotItem";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import "./page.css";
@@ -20,15 +20,23 @@ export default async function ResourcePage({
   const { slug } = await params;
 
   const resource = await fetchOneResource(slug);
+  const snapshots = await fetchAllSnapshots();
   const resourceName = resource?.data?.resources[0]?.name.split(' ')[0] ?? "Resource";
   const resourceDescription = resource?.data?.resources[0]?.description && resource?.data?.resources[0]?.description.length > 0 ? resource?.data?.resources[0]?.description : null;
   const resourceAbout = resource?.data?.resources[0]?.aboutChain?.html ?? null;
 
   const { data } = await fetchResourceEnvironments(slug);
-  const environments = data?.resourceEnvironments ?? [];
+  const unsortedEnvironments = data?.resourceEnvironments ?? [];
+
+  // Create a new environments array sorted by ascending weight
+  const environments = [...unsortedEnvironments].sort((a, b) => {
+    const aw = typeof a?.weight === 'number' ? a.weight : Number.MAX_SAFE_INTEGER;
+    const bw = typeof b?.weight === 'number' ? b.weight : Number.MAX_SAFE_INTEGER;
+    return aw - bw;
+  });
 
   const logo = await fetchOneLogo(slug);
-  const snapshots = await fetchSnapshots(slug);
+
 
   // CSS filter tuned to approximate #FF233B across a variety of source logos
   // Adjust if your source assets vary significantly in brightness/contrast
@@ -149,13 +157,14 @@ export default async function ResourcePage({
               <div>
                 {
                   environments.map((env, index) => {
+                    // console.log("Environment: ", env);
                     return (
                       <div id={`section-${env.environment}-${index}`} key={`env-${index}-${env.environment}`} className="mt-16" >
 
-                        <div className="bg-white md:flex md:flex-row md:justify-between md:items-center md:gap-4">
+                        <div className="bg-white md:flex md:flex-row md:justify-between md:items-center md:gap-4 border-b border-b-solid border-b-coolgray-50 py-4">
                           <h3 className="font-calsans text-2xl text-coolgray-900 bg-white">{env.environment}</h3>
                           {/* STATUS BADGE */}
-                          {env.status_badge ? <div className="bg-white!" dangerouslySetInnerHTML={{ __html: env.status_badge }} /> : null}
+                          {env.status_badge && env.status_badge.length > 0 ? <div className="bg-white!" dangerouslySetInnerHTML={{ __html: env.status_badge }} /> : null}
                         </div>
 
                         <div className="data-content flex flex-col gap-4">
@@ -164,7 +173,7 @@ export default async function ResourcePage({
                           {
                             env.endpoints?.html && env.endpoints.html.length > 0 ?
                               <DataBlock title="Endpoints:">
-                                <div className="dangerouslySetInnerHTML" dangerouslySetInnerHTML={{ __html: env.endpoints.html }} />
+                                <div className="dangerouslySetInnerHTML lg:w-1/2" dangerouslySetInnerHTML={{ __html: env.endpoints.html }} />
                               </DataBlock>
                               :
                               null
@@ -174,7 +183,7 @@ export default async function ResourcePage({
                           {
                             env.rateLimit && env.rateLimit.length > 0 ?
                               <DataBlock title="Rate Limit:">
-                                <span className="text-coolgray-500">{env.rateLimit}</span>
+                                <span className="text-coolgray-500 lg:w-1/2">{env.rateLimit}</span>
                               </DataBlock>
                               :
                               null
@@ -184,7 +193,7 @@ export default async function ResourcePage({
                           {
                             env.backingNodes && env.backingNodes.length > 0 ?
                               <DataBlock title="Backing Nodes:">
-                                <span className="text-coolgray-500">{env.backingNodes}</span>
+                                <span className="text-coolgray-500 lg:w-1/2">{env.backingNodes}</span>
                               </DataBlock>
                               :
                               null
@@ -194,7 +203,7 @@ export default async function ResourcePage({
                           {
                             env.nodeLocations && env.nodeLocations.length > 0 ?
                               <DataBlock title="Node Locations:">
-                                <span className="text-coolgray-500">{env.nodeLocations}</span>
+                                <span className="text-coolgray-500 lg:w-1/2">{env.nodeLocations}</span>
                               </DataBlock>
                               :
                               null
@@ -202,15 +211,16 @@ export default async function ResourcePage({
 
                           {/* PRIVATE ACCESS */}
                           <DataBlock title="Private access:">
-                            <span className="text-brightred-500">Schedule some time to get unlimited access</span>
+                            <span className="text-brightred-500 lg:w-1/2">Schedule some time to get unlimited access</span>
                           </DataBlock>
 
                           {/* SNAPSHOTS */}
+
                           {
-                            snapshots.length > 0 ?
-                              <DataBlock title="Snapshots:">
+                            env.snapshotName && snapshots && snapshots.length >= 1 && snapshots.find(snapshot => snapshot.snapshotName === env.snapshotName) ?
+                              <DataBlock title="Snapshots:" className="lg:flex-col! lg:justify-start">
                                 {
-                                  snapshots.map((snapshot, index) => {
+                                  snapshots.filter(snapshot => snapshot.snapshotName === env.snapshotName).map((snapshot, index) => {
                                     return (
                                       <SnapshotItem key={`snapshot-${index}-${snapshot.name}`} snapshot={snapshot} />
                                     )

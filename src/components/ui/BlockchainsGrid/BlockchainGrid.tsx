@@ -30,8 +30,6 @@ export default function BlockchainsGrid({
     })
   }, [networks])
 
-  console.log("sortedNetworks:", sortedNetworks);
-
   let displayedNetworks = sortedNetworks;
   if (!loadMore) {
     if (viewportWidth < 640) {

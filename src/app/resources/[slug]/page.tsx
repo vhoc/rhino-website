@@ -211,7 +211,7 @@ export default async function ResourcePage({
 
                           {/* PRIVATE ACCESS */}
                           {
-                            env.privateAccess && env.privateAccess.html && env.privateAccess.html.length > 0 ?
+                            env.privateAccess && env.privateAccess?.html?.length > 0 ?
                               <DataBlock title="Private access:">
                                 <div className="dangerouslySetInnerHTML lg:w-1/2" dangerouslySetInnerHTML={{ __html: env.privateAccess.html }} />
                               </DataBlock>

@@ -124,6 +124,7 @@ export default function InvestmentPage() {
             bgVideo={"/video/investment.webm"}
             bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
             bgImage={posterInvestmentCard as StaticImport}// For iOS devices
+            bgVideoPoster={"/video/investmentcard-poster.png"}
           />
 
           <HoverCard
@@ -142,6 +143,7 @@ export default function InvestmentPage() {
             bgVideo={"/video/investment.webm"}
             bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
             bgImage={posterInvestmentCard as StaticImport}// For iOS devices
+            bgVideoPoster={"/video/investmentcard-poster.png"}
           />
         </HoverCardsGroup>
       </StandardSection>
@@ -171,6 +173,7 @@ export default function InvestmentPage() {
             bgVideo={"/video/investment.webm"}
             bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
             bgImage={posterInvestmentCard as StaticImport}// For iOS devices
+            bgVideoPoster={"/video/investmentcard-poster.png"}
           />
 
           <HoverCard
@@ -189,6 +192,7 @@ export default function InvestmentPage() {
             bgVideo={"/video/investment.webm"}
             bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
             bgImage={posterInvestmentCard as StaticImport}// For iOS devices
+            bgVideoPoster={"/video/investmentcard-poster.png"}
           />
 
           <HoverCard
@@ -207,6 +211,7 @@ export default function InvestmentPage() {
             bgVideo={"/video/investment.webm"}
             bgGif={gifInvestmentAnimated as StaticImport}// For iOS devices
             bgImage={posterInvestmentCard as StaticImport}// For iOS devices
+            bgVideoPoster={"/video/investmentcard-poster.png"}
           />
         </HoverCardsGroup>
       </StandardSection>

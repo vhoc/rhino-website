@@ -71,7 +71,7 @@ export default async function ResourcePage({
             logo ?
               <div className="w-[72px] h-[72px]">
                 <Image
-                  src={logo!}
+                  src={logo}
                   alt={resourceName}
                   width={72}
                   height={72}

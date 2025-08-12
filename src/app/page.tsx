@@ -256,7 +256,7 @@ export default async function HomePage() {
           className="w-full mt-8 flex flex-col lg:grid lg:grid-cols-[33%_67%] lg:grid-rows-[1fr_1fr] gap-x-[37px] lg:gap-x-[36px]"
         >
           {/* Left Column - Row 1 */}
-          <div className="max-lg:order-1 p-4 border-b border-b-coolgray-100 border-solid">
+          <div className="max-lg:order-1 py-4 pr-4 border-b border-b-coolgray-100 border-solid">
             <AnimatedCounter
               title="Total Value Locked"
               amount={900000000}
@@ -319,7 +319,7 @@ export default async function HomePage() {
             }
           </div>
           {/* Left Column - Row 2 */}
-          <div className="max-lg:order-2 p-4 lg:mt-[44px]">
+          <div className="max-lg:order-2 py-4 pr-4 lg:mt-[44px]">
             <AnimatedCounter
               title="RPC request handled"
               amount={12900000000}

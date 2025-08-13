@@ -50,7 +50,7 @@ export default async function ResourcesPage() {
                 <ResourceCard
                   key={`resource-${index}-${resource.slug}`}
                   itemHeight={'h-2/6 sm:h-2/4 md:h-2/10 lg:h-3/6'}
-                  itemHeightHover={'h-6/6 sm:h-8/8 md:h-3/8'}
+                  itemHeightHover={'h-8/12 sm:h-8/8 md:h-3/8'}
                   title={resource.name}
                   icon={resource.logo ? resource.logo.url : ""}
                   defaultItemBgClass="bg-coolgray-800 group"

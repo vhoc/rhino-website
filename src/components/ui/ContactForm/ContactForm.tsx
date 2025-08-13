@@ -8,10 +8,6 @@ import { type ContactFormData } from "@/util/types";
 import { ContactFormSchema } from "@/util/validations";
 import { submitContactForm } from "@/app/contact-us/actions";
 
-// interface ContactFormProps {
-//   action: Function;
-// }
-
 function ContactFormInner() {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -43,7 +39,6 @@ function ContactFormInner() {
     setIsSubmitting(true);
     try {
       const token = await executeRecaptcha('contact_form');
-      // const response = await submitContactForm({ ...formData, recaptchaToken: token })
       const response = await submitContactForm({ ...formData }, token)
       console.log('Form submission response:', response);
 

@@ -31,7 +31,6 @@ export default async function fetchSnapshots(snapshotName: string): Promise<ISna
       } else {
         return []
       }
-      // console.log('Fe
     }
   }
 
@@ -75,9 +74,4 @@ export async function fetchAllSnapshots(): Promise<ISnapshot[] | null> {
 
 
 
-  // Check if the json object contains a key that matches snapshotName
-  // const { result: _result, ...rest } = json;
-  // const snapshotsObject = rest as Record<string, ISnapshot[]>;
-
-  // Combine all arrays into one
 }

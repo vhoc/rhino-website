@@ -13,6 +13,9 @@ export default async function fetchResources(limit = 1000): Promise<IResourcesRe
 		slug,
 		name,
 		description,
+    logo {
+      url
+    }
 		url,
     active,
 	}

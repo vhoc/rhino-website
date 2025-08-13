@@ -9,9 +9,7 @@ export async function submitContactForm(data: ContactFormData, recaptchaToken: s
   const result = ContactFormSchema.safeParse(data)
 
   if (!result.success) {
-    // const test = result.error.flatten().fieldErrors
     const errorMessage = Object.values(result.error.flatten().fieldErrors).flat().join(', ')
-    // console.error('Validation errors:', errorMessage)
     return {
       error: errorMessage,
       status: 400

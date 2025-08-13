@@ -1,11 +1,9 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
-// import NavSheet from "@/components/ui/Navbar/NavSheet"
 
 interface MenuButtonProps {
   variant?: "primary" | "secondary"
   className?: string
-  // onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
 export default function MenuButton({

@@ -6,6 +6,7 @@ import Image from "next/image";
 import gifBg from "@/../public/video/resourcecard-animated-bg-noloop.gif";
 import imgResourcesCardPoster from "@/../public/video/hovercard-resources-poster.png"
 import Link from "next/link";
+import clsx from "clsx";
 
 interface ResourceCardProps {
   defaultItemBgClass?: string;
@@ -16,6 +17,7 @@ interface ResourceCardProps {
   itemHeightHover?: string;
   key: React.Key;
   title?: string;
+  icon?: string;
   body?: string | React.ReactNode;
   bodyHoverClassName?: string;
   bgVideo?: string;
@@ -34,6 +36,7 @@ export default function ResourceCard({
   itemHeightHover = "max-lg:h-1/2",
   key,
   title,
+  icon,
   body,
   bodyHoverClassName = "pointer-events-auto h-[80px] opacity-100",
   bgVideo = "/video/resources.webm",
@@ -43,12 +46,19 @@ export default function ResourceCard({
   cta_url,
 }: ResourceCardProps) {
 
+
+  const rhinoWhiteFilter = "brightness(0) saturate(100%) invert(100%)";
+  const rhinoBlueGrayFilter = "brightness(0) saturate(100%) invert(86%) sepia(7%) saturate(680%) hue-rotate(186deg) brightness(98%) contrast(91%)";
+
+
   const isIphone = useIsIphone();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = useState<React.Key | null>(null);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(
     null,
   );
+
+  console.log("Icon URL in ResourceCard:", icon);
 
   // Helper to determine if touch is a tap or a swipe
   const isTap = (
@@ -77,7 +87,7 @@ export default function ResourceCard({
     <div
       key={key}
       className={`
-        relative min-h-[50px] w-full transition-all duration-300 ease-in-out lg:h-[450px] lg:max-h-[450px] rounded-md
+        relative min-h-[50px] w-full transition-all duration-300 ease-in-out lg:h-[500px] lg:max-h-[500px] rounded-md
         ${hovered === key ? itemHeightHover : itemHeight} 
         ${hovered === key ? itemWidthHover : itemWidth} 
         ${defaultItemBgClass}
@@ -111,14 +121,36 @@ export default function ResourceCard({
       >
 
         <div
-          className={`flex h-full flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6 `}
+          className={`flex flex-col justify-end gap-x-4 sm:flex-row sm:justify-start lg:h-auto lg:flex-col lg:justify-end lg:gap-y-6 `}
         >
 
           <div
-            className={`mt-2 flex h-full flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end `}
+            className={`mt-2 flex flex-col justify-end sm:mt-0 sm:justify-start lg:justify-end `}
           >
+            {
+              icon ?
+                <div
+                  className={`relative h-14 min-h-8 w-14 min-w-8 sm:min-h-14 sm:min-w-14`}
+                >
+                  <Image
+                    src={icon}
+                    alt={title ?? "Icon"}
+                    fill
+                    className={clsx(
+                      "object-contain object-left-top",
+                      "transition-colors duration-300 ease-in-out",
+                    )}
+                    style={{ filter: hovered === key ? rhinoWhiteFilter : rhinoBlueGrayFilter }}
+                  />
+                </div>
+                :
+                null
+            }
             <p
-              className={`font-calsans mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-[28px] text-nowrap text-white transition-none`}
+              className={clsx(
+                `font-calsans mt-4 mb-4 line-clamp-1 min-h-[38px] overflow-hidden text-[28px] text-nowrap transition-none`,
+                hovered === key ? "text-white" : "text-coolgray-50",
+              )}
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 1,
@@ -134,9 +166,9 @@ export default function ResourceCard({
               typeof body === "string" ?
                 <p
                   className={`
-                overflow-hidden text-white transition-all duration-300 text-lg 
-                ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
-              `}
+                    overflow-hidden text-white transition-all duration-300 text-lg 
+                    ${hovered === key ? bodyHoverClassName : "pointer-events-none h-0 opacity-0"} 
+                  `}
                 >
                   {body}
                 </p>
@@ -147,17 +179,26 @@ export default function ResourceCard({
             {/* CTA */}
             <div
               className={`
-            w-2/3 flex justify-between items-center gap-1 border-b border-solid border-white h-10 mt-6
-            transition-all duration-500 ease-in-out group/link1 px-1.5 
-            active:bg-[#DF1A30] active:rounded-t-sm 
-            ${hovered === key ? 'opacity-100 h-10' : 'opacity-0 h-0'}
-          `}
+                w-2/3 flex justify-between items-center gap-1 border-b border-solid border-white h-10
+                transition-all duration-500 ease-in-out group/link1 px-1.5 
+                active:bg-[#DF1A30] active:rounded-t-sm 
+                ${hovered === key ? 'opacity-100 h-10 mt-6' : 'opacity-0 h-0! mt-0'}
+              `}
             >
-              <Link href={cta_url ?? "#"} className="font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]" >
+              <Link
+                href={cta_url ?? "#"}
+                className={clsx(
+                  "font-calsans text-xl text-white w-full transition-all duration-300 ease-out group-hover/link1:translate-x-[4px]",
+                  hovered === key ? "opacity-100 h-10" : "opacity-0 h-0"
+                )}
+              >
                 Read more
               </Link>
               <p
-                className={"font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link1:translate-x-[-4px]"}
+                className={clsx(
+                  "font-calsans text-xl text-white font-bold transition-all duration-300 ease-out group-hover/link1:translate-x-[-4px]",
+                  hovered === key ? "opacity-100 h-10" : "opacity-0 h-0"
+                )}
               >
                 &#43;
               </p>

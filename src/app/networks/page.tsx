@@ -92,11 +92,6 @@ export default async function NetworksPage() {
                 ))
               }
             </ResponsiveGrid>
-            // <LogosGrid
-            //   items={logos}
-            //   className="grid gap-5 grid-cols-10 lg:grid-cols-14"
-            //   lastRowClassName="col-span-full grid gap-6 sm:gap-12 md:gap-14 lg:gap-14"
-            // />
             :
             null
         }
@@ -130,7 +125,6 @@ export default async function NetworksPage() {
             key={0}
             icon="/img/building.svg"
             icon_hover="/img/building-red.svg"
-            // title="Experience"
             subtitle="Cross-chain interoperability (IBC-enabled networks)"
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
@@ -144,7 +138,6 @@ export default async function NetworksPage() {
             key={1}
             icon="/img/speed.svg"
             icon_hover="/img/speed-red.svg"
-            // title="Security"
             subtitle="High-performance consensus mechanisms"
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
@@ -158,7 +151,6 @@ export default async function NetworksPage() {
             key={2}
             icon="/img/icon-ibc-gray.svg"
             icon_hover="/img/icon-ibc.svg"
-            // title="Support"
             subtitle="Enterprise-focused blockchain solutions"
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
@@ -172,7 +164,6 @@ export default async function NetworksPage() {
             key={3}
             icon="/img/note.svg"
             icon_hover="/img/note-red.svg"
-            // title="+50 Blockchains"
             subtitle="Emerging DeFi and institutional protocols"
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.

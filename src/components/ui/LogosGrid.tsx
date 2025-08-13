@@ -40,7 +40,6 @@ const LogosGrid = ({
   return (
     <div
       ref={containerRef}
-      // className="grid gap-2 grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-11 w-full"
       className={clsx(
         "w-full max-w-[1035px] justify-center place-items-center",
         className,
@@ -66,9 +65,6 @@ const LogosGrid = ({
             display: 'inline-block'
           }}
         />
-        // <div key={i} className="bg-gray-100 p-2">
-        //   {item}
-        // </div>
       ))}
 
       {remainder > 0 && (
@@ -101,9 +97,6 @@ const LogosGrid = ({
                 display: 'inline-block'
               }}
             />
-            // <div key={fullRows * columns + i} className="bg-gray-100 p-2">
-            //   {item}
-            // </div>
           ))}
         </div>
       )}

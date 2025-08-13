@@ -51,7 +51,6 @@ export default async function fetchLogos(limit = 1000): Promise<string[]> {
         randomized[j] = temp;
       }
 
-      // console.log('Fetched logos:', randomized);
       return randomized;
     }
   }

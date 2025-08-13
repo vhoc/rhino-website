@@ -237,7 +237,6 @@ export default function InvestmentPage() {
               alt="Placeholder"
               width={171}
               height={44}
-            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 2 */}
@@ -247,7 +246,6 @@ export default function InvestmentPage() {
               alt="Placeholder"
               width={151}
               height={38}
-            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 3 */}
@@ -257,7 +255,6 @@ export default function InvestmentPage() {
               alt="Placeholder"
               width={58}
               height={48}
-            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
           {/* Column 4 */}
@@ -267,7 +264,6 @@ export default function InvestmentPage() {
               alt="Placeholder"
               width={139}
               height={46}
-            // style={{ width: '100%', height: 'auto', maxWidth: '171px' }}
             />
           </div>
         </div>

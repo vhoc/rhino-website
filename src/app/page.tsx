@@ -202,7 +202,9 @@ export default async function HomePage() {
 
       {/* HOVER CARDS SECTION */}
       <section className="px-6 sm:px-14 lg:px-0 py-10 md:py-12 lg:py-[60px] w-full flex flex-col items-center">
-        <HoverCardsGroup>
+        <HoverCardsGroup
+          height="h-[1200px] sm:h-[672px] md:h-[793px] lg:h-[450px]"
+        >
           <HoverCard
             key={0}
             icon="/img/upward-arrow.svg"
@@ -212,6 +214,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
 
           <HoverCard
@@ -223,6 +226,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
 
           <HoverCard
@@ -234,6 +238,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
 
           <HoverCard
@@ -245,6 +250,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
         </HoverCardsGroup>
       </section>

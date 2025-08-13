@@ -219,7 +219,7 @@ export default function InvestmentPage() {
       {/* PORFOLIO SUCCESS STORIES */}
       <StandardSection
         contentClassName="max-w-[822px]"
-        innerClassName="!py-[72px] !lg:pb-[96px] !lg:pt-[96px] !xl:pb-[129px] !xl:pt-[140px]"
+        innerClassName="!py-[72px] !pb-[96px] !lg:pt-[96px] !xl:pb-[129px] !xl:pt-[140px]"
       >
         <Heading2>
           Portfolio Success Stories
@@ -229,7 +229,7 @@ export default function InvestmentPage() {
           {"Our investments have gone on to raise additional funding, launch successful mainnets, and build sustainable businesses in the Web3 ecosystem. We're proud to support teams that are defining the future of decentralized technology."}
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 w-full mt-8 md:mt-14 gap-x-8 gap-y-16 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 w-full mt-12 md:mt-14 gap-x-8 gap-y-16 items-center">
           {/* Column 1 */}
           <div className="mx-auto w-full h-auto max-w-[171px]">
             <Image

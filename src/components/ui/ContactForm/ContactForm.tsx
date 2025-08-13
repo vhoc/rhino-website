@@ -154,7 +154,7 @@ function ContactFormInner() {
 
       <div
         className={clsx(
-          "flex flex-col gap-2 px-6 mt-3",
+          "flex flex-col gap-2 mt-3",
           "md:flex-row md:gap-x-6 md:mt-8"
         )}
       >
@@ -200,7 +200,7 @@ function ContactFormInner() {
 
       </div>
 
-      <div className="flex flex-col gap-2 px-6 mt-3">
+      <div className="flex flex-col gap-2 mt-3">
         <label className="flex flex-col gap-1 md:w-full">
           <span className="font-bold text-coolgray-900">E-mail</span>
           <input
@@ -220,7 +220,7 @@ function ContactFormInner() {
         </label>
       </div>
 
-      <div className="flex flex-col gap-2 px-6 mt-3">
+      <div className="flex flex-col gap-2 mt-3">
         <label className="flex flex-col gap-1 md:w-full">
           <span className="font-bold text-coolgray-900">Message</span>
           <textarea
@@ -238,7 +238,7 @@ function ContactFormInner() {
         </label>
       </div>
 
-      <div className="flex flex-col gap-2 px-6 mt-4 mb-8">
+      <div className="flex flex-col gap-2 mt-4 mb-8">
         <Button
           type="button"
           variant="secondary"

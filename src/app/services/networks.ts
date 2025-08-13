@@ -24,6 +24,7 @@ export default async function fetchNetworks(): Promise<INetworksResponse> {
 }`;
 
   const response = await fetch(process.env.GRAPHQL_ENDPOINT!, {
+    cache: "no-store",
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

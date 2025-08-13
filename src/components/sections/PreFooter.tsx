@@ -1,13 +1,18 @@
 import Button from "../ui/buttons/Button"
+import clsx from "clsx"
 
-export default function PreFooter() {
+
+
+export default function PreFooter({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
 
   return (
     <section
-      className={`
-          px-6 pt-20 pb-[23px] bg-coolgray-900 w-full flex justify-center 
-          sm:px-14 lg:px-[94px] xl:px-[94px] 
-        `}
+      className={clsx(
+        `px-6 pt-20 pb-[23px] bg-coolgray-900 w-full flex justify-center
+         sm:px-14 lg:px-[94px] xl:px-[94px]`,
+        className
+      )}
+      {...props}
     >
       <div
         className={`

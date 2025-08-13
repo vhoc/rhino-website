@@ -52,7 +52,7 @@ export default async function ResourcesPage() {
                   itemHeight={'h-2/6 sm:h-2/4 md:h-2/10 lg:h-3/6'}
                   itemHeightHover={'h-6/6 sm:h-8/8 md:h-3/8'}
                   title={resource.name}
-                  icon={resource.logo?.url as string}
+                  icon={resource.logo ? resource.logo.url : ""}
                   defaultItemBgClass="bg-coolgray-800 group"
                   body={resource.description}
                   bodyHoverClassName="pointer-events-auto h-[180px] sm:h-[100px] lg:h-[200px] xl:h-[140px] 2xl:h-[120px] opacity-100 delay-150"

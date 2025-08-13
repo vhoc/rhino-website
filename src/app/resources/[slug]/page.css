@@ -17,3 +17,11 @@
 .data-content > :nth-child(even) {
   background-color: #F6F9FF;
 }
+
+.dangerouslySetInnerHTML a {
+  color: #FF233B;
+}
+
+.dangerouslySetInnerHTML a:hover {
+  text-decoration: underline;
+}

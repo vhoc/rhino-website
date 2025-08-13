@@ -23,8 +23,9 @@ export default async function NetworksPage() {
 
   const { data }: INetworksResponse = await fetchNetworks();
   const networks = data?.networks
+  console.log("Networks count: ", networks?.length)
 
-  const logos: string[] = await fetchLogos();
+  const logos: string[] = await fetchLogos(48);
 
   return (
     <main
@@ -35,36 +36,25 @@ export default async function NetworksPage() {
     >
 
       <HeroSection
-        caption="Rhino Networks"
+        caption="Networks"
         heading="Powering Tomorrow's Blockchain Networks"
-        bgVideo="/video/hero02.webm"
+        excertp="For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing."
+        excertpClassName="text-base! lg:hidden"
         className={`
-          sm:bg-[url('/img/backgrounds/texture-hero-networks.png')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
+          sm:bg-[url('/img/backgrounds/texture-hero-about.svg')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
           md:bg-none 
         `}
-        excertp="For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing."
-        excertpClassName="md:hidden"
+        bgVideo="/video/hero02.webm"
+        innerClassName="xl:pb-0!"
       />
 
       <StandardSection
-        className="mt-[27px] flex flex-col items-center"
-        outerContent={
-          <>
-            <div className="relative z-10 
-          flex flex-col items-center 
-          w-full 
-          px-6  
-          sm:px-14 lg:px-[94px] xl:px-[94px] 
-          md:bg-none ">
-              <p
-                className={`md:block font-medium text-coolgray-500 text-center lg:max-w-3xl`}
-              >
-                For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing.
-              </p>
-            </div>
-          </>
-        }
+        className="flex flex-col items-center md:relative md:top-[-120px] xl:top-0!"
+        innerClassName="lg:pt-0! pb-0!"
       >
+        <p className="font-medium text-base leading-[160%] text-coolgray-500 max-w-[822px] text-center mb-[67px] md:mb-[86px] hidden lg:block">
+          {"For over five years, RHINO has selectively partnered with groundbreaking blockchain protocols that are reshaping finance, interoperability, and decentralized computing."}
+        </p>
 
         {
           logos && logos.length >= 1 ?
@@ -96,17 +86,19 @@ export default async function NetworksPage() {
             null
         }
 
-        <h3 className="block text-xl text-coolgray-500 font-bold text-center mt-10 sm:mt-10 md:hidden">
+        <h3 className="block text-xl text-coolgray-500 font-bold text-center mt-[67px] md:mt-[86px] md:hidden">
           {"We don't just run nodes"}
         </h3>
 
-        <p className="font-medium text-base text-coolgray-500 text-center mt-2 md:mt-10 lg:mt-14 max-w-3xl">
+        <p className="font-medium text-base text-coolgray-500 text-center mt-2 md:mt-[86px] max-w-3xl">
           <span className="hidden md:inline">{"We don't just run nodes "} </span>{"- we provide comprehensive infrastructure solutions that enable networks to scale with confidence while aiving back to the ecosystem through free public resources."}
         </p>
 
       </StandardSection>
 
-      <StandardSection>
+      <StandardSection
+        innerClassName="pt-[96px]! md:pt-0! xl:pt-[86px]!"
+      >
         <Heading2>Our Network Criteria</Heading2>
 
         <p className="text-lg md:font-calsans md:text-xl text-coolgray-500 text-center mt-6 max-w-2xl">
@@ -176,7 +168,8 @@ export default async function NetworksPage() {
       </StandardSection>
 
       {/* SERVICES WE PROVIDE */}
-      <StandardSection>
+      <StandardSection
+      >
         <div
           className={`
             flex flex-col gap-14 
@@ -196,7 +189,7 @@ export default async function NetworksPage() {
 
           <div
             className={`
-              flex flex-col gap-8 md:gap-y-14 items-center 
+              flex flex-col gap-12 md:gap-y-14 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}
@@ -240,7 +233,7 @@ export default async function NetworksPage() {
 
       <StandardSection
         style={{
-          background: 'linear-gradient(to bottom, white 0%, white 10%, #011219 10%, #011219 100%)'
+          background: 'linear-gradient(to bottom, white 0%, white 15%, #011219 15%, #011219 100%)'
         }}
       >
         {
@@ -254,7 +247,9 @@ export default async function NetworksPage() {
         }
       </StandardSection>
 
-      <PreFooter />
+      <PreFooter
+        // className="md:relative md:pt-[-120px]"
+      />
 
     </main>
   )

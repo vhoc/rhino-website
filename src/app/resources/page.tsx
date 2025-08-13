@@ -35,8 +35,19 @@ export default async function ResourcesPage() {
         caption="Resources"
         heading="Enterprise-Grade Blockchains APIs"
         bgVideo="/video/hero02.webm"
+        className={`
+          sm:bg-[url('/img/backgrounds/texture-hero.png')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
+          md:bg-none 
+        `}
         excertp="RHINO provides public and private API infrastructure for leading blockchain networks. Our endpoints are built for production applications that demand reliability, speed, and comprehensive data access."
       />
+
+      {/* <HeroSection
+        caption="Resources"
+        heading="Enterprise-Grade Blockchains APIs"
+        bgVideo="/video/hero02.webm"
+        excertp="RHINO provides public and private API infrastructure for leading blockchain networks. Our endpoints are built for production applications that demand reliability, speed, and comprehensive data access."
+      /> */}
 
       <StandardSection
         className="lg:bg-[linear-gradient(to_bottom,white_0%,white_50%,#011219_50%,#011219_100%)]"
@@ -50,7 +61,7 @@ export default async function ResourcesPage() {
                 <ResourceCard
                   key={`resource-${index}-${resource.slug}`}
                   itemHeight={'h-2/6 sm:h-2/4 md:h-2/10 lg:h-3/6'}
-                  itemHeightHover={'h-6/6 sm:h-8/8 md:h-3/8'}
+                  itemHeightHover={'h-8/12 sm:h-8/8 md:h-3/8'}
                   title={resource.name}
                   icon={resource.logo ? resource.logo.url : ""}
                   defaultItemBgClass="bg-coolgray-800 group"
@@ -68,8 +79,8 @@ export default async function ResourcesPage() {
       {/* BUILT FOR PRODUCTION */}
       <StandardSection
         className="bg-coolgray-900"
-        innerClassName="xl:py-[120px]"
-        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center"
+        innerClassName="py-[64px]! xl:py-[120px]"
+        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center "
       >
         <div
           className={`
@@ -90,7 +101,7 @@ export default async function ResourcesPage() {
 
           <div
             className={`
-              flex flex-col gap-8 md:gap-y-14 items-center 
+              flex flex-col gap-12 md:gap-y-14 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}
@@ -134,7 +145,7 @@ export default async function ResourcesPage() {
 
       {/* DEVELOPER FIRST APPROACH */}
       <StandardSection
-        innerClassName="xl:py-[120px]"
+        innerClassName="py-[64px]! xl:py-[120px]"
         contentClassName="flex flex-col gap-[32px] items-center"
       >
         <div
@@ -156,7 +167,7 @@ export default async function ResourcesPage() {
 
           <div
             className={`
-              flex flex-col gap-8 items-center 
+              flex flex-col gap-12 items-center 
               md:grid md:grid-cols-2 xl:flex xl:flex-row xl:justify-center xl:items-start
               xl:8/12 
             `}

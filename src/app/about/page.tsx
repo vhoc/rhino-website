@@ -34,6 +34,7 @@ export default function AboutPage() {
           md:bg-none 
         `}
         bgVideo="/video/hero02.webm"
+        // innerClassName="md:pt-[164px]!"
       />
 
       <StandardSection
@@ -112,7 +113,7 @@ export default function AboutPage() {
 
       <StandardSection
         className="bg-coolgray-900 lg:bg-white "
-        innerClassName="md:py-24 lg:px-0"
+        innerClassName="pt-[96px] md:py-24 lg:px-0"
         contentClassName="lg:max-w-5xl"
       >
         <div className="flex flex-col gap-6 lg:gap-x-10 lg:flex-row lg:items-center">

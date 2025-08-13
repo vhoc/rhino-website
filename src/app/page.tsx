@@ -25,7 +25,7 @@ import clsx from "clsx";
 
 export default async function HomePage() {
 
-  const logos: string[] = await fetchLogos();
+  const logos: string[] = await fetchLogos(48);
 
   return (
     <main
@@ -201,8 +201,10 @@ export default async function HomePage() {
       </StandardSection>
 
       {/* HOVER CARDS SECTION */}
-      <section className="px-6 sm:px-14 lg:px-0 py-10 md:py-12 lg:py-[60px] w-full flex flex-col items-center">
-        <HoverCardsGroup>
+      <section className="px-6 sm:px-14 lg:px-0 pt-10 lg:py-[60px] w-full flex flex-col items-center">
+        <HoverCardsGroup
+          height="h-[1200px] sm:h-[672px] md:h-[793px] lg:h-[450px]"
+        >
           <HoverCard
             key={0}
             icon="/img/upward-arrow.svg"
@@ -212,6 +214,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
 
           <HoverCard
@@ -223,6 +226,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
 
           <HoverCard
@@ -234,6 +238,7 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
 
           <HoverCard
@@ -245,18 +250,19 @@ export default async function HomePage() {
             subtitleLineClamp={2}
             body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet lacinia mauris.
             Suspendisse lacinia euismod quam, a vulputate turpis tincidunt at. Nunc at blandit orci."
+            bodyHoverClassName="pointer-events-auto h-[200px] opacity-100"
           />
         </HoverCardsGroup>
       </section>
 
       {/* KEY METRICS SECTION */}
-      <StandardSection id="key-metrics">
+      <StandardSection id="key-metrics" className="mt-14" innerClassName="md:py-10!">
         <Heading2>Key Metrics</Heading2>
         <div
-          className="w-full mt-8 flex flex-col lg:grid lg:grid-cols-[33%_67%] lg:grid-rows-[1fr_1fr] gap-x-[37px] lg:gap-x-[36px]"
+          className="w-full mt-8 md:mt-14 flex flex-col lg:grid lg:grid-cols-[33%_67%] lg:grid-rows-[1fr_1fr] gap-x-[37px] lg:gap-x-[36px]"
         >
           {/* Left Column - Row 1 */}
-          <div className="max-lg:order-1 py-4 pr-4 border-b border-b-coolgray-100 border-solid">
+          <div className="max-lg:order-1 border-b border-b-coolgray-100 border-solid pb-8 lg:h-fit lg:pb-[69px]">
             <AnimatedCounter
               title="Total Value Locked"
               amount={900000000}
@@ -266,9 +272,9 @@ export default async function HomePage() {
           {/* Right Column - spans both rows */}
           <div
             className="
-              max-lg:order-3 row-span-2 p-4 flex flex-col items-center justify-center gap-y-[34px] 
+              max-lg:order-3 row-span-2 px-4 pb-4 pt-8 flex flex-col items-center justify-center gap-y-[34px] 
               lg:justify-start 
-              md:flex-row md:gap-x-[34px] md:items-start md:pt-16 lg:pt-4 lg:flex-col 
+              md:flex-row md:gap-x-[34px] md:items-start md:pt-14 lg:pt-0 lg:flex-col 
             "
           >
             <p className="font-calsans text-[32px] text-coolgray-900 text-center md:text-left lg:text-xl">
@@ -314,7 +320,7 @@ export default async function HomePage() {
             }
           </div>
           {/* Left Column - Row 2 */}
-          <div className="max-lg:order-2 py-4 pr-4 lg:mt-[44px]">
+          <div className="max-lg:order-2 lg:mt-0 border-b border-b-coolgray-100 border-solid pt-8 pb-8 lg:border-none lg:pt-[60px] lg:pb-0">
             <AnimatedCounter
               title="RPC request handled"
               amount={12900000000}
@@ -345,7 +351,7 @@ export default async function HomePage() {
 
           <div
             className={`
-              flex flex-col gap-8 items-center 
+              flex flex-col gap-12 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}

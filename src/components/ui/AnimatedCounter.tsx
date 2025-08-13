@@ -41,11 +41,11 @@ export default function AnimatedCounter({
       ref={ref}
       className={`flex w-full flex-col items-center justify-between lg:items-start gap-y-6  ${className}`}
     >
-      <p className={`font-calsans text-coolgray-900 text-center lg:text-left text-xl`}>
+      <p className={`font-calsans text-coolgray-900 text-center lg:text-left text-xl leading-[120%]`}>
         {title}
       </p>
 
-      <div className={`font-calsans text-coolgray-900 text-center lg:text-left text-[32px] lg:text-[40px] xl:text-[52px] 2xl:text-[56px]`}>
+      <div className={`font-calsans text-coolgray-900 text-center lg:text-left text-[32px] lg:text-[40px] xl:text-[52px] 2xl:text-[56px] leading-[120%]`}>
         {`${currency_sign ?? ""}${animatedAmount.toLocaleString()}`}
       </div>
     </div>

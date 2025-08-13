@@ -351,7 +351,7 @@ export default async function HomePage() {
 
           <div
             className={`
-              flex flex-col gap-8 items-center 
+              flex flex-col gap-12 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}

@@ -65,7 +65,7 @@ export default function InvestmentPage() {
       <StandardSection
         className="flex flex-col items-center"
         contentClassName={`
-          grid grid-cols-1 gap-8 items-start justify-center
+          grid grid-cols-1 gap-12 items-start justify-center
           md:grid-cols-2 xl:grid-cols-4 
         `}
         innerClassName="py-[72px]! sm:pb-[96px]! sm:pt-[56px]! md:pb-[114px]! md:pt-[122px]!"

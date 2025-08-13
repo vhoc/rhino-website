@@ -8,6 +8,7 @@ interface HeroSectionProps {
   excertp?: string
   excertpClassName?: string
   className?: string
+  innerClassName?: string
 }
 
 export default function HeroSection({
@@ -18,6 +19,7 @@ export default function HeroSection({
   excertp,
   excertpClassName,
   className,
+  innerClassName,
 }: HeroSectionProps) {
   return (
     <section
@@ -44,11 +46,13 @@ export default function HeroSection({
 
 
       <div
-        className={` relative z-10
+        className={clsx(`relative z-10
           container flex flex-col items-center justify-center 
           max-w-7xl w-full md:min-h-[675px] lg:min-h-[570px]
           pt-10 pb-10 md:pt-[120px] md:pb-[108px] 
-        `}
+        `,
+        innerClassName
+      )}
       >
 
         {/* TOP CAPTION */}

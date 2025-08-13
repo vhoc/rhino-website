@@ -68,8 +68,8 @@ export default async function ResourcesPage() {
       {/* BUILT FOR PRODUCTION */}
       <StandardSection
         className="bg-coolgray-900"
-        innerClassName="xl:py-[120px]"
-        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center"
+        innerClassName="py-[64px]! xl:py-[120px]"
+        contentClassName="flex flex-col gap-[32px] lg:flex-row lg:items-center "
       >
         <div
           className={`
@@ -90,7 +90,7 @@ export default async function ResourcesPage() {
 
           <div
             className={`
-              flex flex-col gap-8 md:gap-y-14 items-center 
+              flex flex-col gap-12 md:gap-y-14 items-center 
               md:grid md:grid-cols-2 
               xl:8/12 
             `}
@@ -134,7 +134,7 @@ export default async function ResourcesPage() {
 
       {/* DEVELOPER FIRST APPROACH */}
       <StandardSection
-        innerClassName="xl:py-[120px]"
+        innerClassName="py-[64px]! xl:py-[120px]"
         contentClassName="flex flex-col gap-[32px] items-center"
       >
         <div
@@ -156,7 +156,7 @@ export default async function ResourcesPage() {
 
           <div
             className={`
-              flex flex-col gap-8 items-center 
+              flex flex-col gap-12 items-center 
               md:grid md:grid-cols-2 xl:flex xl:flex-row xl:justify-center xl:items-start
               xl:8/12 
             `}

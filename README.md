@@ -1,29 +1,135 @@
-# Create T3 App
+# 🦏 Rhino - Enterprise Blockchain Infrastructure
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A modern Next.js website for Rhinostake (RHINO), the premier blockchain infrastructure provider for enterprises building the future of Web3.
 
-## What's next? How do I make an app with this?
+## 🚀 Overview
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+This website showcases RHINO's enterprise-grade blockchain infrastructure services, including:
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- **Validator Operations** - Enterprise-grade staking with institutional security
+- **RPC Infrastructure** - High-performance API endpoints with global load balancing
+- **Cross-Chain Connectivity** - IBC channel support and interoperability solutions
+- **Investment Services** - Strategic funding for Web3 projects
+- **Public Resources** - Free blockchain APIs and developer tools
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Styling**: [Tailwind CSS 4.0](https://tailwindcss.com/) with custom design system
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) + custom components
+- **Typography**: Cal Sans + Manrope fonts
+- **Animations**: Custom CSS animations and transitions
+- **Form Handling**: React Hook Form with Zod validation
+- **Environment**: TypeScript with strict configuration
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## 📁 Project Structure
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── about/             # About page
+│   ├── contact-us/        # Contact form page
+│   ├── investment/        # Investment services
+│   ├── networks/          # Supported blockchain networks
+│   ├── resources/         # API documentation & resources
+│   └── page.tsx           # Homepage
+├── components/
+│   ├── sections/          # Page sections (Hero, StandardSection, etc.)
+│   └── ui/                # Reusable UI components
+├── styles/
+│   └── globals.css        # Global styles and design tokens
+├── util/
+│   ├── types.ts           # TypeScript interfaces
+│   └── validations.ts     # Form validation schemas
+└── env.js                 # Environment variable validation
+```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## 🎨 Design System
 
-## How do I deploy this?
+The project uses a comprehensive design system with:
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- **Colors**: Cool Gray (primary) + Bright Red (accent) palettes
+- **Typography**: Cal Sans headings + Manrope body text
+- **Components**: Consistent button variants, cards, and interactive elements
+- **Responsive**: Mobile-first design with breakpoints for tablet/desktop
+
+## 🚦 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd rhino-website
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Add your environment variables
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open [http://localhost:3000](http://localhost:3000)**
+
+## 📋 Available Scripts
+
+- `npm run dev` - Start development server with Turbo
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run format:check` - Check code formatting
+- `npm run format:write` - Format code with Prettier
+
+## 🏗️ Key Features
+
+### Interactive Components
+- **Blockchain Grid** - Hover effects for supported networks
+- **Service Cards** - Animated service showcases
+- **Contact Forms** - Multi-step form with validation
+- **Navigation** - Responsive navbar with mobile menu
+
+### Performance Optimizations
+- Next.js App Router for optimal routing
+- Image optimization with Next.js Image component
+- CSS custom properties for consistent theming
+- Responsive design patterns
+
+### Accessibility
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- High contrast color ratios
+
+## 🔧 Configuration Files
+
+- [`tsconfig.json`](tsconfig.json) - TypeScript configuration
+- [`tailwind.config.js`](postcss.config.js) - Tailwind CSS setup via PostCSS
+- [`components.json`](components.json) - shadcn/ui configuration
+- [`eslint.config.js`](eslint.config.js) - ESLint rules
+- [`prettier.config.js`](prettier.config.js) - Code formatting
+
+## 🌐 Deployment
+
+The project is optimized for deployment on platforms like:
+- Vercel (recommended for Next.js)
+- Netlify
+- Railway
+- Docker containers
+
+Build the project with:
+```bash
+npm run build
+```
+
+
+---

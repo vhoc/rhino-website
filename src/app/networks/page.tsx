@@ -45,6 +45,7 @@ export default async function NetworksPage() {
           md:bg-none 
         `}
         bgVideo="/video/hero02.webm"
+        innerClassName="xl:pb-0!"
       />
 
       <StandardSection

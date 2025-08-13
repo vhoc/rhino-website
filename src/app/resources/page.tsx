@@ -35,8 +35,19 @@ export default async function ResourcesPage() {
         caption="Resources"
         heading="Enterprise-Grade Blockchains APIs"
         bgVideo="/video/hero02.webm"
+        className={`
+          sm:bg-[url('/img/backgrounds/texture-hero.png')] sm:bg-no-repeat sm:bg-top sm:bg-contain 
+          md:bg-none 
+        `}
         excertp="RHINO provides public and private API infrastructure for leading blockchain networks. Our endpoints are built for production applications that demand reliability, speed, and comprehensive data access."
       />
+
+      {/* <HeroSection
+        caption="Resources"
+        heading="Enterprise-Grade Blockchains APIs"
+        bgVideo="/video/hero02.webm"
+        excertp="RHINO provides public and private API infrastructure for leading blockchain networks. Our endpoints are built for production applications that demand reliability, speed, and comprehensive data access."
+      /> */}
 
       <StandardSection
         className="lg:bg-[linear-gradient(to_bottom,white_0%,white_50%,#011219_50%,#011219_100%)]"

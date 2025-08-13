@@ -34,6 +34,7 @@ export default function AboutPage() {
           md:bg-none 
         `}
         bgVideo="/video/hero02.webm"
+        // innerClassName="md:pt-[164px]!"
       />
 
       <StandardSection
